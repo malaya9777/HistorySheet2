@@ -11,6 +11,7 @@
             </div>
         </div>
     </div>
+    <asp:HiddenField ID="importID" runat="server" />
     <hr />
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -28,7 +29,7 @@
         <div class="form-group col-md-6">
             <label for="txtReportDate">Report Date</label>
             <asp:TextBox ID="txtReportDate" runat="server" CssClass="form-control" placeholder="Report Date" contentEditable="false" AutoCompleteType="None"></asp:TextBox>
-            <ajax:CalendarExtender ID="CE1" runat="server" TargetControlID="txtReportDate" Format="dd-MMM-yyyy"  />
+            <ajax:CalendarExtender ID="CE1" runat="server" TargetControlID="txtReportDate" Format="dd-MMM-yyyy" />
         </div>
         <div class="form-group col-md-6">
             <label for="txtName">Name</label>
@@ -273,21 +274,15 @@
             <label for="txtBadHabits">Bad Habits</label>
             <asp:TextBox ID="txtBadHabits" runat="server" CssClass="form-control" placeholder="Bad Habits"></asp:TextBox>
         </div>
-        <div class="form-group col-md-6">
+        <div class="form-group col-md-12">
             <label for="txtOtherPoints">Other Descriptive Points</label>
             <asp:TextBox ID="txtOtherPoints" runat="server" CssClass="form-control" placeholder="Other Descriptive Points"></asp:TextBox>
         </div>
-        <div class="form-group">
-            <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary" Text="Submit" OnClick="btnSubmit_Click" />
+        <div class="form-group col-md-12">
+            <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary" Text="Save" OnClick="btnSubmit_Click" />
+            <asp:Button ID="btnProceed" runat="server" CssClass="btn btn-primary" Text="Proceed" OnClick="btnProceed_Click" />
         </div>
     </div>
-
-
-
-
-
-
-
 
 
     <div class="jumbotron" id="popup" runat="server">
@@ -319,10 +314,8 @@
             </Columns>
         </asp:GridView>
         <hr />
-
         <asp:Button ID="btnClose" runat="server" CssClass="btn btn-primary" Text="Close" />
     </div>
     <ajax:ModalPopupExtender ID="mpe1" runat="server" PopupControlID="popup" TargetControlID="btnImport" CancelControlID="btnClose" BackgroundCssClass="overlay"></ajax:ModalPopupExtender>
-
-
+    <hr />
 </asp:Content>

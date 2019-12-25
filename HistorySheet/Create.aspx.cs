@@ -23,6 +23,7 @@ namespace HistorySheet
                 using (DBCrimeDataContext db = new DBCrimeDataContext())
                 {
                     var record = db.Tbl_Criminals.Where(n => n.ID == ID).SingleOrDefault();
+                    importID.Value = record.ID.ToString();
                     txtPoliceStation.Text = record.Police_Station;
                     txtName.Text = record.Name;
                     txtAliases.Text = record.Short_Name;
@@ -75,6 +76,12 @@ namespace HistorySheet
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
             var date = txtReportDate.Text;
+
+        }
+
+        protected void btnProceed_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
