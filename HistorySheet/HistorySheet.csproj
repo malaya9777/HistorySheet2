@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -110,14 +110,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="associates.aspx" />
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="convictions.aspx" />
     <Content Include="Create.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="disposalMethods.aspx" />
+    <Content Include="enquiry.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -130,6 +134,10 @@
     <Content Include="Content\bootstrap.css.map" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="HistorySheet.html" />
+    <Content Include="moreInfo.aspx" />
+    <Content Include="photos.aspx" />
+    <Content Include="witnesses.aspx" />
     <None Include="DBCrime.dbml.layout">
       <DependentUpon>DBCrime.dbml</DependentUpon>
     </None>
@@ -141,7 +149,10 @@
     <None Include="DBHistory.dbml.layout">
       <DependentUpon>DBHistory.dbml</DependentUpon>
     </None>
-    <Content Include="History.aspx" />
+    <Content Include="HistoryList.aspx" />
+    <Content Include="passtArrest.aspx" />
+    <Content Include="relatives.aspx" />
+    <Content Include="residences.aspx" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
@@ -256,7 +267,7 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="StyleSheet.css" />
+    <Content Include="suspectedIn.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -284,12 +295,26 @@
       <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="associates.aspx.cs">
+      <DependentUpon>associates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="associates.aspx.designer.cs">
+      <DependentUpon>associates.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Contact.aspx.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="convictions.aspx.cs">
+      <DependentUpon>convictions.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="convictions.aspx.designer.cs">
+      <DependentUpon>convictions.aspx</DependentUpon>
     </Compile>
     <Compile Include="Create.aspx.cs">
       <DependentUpon>Create.aspx</DependentUpon>
@@ -315,17 +340,66 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="disposalMethods.aspx.cs">
+      <DependentUpon>disposalMethods.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="disposalMethods.aspx.designer.cs">
+      <DependentUpon>disposalMethods.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="enquiry.aspx.cs">
+      <DependentUpon>enquiry.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="enquiry.aspx.designer.cs">
+      <DependentUpon>enquiry.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="History.aspx.cs">
-      <DependentUpon>History.aspx</DependentUpon>
+    <Compile Include="HistoryList.aspx.cs">
+      <DependentUpon>HistoryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="History.aspx.designer.cs">
-      <DependentUpon>History.aspx</DependentUpon>
+    <Compile Include="HistoryList.aspx.designer.cs">
+      <DependentUpon>HistoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="moreInfo.aspx.cs">
+      <DependentUpon>moreInfo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="moreInfo.aspx.designer.cs">
+      <DependentUpon>moreInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="passtArrest.aspx.cs">
+      <DependentUpon>passtArrest.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="passtArrest.aspx.designer.cs">
+      <DependentUpon>passtArrest.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="photos.aspx.cs">
+      <DependentUpon>photos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="photos.aspx.designer.cs">
+      <DependentUpon>photos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="relatives.aspx.cs">
+      <DependentUpon>relatives.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="relatives.aspx.designer.cs">
+      <DependentUpon>relatives.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="residences.aspx.cs">
+      <DependentUpon>residences.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="residences.aspx.designer.cs">
+      <DependentUpon>residences.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -340,12 +414,26 @@
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
+    <Compile Include="suspectedIn.aspx.cs">
+      <DependentUpon>suspectedIn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="suspectedIn.aspx.designer.cs">
+      <DependentUpon>suspectedIn.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="witnesses.aspx.cs">
+      <DependentUpon>witnesses.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="witnesses.aspx.designer.cs">
+      <DependentUpon>witnesses.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
