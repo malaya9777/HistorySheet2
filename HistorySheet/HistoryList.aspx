@@ -5,8 +5,8 @@
     <asp:GridView ID="grdHistoryList" runat="server" AutoGenerateColumns="false" Font-Size="9" Width="100%" AllowPaging="true" PageSize="20" GridLines="Both" CellSpacing="5" CellPadding="5" BorderColor="#808080" CssClass="table-striped">
         <Columns>
             <asp:BoundField DataField="HistoryNo" HeaderText="History No" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" />
-            <asp:BoundField DataField="Name" HeaderText="Name" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" />
-            <asp:BoundField DataField="FathersName" HeaderText="Father's Name" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center" />
+            <asp:BoundField DataField="Name" HeaderText="Name" />
+            <asp:BoundField DataField="FathersName" HeaderText="Father's Name" />
             <asp:TemplateField HeaderText="Associates" ItemStyle-HorizontalAlign="Center" HeaderStyle-HorizontalAlign="Center">
                 <ItemTemplate>
                     <a href='<%# "associates.aspx?H_Id="+Eval("Id") %>'>Associates</a>

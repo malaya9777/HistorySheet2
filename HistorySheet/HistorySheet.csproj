@@ -119,6 +119,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="convictions.aspx" />
     <Content Include="Create.aspx" />
+    <Content Include="db.txt" />
     <Content Include="Default.aspx" />
     <Content Include="disposalMethods.aspx" />
     <Content Include="enquiry.aspx" />
