@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>History Sheet</title>
+    
+    <style>
+        .header{
+            text-align:center;
+        }
+        .sub-head{
+            display:grid;
+            grid-template-columns:repeat(4, 1fr);
+            text-align:center;
+            align-items:center;
+        }
+        .surv{
+            font-weight:bolder;
+            text-align:center;
+        }
+        .surv p{
+            padding:0;
+            margin:0;
+            width:fit-content;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>HISTORY SHEET</h3>
+            <p>(P.M. RULES 357 AND 1012)</p>
+        </div>
+        <div class="sub-head">
+            <div class="surv">
+                <p >Surveillance</p>
+                <p style="border-top:2px solid #000000;">Non-Surveillance</p>
+            </div>
+            <div>
+                <p>History No.<span id="historyNo">123</span></p>
+            </div>
+            <div>
+                <p>Home district:<span id="homeDistrict">Puri</span></p>
+                <p>Police Station:<span id="policeStation">Town</span></p>
+            </div>
+            <div>
+                <p>Date of opening:<span id="dateofOpening">12.12.2019</span></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -14,9 +14,17 @@
     <asp:HiddenField ID="importID" runat="server" />
     <hr />
     <div class="form-row">
+        <div  class="form-group col-md-6">
+            <label for="ddlCategory">Category</label>
+            <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-control">
+                <asp:ListItem Text="A" Value="A" Selected="True"></asp:ListItem>
+                <asp:ListItem Text="B" Value="B"></asp:ListItem>
+                <asp:ListItem Text="C" Value="C"></asp:ListItem>
+            </asp:DropDownList>
+        </div>
         <div class="form-group col-md-6">
             <label for="txtHistoryNo">Hisotry No</label>
-            <asp:TextBox ID="txtHistoryNo" runat="server" CssClass="form-control" placeholder="History No"></asp:TextBox>
+            <asp:TextBox ID="txtHistoryNo" runat="server" CssClass="form-control" placeholder="History No" ReadOnly="true"></asp:TextBox>
         </div>
         <div class="form-group col-md-6">
             <label for="txtDistrict">Home District</label>
@@ -28,7 +36,7 @@
         </div>
         <div class="form-group col-md-6">
             <label for="txtReportDate">Report Date</label>
-            <asp:TextBox ID="txtReportDate" runat="server" CssClass="form-control" placeholder="Report Date" contentEditable="false" AutoCompleteType="None"></asp:TextBox>
+            <asp:TextBox ID="txtReportDate" runat="server" CssClass="form-control" placeholder="Report Date" contentEditable="false" AutoCompleteType="Disabled"></asp:TextBox>
             <ajax:CalendarExtender ID="CE1" runat="server" TargetControlID="txtReportDate" Format="dd-MMM-yyyy" />
         </div>
         <div class="form-group col-md-6">
@@ -40,11 +48,23 @@
             <asp:TextBox ID="txtAliases" runat="server" CssClass="form-control" placeholder="Aliases"></asp:TextBox>
         </div>
         <div class="form-group col-md-6">
-            <label for="txtFName">Father's Name</label>
+            <label for="chkGender">Gender</label>
+            <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
+                <asp:ListItem Text="Male" Value="male" Selected="True"></asp:ListItem>
+                <asp:ListItem Text="Female" Value="female" ></asp:ListItem>
+                <asp:ListItem Text="Transgender" Value="Transgender" ></asp:ListItem>
+            </asp:RadioButtonList>
+        </div>
+        <div class="form-group col-md-6">
+            <label for="txtFName">Father/Husband's Name</label>
+            <asp:RadioButtonList ID="rblPrefix" runat="server" RepeatDirection="Horizontal">
+                <asp:ListItem Text="Father" Selected="True" Value="false"></asp:ListItem>
+                <asp:ListItem Text="Husband" Value="true"></asp:ListItem>
+            </asp:RadioButtonList>
             <asp:TextBox ID="txtFName" runat="server" CssClass="form-control" placeholder="Father's Name"></asp:TextBox>
         </div>
         <div class="form-group col-md-6">
-            <label for="txtFAliases">Fater's Aliases @</label>
+            <label for="txtFAliases">Father/Husband's Aliases @</label>
             <asp:TextBox ID="txtFAliases" runat="server" CssClass="form-control" placeholder="Father's Aliases"></asp:TextBox>
         </div>
         <div class="form-group col-md-6">
@@ -258,6 +278,10 @@
             <label for="txtSpeech">Speech</label>
             <asp:TextBox ID="txtSpeech" runat="server" CssClass="form-control" placeholder="Sheech"></asp:TextBox>
         </div>
+         <div class="form-group col-md-6">
+            <label for="txtAppreance">Appreance</label>
+            <asp:TextBox ID="txtAppreance" runat="server" CssClass="form-control" placeholder="Appreance"></asp:TextBox>
+        </div>
         <div class="form-group col-md-6">
             <label for="txtDresshing">Dressing</label>
             <asp:TextBox ID="txtDressing" runat="server" CssClass="form-control" placeholder="Dressing"></asp:TextBox>
@@ -296,7 +320,7 @@
             <asp:Button ID="btnSearch" runat="server" class="btn btn-success mb-2" Text="Search" OnClick="btnSearch_Click" />
         </div>
         <hr />
-        <asp:GridView ID="grdAccused" runat="server" GridLines="None" Width="800px" PagerSettings-PageButtonCount="5" PagerSettings-FirstPageText="First" PagerSettings-NextPageText="Next" PagerSettings-LastPageText="Last" PagerSettings-PreviousPageText="Previous" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" CssClass="table-striped" AllowPaging="true" PageSize="5" OnRowCommand="grdAccused_RowCommand" OnPageIndexChanging="grdAccused_PageIndexChanging">
+        <asp:GridView ID="grdAccused" runat="server" GridLines="None" Width="800px" PagerSettings-PageButtonCount="5"  ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" CssClass="table-striped" AllowPaging="true" PageSize="5" OnRowCommand="grdAccused_RowCommand" OnPageIndexChanging="grdAccused_PageIndexChanging">
             <Columns>
                 <asp:TemplateField HeaderText="SL No" ItemStyle-Width="100px" ItemStyle-Height="50px">
                     <ItemTemplate>

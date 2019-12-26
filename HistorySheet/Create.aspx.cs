@@ -11,7 +11,8 @@ namespace HistorySheet
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            importID.Value = "0";
+            txtHistoryNo.Text = getHistoryNo().ToString();
         }
 
 
@@ -44,6 +45,7 @@ namespace HistorySheet
             if (txtSearch.Text != "")
             {
                 loadGrid(txtSearch.Text);
+                
             }
             mpe1.Show();
         }
@@ -75,8 +77,101 @@ namespace HistorySheet
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            var date = txtReportDate.Text;
+            int HistoryNo = getHistoryNo();
+            var h = new Master();
+            h.CrimeDBID = Convert.ToInt32(importID.Value);
+            h.HistoryNo = HistoryNo.ToString();
+            h.Category = ddlCategory.SelectedValue;
+            h.HomeDistrict = txtDistrict.Text;
+            h.PoliceStation = txtPoliceStation.Text;
+            h.Name = txtName.Text;
+            h.Aliases = txtAliases.Text;
+            h.FathersName = txtFName.Text;
+            h.Fathersaliases = txtFAliases.Text;
+            h.IsHusband = Convert.ToBoolean(rblPrefix.SelectedValue);
+            h.Gender = rblPrefix.SelectedValue;
+            h.TradeProfession = txtProfession.Text; 
+            h.CrimeDBID = Convert.ToInt32(importID.Value);
+            h.DateofReport = getDate(txtReportDate.Text);
+            h.YearBirth = getDate(txtBirthYear.Text);
+            h.Height = getHeight(txtHeight.Text);
+            h.Build = ddlBuild.SelectedValue;
+            h.HairColor = txtHaircolor.Text;
+            h.HairCut = txtHaircut.Text;
+            h.Eyebrows = ddlEyebrow.SelectedValue;
+            h.Forehead = ddlForehead.SelectedValue;
+            h.Eyes = ddlEye.SelectedValue;
+            h.Nose = ddlNose.SelectedValue;
+            h.Mouth = ddlMouth.SelectedValue;
+            h.Chin = ddlChin.SelectedValue;
+            h.Teeth = ddlTeeth.SelectedValue;
+            h.Fingers = ddlFingers.SelectedValue;
+            h.Ears = ddlEars.SelectedValue;
+            h.Face = ddlFace.SelectedValue;
+            h.Complexion = ddlComplexion.SelectedValue;
+            h.FacialHair = ddlFacialHair.SelectedValue;
+            h.FacialHairType = ddlFacialHairType.SelectedValue;
+            h.Marks = txtMarks.Text;
+            h.Deformities = txtDeformities.Text;
+            h.Manners = txtManners.Text;
+            h.Gait = txtGait.Text;
+            h.Speech = txtSpeech.Text;
+            h.Appearance = txtAppreance.Text;
+            h.Dressing = txtDressing.Text;
+            h.Accomplishments = txtAcomplishment.Text;
+            h.Habits = txtHabits.Text;
+            h.BadHabits = txtBadHabits.Text;
+            h.OtherDescriptivePoints = txtOtherPoints.Text;
 
+            using(DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                db.Masters.InsertOnSubmit(h);
+                db.SubmitChanges();
+                var ID = db.Masters.OrderByDescending(n => n.Id).Select(n=>n.Id).FirstOrDefault();
+                Response.Redirect($"HistoryList.aspx?HistoryID={ID}");
+            }
+        }
+
+        private double? getHeight(string text)
+        {
+            try
+            {
+                return Convert.ToDouble(txtHeight.Text.Substring(0, 4).Replace("_", ""));
+
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private DateTime? getDate(string v)
+        {
+            try
+            {
+                return Convert.ToDateTime(txtBirthYear);
+            }
+            catch
+            {                
+                return null;
+            }
+        }
+
+        private int getHistoryNo()
+        {
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                int lastHistoryNo = Convert.ToInt32(db.Masters.OrderByDescending(n => n.Id).Select(n => n.HistoryNo).FirstOrDefault());
+                if (lastHistoryNo == 0)
+                {
+                    return 1;
+                }
+                else
+                {
+                    return lastHistoryNo + 1;
+                }
+
+            }
         }
 
         protected void btnProceed_Click(object sender, EventArgs e)
