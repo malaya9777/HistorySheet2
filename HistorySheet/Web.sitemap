@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="/" title="Home"  description="Home">
+    <siteMapNode url="/Create" title="Create"  description="Create New Histroy Sheet">
+      <siteMapNode url="/HistoryList" title="History List"  description="History List" />
+    </siteMapNode>
+    <siteMapNode url="/About" title="About"  description="About" />
+    <siteMapNode url="/Contact" title="Contact"  description="Contact" />
+  </siteMapNode>
+</siteMap>
