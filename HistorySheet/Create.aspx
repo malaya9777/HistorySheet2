@@ -1,13 +1,22 @@
 ﻿<%@ Page Title="Create" Language="C#" MasterPageFile="~/Site.Master" ClientIDMode="Static" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="HistorySheet.Create" %>
-
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
+
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <hr />
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm">
+            <div class="col-sm-6">
                 <asp:Button ID="btnImport" runat="server" CssClass="btn btn-primary" Text="Import Data" />
+            </div>
+            <div class="col-sm-6">
+                <input type="button" onclick="redirectToHistory('/HistoryList')" class="btn btn-primary" value="History List" />
+                <script type="text/javascript">
+                    function redirectToHistory(locationString) {
+                        console.log(locationString);
+                        location.href = locationString;
+                    }
+                </script>
             </div>
         </div>
     </div>

@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace HistorySheet
 {
-    public partial class moreInfo : System.Web.UI.Page
+    public partial class passtArrest : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

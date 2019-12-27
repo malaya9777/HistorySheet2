@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
+  <siteMapNode url="/" title="Home"  description="Home">
+    <siteMapNode url="/Create" title="Create"  description="Create New Histroy Sheet">
+      <siteMapNode url="/HistoryList" title="History List"  description="History List">
+        <siteMapNode url="/associates" title="Add associates" description="Add associates"></siteMapNode>
+        <siteMapNode url="/convictions" title="Add Convictions" description="Add Convictions"></siteMapNode>
+        <siteMapNode url="/disposalMethods" title="Add Disposal Methods" description="Add Disposal Methods"></siteMapNode>
+        <siteMapNode url="/enquiry" title="Add Enquiry Note" description="Add Enquiry Note"></siteMapNode>
+        <siteMapNode url="/moreInfo" title="Add More Info" description="Add More Info"></siteMapNode>
+        <siteMapNode url="/pastArrest" title="Add Past Arrest" description="Add Past Arrest Details"></siteMapNode>
+        <siteMapNode url="/photos" title="Add Photos and Fingerprints" description="Add Photos and Fingerprints"></siteMapNode>
+        <siteMapNode url="/relatives" title="Add Relative" description="Add Relatives Details"></siteMapNode>
+        <siteMapNode url="/residences" title="Add Residences" description="Add Residences Details"></siteMapNode>
+        <siteMapNode url="/suspectedIn" title="Add Suspected In Cases" description="Add Suspected in cases"></siteMapNode>
+        <siteMapNode url="/witnesses" title="Add witnesses" description="Add witnesses"></siteMapNode>
+      </siteMapNode>
+    </siteMapNode>
+    <siteMapNode url="/About" title="About"  description="About" />
+    <siteMapNode url="/Contact" title="Contact"  description="Contact" />
+  </siteMapNode>
+</siteMap>

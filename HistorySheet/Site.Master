@@ -63,12 +63,20 @@
             </div>
         </div>
         <div class="container body-content">
+            <br />
+            <div class="breadcrumb">
+                <asp:SiteMapPath ID="siteMapPath" runat="server" PathSeparator="/" ParentLevelsDisplayed="1" PathDirection="RootToCurrent" ShowToolTips="true"></asp:SiteMapPath>
+            </div>
+
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
+
+
             <hr />
-            <footer>
+            <footer class="col-md-12">
                 <p>&copy; <%: DateTime.Now.Year %> - History Sheet</p>
             </footer>
+           
         </div>
     </form>
 </body>
