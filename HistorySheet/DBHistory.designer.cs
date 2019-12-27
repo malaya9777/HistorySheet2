@@ -78,6 +78,9 @@ namespace HistorySheet
     partial void InsertPoliticalLink(PoliticalLink instance);
     partial void UpdatePoliticalLink(PoliticalLink instance);
     partial void DeletePoliticalLink(PoliticalLink instance);
+    partial void InsertAssociate(Associate instance);
+    partial void UpdateAssociate(Associate instance);
+    partial void DeleteAssociate(Associate instance);
     #endregion
 		
 		public DBHistoryDataContext() : 
@@ -108,14 +111,6 @@ namespace HistorySheet
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Associate> Associates
-		{
-			get
-			{
-				return this.GetTable<Associate>();
-			}
 		}
 		
 		public System.Data.Linq.Table<Witness> Witnesses
@@ -253,211 +248,12 @@ namespace HistorySheet
 				return this.GetTable<PoliticalLink>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Associates")]
-	public partial class Associate
-	{
 		
-		private int _ID;
-		
-		private System.Nullable<int> _P_ID;
-		
-		private System.Nullable<bool> _IsAccused;
-		
-		private System.Nullable<int> _AccusedID;
-		
-		private System.Nullable<int> _HistoryMasterID;
-		
-		private string _Name;
-		
-		private string _Aliases;
-		
-		private string _FathersName;
-		
-		private string _Residence;
-		
-		private string _Occupation;
-		
-		private System.Nullable<int> _AssociationNature;
-		
-		public Associate()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
-		public int ID
+		public System.Data.Linq.Table<Associate> Associates
 		{
 			get
 			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
-		public System.Nullable<int> P_ID
-		{
-			get
-			{
-				return this._P_ID;
-			}
-			set
-			{
-				if ((this._P_ID != value))
-				{
-					this._P_ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsAccused", DbType="Bit")]
-		public System.Nullable<bool> IsAccused
-		{
-			get
-			{
-				return this._IsAccused;
-			}
-			set
-			{
-				if ((this._IsAccused != value))
-				{
-					this._IsAccused = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccusedID", DbType="Int")]
-		public System.Nullable<int> AccusedID
-		{
-			get
-			{
-				return this._AccusedID;
-			}
-			set
-			{
-				if ((this._AccusedID != value))
-				{
-					this._AccusedID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HistoryMasterID", DbType="Int")]
-		public System.Nullable<int> HistoryMasterID
-		{
-			get
-			{
-				return this._HistoryMasterID;
-			}
-			set
-			{
-				if ((this._HistoryMasterID != value))
-				{
-					this._HistoryMasterID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this._Name = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aliases", DbType="NVarChar(200)")]
-		public string Aliases
-		{
-			get
-			{
-				return this._Aliases;
-			}
-			set
-			{
-				if ((this._Aliases != value))
-				{
-					this._Aliases = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FathersName", DbType="NVarChar(200)")]
-		public string FathersName
-		{
-			get
-			{
-				return this._FathersName;
-			}
-			set
-			{
-				if ((this._FathersName != value))
-				{
-					this._FathersName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Residence", DbType="NVarChar(200)")]
-		public string Residence
-		{
-			get
-			{
-				return this._Residence;
-			}
-			set
-			{
-				if ((this._Residence != value))
-				{
-					this._Residence = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Occupation", DbType="NVarChar(200)")]
-		public string Occupation
-		{
-			get
-			{
-				return this._Occupation;
-			}
-			set
-			{
-				if ((this._Occupation != value))
-				{
-					this._Occupation = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssociationNature", DbType="Int")]
-		public System.Nullable<int> AssociationNature
-		{
-			get
-			{
-				return this._AssociationNature;
-			}
-			set
-			{
-				if ((this._AssociationNature != value))
-				{
-					this._AssociationNature = value;
-				}
+				return this.GetTable<Associate>();
 			}
 		}
 	}
@@ -4990,6 +4786,332 @@ namespace HistorySheet
 					this._ReportedOn = value;
 					this.SendPropertyChanged("ReportedOn");
 					this.OnReportedOnChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Associates")]
+	public partial class Associate : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _P_ID;
+		
+		private System.Nullable<bool> _IsAccused;
+		
+		private System.Nullable<int> _AccusedID;
+		
+		private System.Nullable<bool> _IsHistorySheeter;
+		
+		private System.Nullable<int> _HistoryMasterID;
+		
+		private string _Name;
+		
+		private string _Aliases;
+		
+		private string _FathersName;
+		
+		private string _Residence;
+		
+		private string _Occupation;
+		
+		private string _AssociationNature;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnP_IDChanging(System.Nullable<int> value);
+    partial void OnP_IDChanged();
+    partial void OnIsAccusedChanging(System.Nullable<bool> value);
+    partial void OnIsAccusedChanged();
+    partial void OnAccusedIDChanging(System.Nullable<int> value);
+    partial void OnAccusedIDChanged();
+    partial void OnIsHistorySheeterChanging(System.Nullable<bool> value);
+    partial void OnIsHistorySheeterChanged();
+    partial void OnHistoryMasterIDChanging(System.Nullable<int> value);
+    partial void OnHistoryMasterIDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnAliasesChanging(string value);
+    partial void OnAliasesChanged();
+    partial void OnFathersNameChanging(string value);
+    partial void OnFathersNameChanged();
+    partial void OnResidenceChanging(string value);
+    partial void OnResidenceChanged();
+    partial void OnOccupationChanging(string value);
+    partial void OnOccupationChanged();
+    partial void OnAssociationNatureChanging(string value);
+    partial void OnAssociationNatureChanged();
+    #endregion
+		
+		public Associate()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
+		public System.Nullable<int> P_ID
+		{
+			get
+			{
+				return this._P_ID;
+			}
+			set
+			{
+				if ((this._P_ID != value))
+				{
+					this.OnP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._P_ID = value;
+					this.SendPropertyChanged("P_ID");
+					this.OnP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsAccused", DbType="Bit")]
+		public System.Nullable<bool> IsAccused
+		{
+			get
+			{
+				return this._IsAccused;
+			}
+			set
+			{
+				if ((this._IsAccused != value))
+				{
+					this.OnIsAccusedChanging(value);
+					this.SendPropertyChanging();
+					this._IsAccused = value;
+					this.SendPropertyChanged("IsAccused");
+					this.OnIsAccusedChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccusedID", DbType="Int")]
+		public System.Nullable<int> AccusedID
+		{
+			get
+			{
+				return this._AccusedID;
+			}
+			set
+			{
+				if ((this._AccusedID != value))
+				{
+					this.OnAccusedIDChanging(value);
+					this.SendPropertyChanging();
+					this._AccusedID = value;
+					this.SendPropertyChanged("AccusedID");
+					this.OnAccusedIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsHistorySheeter", DbType="Bit")]
+		public System.Nullable<bool> IsHistorySheeter
+		{
+			get
+			{
+				return this._IsHistorySheeter;
+			}
+			set
+			{
+				if ((this._IsHistorySheeter != value))
+				{
+					this.OnIsHistorySheeterChanging(value);
+					this.SendPropertyChanging();
+					this._IsHistorySheeter = value;
+					this.SendPropertyChanged("IsHistorySheeter");
+					this.OnIsHistorySheeterChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HistoryMasterID", DbType="Int")]
+		public System.Nullable<int> HistoryMasterID
+		{
+			get
+			{
+				return this._HistoryMasterID;
+			}
+			set
+			{
+				if ((this._HistoryMasterID != value))
+				{
+					this.OnHistoryMasterIDChanging(value);
+					this.SendPropertyChanging();
+					this._HistoryMasterID = value;
+					this.SendPropertyChanged("HistoryMasterID");
+					this.OnHistoryMasterIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aliases", DbType="NVarChar(200)")]
+		public string Aliases
+		{
+			get
+			{
+				return this._Aliases;
+			}
+			set
+			{
+				if ((this._Aliases != value))
+				{
+					this.OnAliasesChanging(value);
+					this.SendPropertyChanging();
+					this._Aliases = value;
+					this.SendPropertyChanged("Aliases");
+					this.OnAliasesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FathersName", DbType="NVarChar(200)")]
+		public string FathersName
+		{
+			get
+			{
+				return this._FathersName;
+			}
+			set
+			{
+				if ((this._FathersName != value))
+				{
+					this.OnFathersNameChanging(value);
+					this.SendPropertyChanging();
+					this._FathersName = value;
+					this.SendPropertyChanged("FathersName");
+					this.OnFathersNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Residence", DbType="NVarChar(200)")]
+		public string Residence
+		{
+			get
+			{
+				return this._Residence;
+			}
+			set
+			{
+				if ((this._Residence != value))
+				{
+					this.OnResidenceChanging(value);
+					this.SendPropertyChanging();
+					this._Residence = value;
+					this.SendPropertyChanged("Residence");
+					this.OnResidenceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Occupation", DbType="NVarChar(200)")]
+		public string Occupation
+		{
+			get
+			{
+				return this._Occupation;
+			}
+			set
+			{
+				if ((this._Occupation != value))
+				{
+					this.OnOccupationChanging(value);
+					this.SendPropertyChanging();
+					this._Occupation = value;
+					this.SendPropertyChanged("Occupation");
+					this.OnOccupationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AssociationNature", DbType="NVarChar(200)")]
+		public string AssociationNature
+		{
+			get
+			{
+				return this._AssociationNature;
+			}
+			set
+			{
+				if ((this._AssociationNature != value))
+				{
+					this.OnAssociationNatureChanging(value);
+					this.SendPropertyChanging();
+					this._AssociationNature = value;
+					this.SendPropertyChanged("AssociationNature");
+					this.OnAssociationNatureChanged();
 				}
 			}
 		}

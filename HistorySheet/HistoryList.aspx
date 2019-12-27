@@ -4,7 +4,7 @@
     <hr />
     <asp:GridView ID="grdHistoryList" runat="server" AutoGenerateColumns="false" HeaderStyle-HorizontalAlign="Center" Font-Size="8" Width="100%" AllowPaging="true" PageSize="20" GridLines="None" CellSpacing="5" CellPadding="5" BorderColor="#808080" CssClass="table-striped">
         <Columns>
-            <asp:BoundField DataField="HistoryNo" HeaderText="History No"/>
+            <asp:BoundField DataField="HistoryNo" HeaderText="No"/>
             <asp:BoundField DataField="Name" HeaderText="Name" />
             <asp:BoundField DataField="FathersName" HeaderText="Father's Name" />
             <asp:TemplateField HeaderText="Associates" >
@@ -29,7 +29,7 @@
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Past Arrest" >
                 <ItemTemplate>
-                    <a href='<%# "passtArrest.aspx?H_Id="+Eval("Id") %>'>Past Arrest</a>
+                    <a href='<%# "pastArrest.aspx?H_Id="+Eval("Id") %>'>Past Arrest</a>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Relatives" >

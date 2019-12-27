@@ -1,20 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CriminalHistorySheet" Class="DBHistoryDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=CriminalHistorySheet;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CriminalHistorySheetConnectionString" Provider="System.Data.SqlClient" />
-  <Table Name="dbo.Associates" Member="Associates">
-    <Type Name="Associate">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IsAccused" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="AccusedID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="HistoryMasterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Aliases" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="FathersName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Residence" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Occupation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="AssociationNature" Type="System.Int32" DbType="Int" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Witness" Member="Witnesses">
     <Type Name="Witness">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -246,6 +231,22 @@
       <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="Since" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ReportedOn" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Associates" Member="Associates">
+    <Type Name="Associate">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsAccused" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="AccusedID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsHistorySheeter" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="HistoryMasterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Aliases" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FathersName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Residence" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Occupation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="AssociationNature" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
