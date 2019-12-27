@@ -11,7 +11,7 @@ namespace HistorySheet
 {
 
 
-    public partial class convictions
+    public partial class passtArrest
     {
 
         /// <summary>

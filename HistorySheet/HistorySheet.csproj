@@ -151,7 +151,7 @@
       <DependentUpon>DBHistory.dbml</DependentUpon>
     </None>
     <Content Include="HistoryList.aspx" />
-    <Content Include="passtArrest.aspx" />
+    <Content Include="pastArrest.aspx" />
     <Content Include="relatives.aspx" />
     <Content Include="residences.aspx" />
     <Content Include="Scripts\bootstrap.js" />
@@ -373,12 +373,12 @@
     <Compile Include="moreInfo.aspx.designer.cs">
       <DependentUpon>moreInfo.aspx</DependentUpon>
     </Compile>
-    <Compile Include="passtArrest.aspx.cs">
-      <DependentUpon>passtArrest.aspx</DependentUpon>
+    <Compile Include="pastArrest.aspx.cs">
+      <DependentUpon>pastArrest.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="passtArrest.aspx.designer.cs">
-      <DependentUpon>passtArrest.aspx</DependentUpon>
+    <Compile Include="pastArrest.aspx.designer.cs">
+      <DependentUpon>pastArrest.aspx</DependentUpon>
     </Compile>
     <Compile Include="photos.aspx.cs">
       <DependentUpon>photos.aspx</DependentUpon>
