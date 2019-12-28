@@ -138,6 +138,7 @@
     <Content Include="HistorySheet.html" />
     <Content Include="moreInfo.aspx" />
     <Content Include="photos.aspx" />
+    <Content Include="StyleSheetHistory.css" />
     <Content Include="witnesses.aspx" />
     <None Include="DBCrime.dbml.layout">
       <DependentUpon>DBCrime.dbml</DependentUpon>
