@@ -54,5 +54,15 @@ namespace HistorySheet
             
             
         }
+
+        protected void grdMobile_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+
+            if (e.CommandName == "remove")
+            {
+                Response.Redirect(Request.RawUrl);
+            }
+        }
     }
 }

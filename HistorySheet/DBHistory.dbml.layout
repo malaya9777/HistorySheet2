@@ -68,13 +68,13 @@
         <elementListCompartment Id="262c52f6-a52c-410c-a119-937b9caa7708" absoluteBounds="0.76499999999999968, 2.46, 1.9700000000000002, 8.9029541015625" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="107f94b7-53f0-4177-9fe4-4591d13ab622" isExpanded="false" absoluteBounds="0.75, 2.625, 2, 0.45">
+    <classShape Id="107f94b7-53f0-4177-9fe4-4591d13ab622" absoluteBounds="0.75, 2.625, 2, 1.9631982421874996">
       <DataClassMoniker Name="/DBHistoryDataContext/BankAccount" />
       <nestedChildShapes>
         <elementListCompartment Id="ef9f26a7-fd4a-4842-89f4-c58a7ab72e9e" absoluteBounds="0.76499999999999968, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
-    <classShape Id="26806938-bd70-4533-97ee-4e9627776991" absoluteBounds="3, 2.625, 2, 1.9631982421874996">
+    <classShape Id="26806938-bd70-4533-97ee-4e9627776991" isExpanded="false" absoluteBounds="3, 2.625, 2, 0.45">
       <DataClassMoniker Name="/DBHistoryDataContext/MobileNumber" />
       <nestedChildShapes>
         <elementListCompartment Id="89975066-2659-4eab-a1de-98e1b5333dad" absoluteBounds="3.0149999999999997, 3.085, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />

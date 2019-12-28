@@ -105,12 +105,12 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.Button btnInsert;
 
         /// <summary>
-        /// drgMobile control.
+        /// grdMobile control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView drgMobile;
+        protected global::System.Web.UI.WebControls.GridView grdMobile;
     }
 }
