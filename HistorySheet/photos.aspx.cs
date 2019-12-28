@@ -19,7 +19,11 @@ namespace HistorySheet
                     loadDetails(masterID);
                     loadPhotoGrid(masterID);
                     loadFingerpritGrid(masterID);
-                }                  
+                }
+                else
+                {
+                    Response.Redirect("HistoryList");
+                }                 
 
             }
         }

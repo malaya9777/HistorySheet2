@@ -16,9 +16,13 @@ namespace HistorySheet
                 var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
                 if (masterID != 0)
                 {
-                    loadDetails(masterID);                  
+                    loadDetails(masterID);
 
-                }              
+                }
+                else
+                {
+                    Response.Redirect("HistoryList");
+                }             
 
             }
         }
