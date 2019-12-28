@@ -42,40 +42,22 @@ namespace HistorySheet
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl category;
 
         /// <summary>
-        /// chkIsSR control.
+        /// txtSNNo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBox chkIsSR;
+        protected global::System.Web.UI.WebControls.TextBox txtSNNo;
 
         /// <summary>
-        /// txtSRNo control.
+        /// txtDist control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSRNo;
-
-        /// <summary>
-        /// txtDistrict control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDistrict;
-
-        /// <summary>
-        /// rfv1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv1;
+        protected global::System.Web.UI.WebControls.TextBox txtDist;
 
         /// <summary>
         /// txtPS control.
@@ -87,15 +69,6 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.TextBox txtPS;
 
         /// <summary>
-        /// RequiredFieldValidator1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator1;
-
-        /// <summary>
         /// txtCaseNo control.
         /// </summary>
         /// <remarks>
@@ -103,15 +76,6 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCaseNo;
-
-        /// <summary>
-        /// RequiredFieldValidator2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator2;
 
         /// <summary>
         /// txtCaseDate control.
@@ -123,31 +87,13 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.TextBox txtCaseDate;
 
         /// <summary>
-        /// RequiredFieldValidator3 control.
+        /// txtSection control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFieldValidator3;
-
-        /// <summary>
-        /// ce1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender ce1;
-
-        /// <summary>
-        /// txtSections control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtSections;
+        protected global::System.Web.UI.WebControls.TextBox txtSection;
 
         /// <summary>
         /// txtMO control.
@@ -186,22 +132,13 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.TextBox txtConvictionDate;
 
         /// <summary>
-        /// CalendarExtender1 control.
+        /// txtConvictionSentence control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
-
-        /// <summary>
-        /// txtConvitionSentence control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtConvitionSentence;
+        protected global::System.Web.UI.WebControls.TextBox txtConvictionSentence;
 
         /// <summary>
         /// txtFPBSerialNo control.
@@ -222,22 +159,13 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.TextBox txtFPBDate;
 
         /// <summary>
-        /// CalendarExtender2 control.
+        /// txtIdentifyingWitness control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
-
-        /// <summary>
-        /// txtWitness control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWitness;
+        protected global::System.Web.UI.WebControls.TextBox txtIdentifyingWitness;
 
         /// <summary>
         /// txtReleaseDate control.
@@ -247,23 +175,5 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReleaseDate;
-
-        /// <summary>
-        /// CalendarExtender3 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender3;
-
-        /// <summary>
-        /// btnInsert control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnInsert;
     }
 }
