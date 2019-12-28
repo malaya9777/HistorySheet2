@@ -14,7 +14,7 @@
         <div class="panel-body">
             <div class="panel-row">
                 <div class="col-sm-2">
-                    <asp:TextBox runat="server" ID="txtMobNumber" CssClass="form-control" Placeholder="Mobile No."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtMobNumber" CssClass="form-control" Placeholder="Mobile No." Width="300"></asp:TextBox>
                     <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtMobNumber" runat="server" ID="rvf1" ValidationGroup="Add" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
@@ -32,9 +32,19 @@
                     <ajax:CalendarExtender ID="CE1" TargetControlID="txtReportDate" runat="server" Format="dd-MMM-yyyy" />
                 </div>
                 <div class="col-sm-2">
-                    <asp:Button runat="server" ID="btnInsert" Text="Add" ValidationGroup="Add" CssClass="btn btn-primary" OnClick="btnInsert_Click"/>
+                    <asp:Button runat="server" ID="btnInsert" Text="Add" ValidationGroup="Add" CssClass="btn btn-primary" OnClick="btnInsert_Click" />
                 </div>
             </div>
         </div>
     </div>
+    <br />
+    <br />
+    <asp:GridView ID="drgMobile" runat="server" Width="100%" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
+        <Columns>
+            <asp:BoundField DataField="MobileNumber1" HeaderText="Mobile Number" HeaderStyle-Font-Size="7" />
+            <asp:BoundField DataField="Operator" HeaderText="Operator Name" HeaderStyle-Font-Size="7" />
+            <asp:BoundField DataField="Status" HeaderText="Status" HeaderStyle-Font-Size="7" />
+            <asp:BoundField DataField="ReportDate" HeaderText="Report Date" HeaderStyle-Font-Size="7" />
+        </Columns>
+    </asp:GridView>
 </asp:Content>
