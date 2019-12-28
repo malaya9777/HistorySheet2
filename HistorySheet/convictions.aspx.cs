@@ -16,11 +16,44 @@ namespace HistorySheet
                 var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
                 if (masterID != 0)
                 {
-                    loadDetails(masterID);                  
-                   
+                    loadDetails(masterID);
+                    loadGrid(masterID);
+
                 }
                 addReadOnlyAttribute();
 
+            }
+        }
+
+        private void loadGrid(int masterID)
+        {
+            if (masterID != 0)
+            {
+                using(DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var records = db.Convictions.Where(n => n.P_ID == masterID).Select(n=>new {
+                        n.ID,
+                        n.IsSR,
+                        n.SRNo,
+                        n.District,
+                        n.PS,
+                        n.CaseNo,
+                        CaseDate = n.CaseDate.Value.ToShortDateString(),
+                        n.Sections,
+                        Conviction = n.Conviction1,
+                        n.MO,
+                        n.Court,
+                        ConvictionDate = n.ConvictionDate.Value.ToShortDateString(),
+                        n.ConvitionSentence,
+                        FPBDate=n.FPBDate.Value.ToShortDateString(),
+                        n.FPBSerialNo,
+                        n.IdentifyingWitness,
+                        ReleaseDate=n.ReleaseDate.Value.ToShortDateString(),
+
+                    }).ToList();
+                    grdConvictions.DataSource = records;
+                    grdConvictions.DataBind();
+                }
             }
         }
 
@@ -42,7 +75,7 @@ namespace HistorySheet
                 category.InnerText = "Category: " + record.Category;
             }
         }
-       
+
 
         protected void chkIsSR_CheckedChanged(object sender, EventArgs e)
         {
@@ -58,7 +91,38 @@ namespace HistorySheet
 
         protected void btnInsert_Click(object sender, EventArgs e)
         {
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+            if (masterID != 0)
+            {
+                if (Page.IsValid)
+                {
+                    using (DBHistoryDataContext db = new DBHistoryDataContext())
+                    {
+                        Conviction con = new Conviction();
+                        con.P_ID = masterID;
+                        con.IsSR = chkIsSR.Checked;
+                        con.SRNo = getNumber(txtSRNo.Text);
+                        con.District = txtDistrict.Text;
+                        con.PS = txtPS.Text;
+                        con.CaseNo = getNumber(txtCaseNo.Text);
+                        con.CaseDate = getDate(txtCaseDate.Text);
+                        con.Sections = txtSections.Text;
+                        con.MO = txtMO.Text;
+                        con.Court = txtCourt.Text;
+                        con.Conviction1 = txtConviction.Text;
+                        con.ConvictionDate = getDate(txtConvictionDate.Text);
+                        con.ConvitionSentence = txtConvitionSentence.Text;
+                        con.FPBSerialNo = getNumber(txtFPBSerialNo.Text);
+                        con.FPBDate = getDate(txtFPBDate.Text);
+                        con.IdentifyingWitness = txtWitness.Text;
+                        con.ReleaseDate = getDate(txtReleaseDate.Text);
+                        db.Convictions.InsertOnSubmit(con);
+                        db.SubmitChanges();
+                        Response.Redirect(Request.RawUrl);
 
+                    }
+                }
+            }
         }
         private DateTime? getDate(string v)
         {
@@ -70,6 +134,43 @@ namespace HistorySheet
             {
                 return null;
             }
+        }
+
+        private int? getNumber(string v)
+        {
+            try
+            {
+                return Convert.ToInt32(v);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
+        protected void grdConvictions_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "remove")
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
+                if (ID != 0)
+                {
+                    using(DBHistoryDataContext db = new DBHistoryDataContext())
+                    {
+                        var record = db.Convictions.Where(n => n.ID == ID).SingleOrDefault();
+                        db.Convictions.DeleteOnSubmit(record);
+                        db.SubmitChanges();
+                        Response.Redirect(Request.RawUrl);
+                    }
+                }
+            }
+        }
+
+        protected void grdConvictions_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdConvictions.PageIndex = e.NewPageIndex;
+            loadGrid(Convert.ToInt32(Request.QueryString["H_Id"]));
         }
     }
 }
