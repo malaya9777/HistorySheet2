@@ -121,9 +121,9 @@ namespace HistorySheet
 
         protected void btnSearchHistory_Click(object sender, EventArgs e)
         {
-            if (txtName2.Text != string.Empty)
+            if (txtSearch2.Text != string.Empty)
             {
-                loadHistory(txtName2.Text);
+                loadHistory(txtSearch2.Text);
             }
             mpe2.Show();
         }
@@ -177,7 +177,7 @@ namespace HistorySheet
         protected void grdHistoryList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdHistoryList.PageIndex = e.NewPageIndex;
-            loadHistory(txtName2.Text);
+            loadHistory(txtSearch2.Text);
             mpe2.Show();
         }
 
@@ -202,6 +202,29 @@ namespace HistorySheet
             grdAssociates.PageIndex = e.NewPageIndex;
             loadAssociates(masterID);
 
+        }
+
+        protected void btnInsert_Click(object sender, EventArgs e)
+        {
+            if (Page.IsValid)
+            {
+                using(DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    Associate aso = new Associate();
+                    aso.P_ID = Convert.ToInt32(Request.QueryString["H_Id"]);
+                    aso.IsAccused = false;
+                    aso.IsHistorySheeter = false;
+                    aso.Name = txtName.Text;
+                    aso.FathersName = txtFatherName.Text;
+                    aso.Aliases = txtAliases.Text;
+                    aso.Residence = txtResidence.Text;
+                    aso.AssociationNature = "Normal";
+                    db.Associates.InsertOnSubmit(aso);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+
+                }
+            }
         }
     }
 }
