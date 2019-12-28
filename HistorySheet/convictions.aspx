@@ -13,7 +13,7 @@
         <div class="panel-body">
             <div class="form-row">
                 <div class="col-sm-2">
-                    <br />
+                    <br /> 
                     <asp:CheckBox ID="chkIsSR" runat="server" AutoPostBack="true" OnCheckedChanged="chkIsSR_CheckedChanged" />
                 </div>
                 <div class="col-sm-2">
