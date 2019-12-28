@@ -92,7 +92,7 @@ namespace HistorySheet
                 var Bank = new BankAccount();
                 Bank.P_Id = masterID;
                 Bank.AccountNo = txtAcctNo.Text;
-                Bank.BankName = txtBankBalance.Text;
+                Bank.BankName = txtBankDetail.Text;
                 Bank.Balance = getNumber(txtBankBalance.Text);
                 Bank.ReportedOn = getDate(txtReportDate.Text);
 
