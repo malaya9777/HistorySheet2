@@ -15,9 +15,21 @@ namespace HistorySheet
             {
                 var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
                 if (masterID != 0)
-                    loadDetails(masterID);
+                {
+                    loadDetails(masterID);                  
+                   
+                }
+                addReadOnlyAttribute();
 
             }
+        }
+
+        private void addReadOnlyAttribute()
+        {
+            txtCaseDate.Attributes.Add("readonly", "readonly");
+            txtConvictionDate.Attributes.Add("readonly", "readonly");
+            txtFPBDate.Attributes.Add("readonly", "readonly");
+            txtReleaseDate.Attributes.Add("readonly", "readonly");
         }
 
         private void loadDetails(int masterID)
@@ -28,6 +40,35 @@ namespace HistorySheet
                 Name.InnerText = record.Name + " @" + record.Aliases;
                 fathersName.InnerText = "Father's name:" + record.FathersName + " @" + record.Fathersaliases;
                 category.InnerText = "Category: " + record.Category;
+            }
+        }
+       
+
+        protected void chkIsSR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkIsSR.Checked)
+            {
+                txtSRNo.Enabled = true;
+            }
+            else
+            {
+                txtSRNo.Enabled = false;
+            }
+        }
+
+        protected void btnInsert_Click(object sender, EventArgs e)
+        {
+
+        }
+        private DateTime? getDate(string v)
+        {
+            try
+            {
+                return Convert.ToDateTime(v);
+            }
+            catch
+            {
+                return null;
             }
         }
     }

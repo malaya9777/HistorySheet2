@@ -345,6 +345,7 @@
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
+            <PagerStyle HorizontalAlign="Left" CssClass="GridPager" />
         </asp:GridView>
         <hr />
         <asp:Button ID="btnClose" runat="server" CssClass="btn btn-primary" Text="Close" />

@@ -11,8 +11,12 @@ namespace HistorySheet
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            importID.Value = "0";
-            txtHistoryNo.Text = getHistoryNo().ToString();
+            if (!IsPostBack)
+            {
+                importID.Value = "0";
+                txtHistoryNo.Text = getHistoryNo().ToString();
+                txtReportDate.Attributes.Add("readonly", "readonly"); 
+            }
         }
 
 
@@ -149,7 +153,7 @@ namespace HistorySheet
         {
             try
             {
-                return Convert.ToDateTime(txtBirthYear);
+                return Convert.ToDateTime(v);
             }
             catch
             {                
