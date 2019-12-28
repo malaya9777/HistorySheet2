@@ -14,7 +14,7 @@
             <div class="form-row">
                 <div class="col-sm-2">
                     <br /> 
-                    <asp:CheckBox ID="chkIsSR" runat="server" AutoPostBack="true" OnCheckedChanged="chkIsSR_CheckedChanged" />
+                    <asp:CheckBox ID="chkIsSR" runat="server" AutoPostBack="true" Text="Is SR" OnCheckedChanged="chkIsSR_CheckedChanged" />
                 </div>
                 <div class="col-sm-2">
                     <label for="txtSRNo">SR No</label>
