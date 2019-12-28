@@ -132,6 +132,7 @@ namespace HistorySheet
                 db.Masters.InsertOnSubmit(h);
                 db.SubmitChanges();
                 var ID = db.Masters.OrderByDescending(n => n.Id).Select(n=>n.Id).FirstOrDefault();
+                ClientScript.RegisterStartupScript(this.GetType(), "", "alert('History ID:"+ID+" submitted successfully!')", true);
                 Response.Redirect($"HistoryList.aspx?HistoryID={ID}");
             }
         }

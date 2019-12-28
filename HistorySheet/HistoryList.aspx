@@ -5,7 +5,7 @@
     <asp:GridView ID="grdHistoryList" runat="server" AutoGenerateColumns="false" HeaderStyle-HorizontalAlign="Center" Font-Size="8" Width="100%" AllowPaging="true" PageSize="20" GridLines="None" CellSpacing="5" CellPadding="5" BorderColor="#808080" CssClass="table-striped">
         <Columns>
             <asp:BoundField DataField="HistoryNo" HeaderText="No"/>
-            <asp:BoundField DataField="Name" HeaderText="Name" />
+            <asp:BoundField DataField="Name" HeaderText="Name" ItemStyle-Width="150"/>
             <asp:BoundField DataField="FathersName" HeaderText="Father's Name" />
             <asp:TemplateField HeaderText="Associates" >
                 <ItemTemplate>
@@ -32,6 +32,11 @@
                     <a href='<%# "pastArrest.aspx?H_Id="+Eval("Id") %>'>Past Arrest</a>
                 </ItemTemplate>
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="Offence" >
+                <ItemTemplate>
+                    <a href='<%# "offence.aspx?H_Id="+Eval("Id") %>'>Offence</a>
+                </ItemTemplate>
+            </asp:TemplateField>
             <asp:TemplateField HeaderText="Relatives" >
                 <ItemTemplate>
                     <a href='<%# "relatives.aspx?H_Id="+Eval("Id") %>'>Relatives</a>
@@ -52,9 +57,9 @@
                       <a href="<%# "witnesses.aspx?H_Id="+Eval("Id") %>">Witness</a>
                 </ItemTemplate>
             </asp:TemplateField>
-            <asp:TemplateField HeaderText="Fingerprints & Photographs" >
+            <asp:TemplateField HeaderText="FP & Photo" >
                 <ItemTemplate>
-                      <a href="<%# "photos.aspx?H_Id="+Eval("Id") %>">Fingerprints & Photographs</a>
+                      <a href="<%# "photos.aspx?H_Id="+Eval("Id") %>">FP & Photo</a>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="More info" >

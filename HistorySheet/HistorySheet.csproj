@@ -137,6 +137,7 @@
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="HistorySheet.html" />
     <Content Include="moreInfo.aspx" />
+    <Content Include="offence.aspx" />
     <Content Include="photos.aspx" />
     <Content Include="StyleSheetHistory.css" />
     <Content Include="witnesses.aspx" />
@@ -170,6 +171,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="getImage.ashx" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -357,6 +359,9 @@
     <Compile Include="enquiry.aspx.designer.cs">
       <DependentUpon>enquiry.aspx</DependentUpon>
     </Compile>
+    <Compile Include="getImage.ashx.cs">
+      <DependentUpon>getImage.ashx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -373,6 +378,13 @@
     </Compile>
     <Compile Include="moreInfo.aspx.designer.cs">
       <DependentUpon>moreInfo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="offence.aspx.cs">
+      <DependentUpon>offence.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="offence.aspx.designer.cs">
+      <DependentUpon>offence.aspx</DependentUpon>
     </Compile>
     <Compile Include="pastArrest.aspx.cs">
       <DependentUpon>pastArrest.aspx</DependentUpon>
