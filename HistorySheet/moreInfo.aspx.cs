@@ -15,7 +15,11 @@ namespace HistorySheet
             {
                 var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
                 if (masterID != 0)
+                {
                     loadDetails(masterID);
+                    loadMobileGrid(masterID);
+                    loadBankGrid(masterID);
+                }
 
             }
         }
@@ -35,13 +39,13 @@ namespace HistorySheet
         {
             var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
 
-            if(masterID != 0)
+            if (masterID != 0)
             {
                 var mobile = new MobileNumber();
                 mobile.P_Id = masterID;
                 mobile.MobileNumber1 = txtMobNumber.Text;
                 mobile.Operator = txtOperator.Text;
-                mobile.Status = ddlStatus.SelectedValue == "Active" ? true:false ;
+                mobile.Status = ddlStatus.SelectedValue == "Active" ? true : false;
                 mobile.ReportDate = Convert.ToDateTime(txtReportDate.Text);
 
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
@@ -51,18 +55,78 @@ namespace HistorySheet
                     Response.Redirect(Request.RawUrl);
                 }
             }
-            
-            
+
+
         }
 
         protected void grdMobile_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+ 
+        }
 
-            if (e.CommandName == "remove")
+        private void loadMobileGrid(int ID)
+        {
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                Response.Redirect(Request.RawUrl);
+                
+                var records = db.MobileNumbers.Where(n => n.P_Id == ID).Select(n => new
+                {
+                    n.Id,
+                    n.MobileNumber1,
+                    n.Operator,
+                    n.Status,
+                    n.ReportDate,
+                }).ToList();
+
+                grdMobile.DataSource = records;
+                grdMobile.DataBind();
+
             }
+        }
+
+        protected void btBankDetail_Click(object sender, EventArgs e)
+        {
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+            if (masterID != 0)
+            {
+                var Bank = new BankAccount();
+                Bank.P_Id = masterID;
+                Bank.AccountNo = txtAcctNo.Text;
+                Bank.BankName = txtBankBalance.Text;
+                Bank.Balance = Convert.ToInt32(txtBankBalance.Text);
+                Bank.ReportedOn = Convert.ToDateTime(txtReportDate.Text);
+
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    db.BankAccounts.InsertOnSubmit(Bank);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+
+                }
+            }
+        }
+
+        private void loadBankGrid(int ID)
+        {
+            using(DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+                var records = db.BankAccounts.Where(n => n.P_Id == ID).Select(n => new
+                {
+                    n.Id,
+                    n.BankName,
+                    n.Balance,
+                    n.ReportedOn,
+                }).ToList();
+
+                grdBankDetail.DataSource = records;
+                grdBankDetail.DataBind();
+            }
+        }
+
+        protected void grdBankDetail_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
         }
     }
 }

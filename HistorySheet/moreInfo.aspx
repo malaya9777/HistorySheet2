@@ -15,11 +15,11 @@
             <div class="panel-row">
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtMobNumber" CssClass="form-control" Placeholder="Mobile No."></asp:TextBox>
-                    <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtMobNumber" runat="server" ID="rvf1" ValidationGroup="Add" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtMobNumber" runat="server" ID="rfv1" ValidationGroup="Add" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtOperator" CssClass="form-control" Placeholder="Operator Name"></asp:TextBox>
-                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="txtOperator" runat="server" Display="Dynamic" ValidationGroup="Add"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ID="rfv2" ControlToValidate="txtOperator" runat="server" Display="Dynamic" ValidationGroup="Add"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
                     <asp:DropDownList runat="server" ID="ddlStatus" CssClass="form-control">
@@ -48,6 +48,48 @@
             <asp:TemplateField HeaderText="Delete">
                 <ItemTemplate>
                     <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger" Text="Delete" CommandArgument='<%# Eval("ID") %>' CommandName="remove" />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
+    <br />
+    <br />
+    <div class="panel panel-primary">
+        <div class="panel-heading">Bank Details</div>
+        <div class="panel-body">
+            <div class="pael-row">
+                <div class="col-sm-2">
+                    <asp:TextBox runat="server" ID="txtAcctNo" CssClass="form-control" Placeholder="Bank Account Number"></asp:TextBox>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ID="rfvBank1" ControlToValidate="txtAcctNo" runat="server" ValidationGroup="Bank" Display="Dynamic" ></asp:RequiredFieldValidator>
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox runat="server" ID="txtBankDetail" CssClass="form-control" placeholder="Bank Details"></asp:TextBox>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ID="rfvBank2" ControlToValidate="txtBankDetail" runat="server" Display="Dynamic" ValidationGroup="Bank"></asp:RequiredFieldValidator>
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox runat="server"  ID="txtBankBalance" CssClass="form-control" placeholder="Bank Balance"></asp:TextBox>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBankBalance" runat="server" Display="Dynamic" ValidationGroup="Bank"></asp:RequiredFieldValidator>
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox runat="server" ID="txtBankReportDate" CssClass="form-control" placeholder="Report Date"></asp:TextBox>
+                    <ajax:CalendarExtender ID="CE2" TargetControlID="txtBankReportDate" runat="server" Format="dd-MMM-yyyy" />
+                </div>
+                <div class="col-sm-2">
+                    <asp:Button runat="server" ID="btnBankDetail" ValidationGroup="Bank" Text="Add" CssClass="btn btn-primary" OnClick="btBankDetail_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    <asp:GridView ID="grdBankDetail" runat="server" OnRowCommand="grdBankDetail_RowCommand" width="100" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
+        <Columns>
+            <asp:BoundField DataField="BankName" HeaderText="Bank Name" HeaderStyle-Font-Size="6" />
+            <asp:BoundField DataField="Balance" HeaderText="Bank Details" HeaderStyle-Font-Size="7" />
+            <asp:BoundField DataField="ReportedOn" HeaderText="Reported On" HeaderStyle-Font-Size="7" />
+            <asp:TemplateField HeaderText="Delete">
+                <ItemTemplate>
+                    <asp:Button ID="btnDeleteBank" runat="server" CssClass="btn btn-danger" Text="Danger" CommandArgument='<% # Eval("ID")%>' />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
