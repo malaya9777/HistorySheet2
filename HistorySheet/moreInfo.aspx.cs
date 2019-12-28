@@ -30,5 +30,29 @@ namespace HistorySheet
                 category.InnerText = "Category: " + record.Category;
             }
         }
+
+        protected void btnInsert_Click(object sender, EventArgs e)
+        {
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+
+            if(masterID != 0)
+            {
+                var mobile = new MobileNumber();
+                mobile.P_Id = masterID;
+                mobile.MobileNumber1 = txtMobNumber.Text;
+                mobile.Operator = txtOperator.Text;
+                mobile.Status = ddlStatus.SelectedValue == "Active" ? true:false ;
+                mobile.ReportDate = Convert.ToDateTime(txtReportDate.Text);
+
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    db.MobileNumbers.InsertOnSubmit(mobile);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+                }
+            }
+            
+            
+        }
     }
 }
