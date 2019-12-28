@@ -93,8 +93,8 @@ namespace HistorySheet
                 Bank.P_Id = masterID;
                 Bank.AccountNo = txtAcctNo.Text;
                 Bank.BankName = txtBankBalance.Text;
-                Bank.Balance = Convert.ToInt32(txtBankBalance.Text);
-                Bank.ReportedOn = Convert.ToDateTime(txtReportDate.Text);
+                Bank.Balance = getNumber(txtBankBalance.Text);
+                Bank.ReportedOn = getDate(txtReportDate.Text);
 
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
                 {
@@ -127,6 +127,29 @@ namespace HistorySheet
         protected void grdBankDetail_RowCommand(object sender, GridViewCommandEventArgs e)
         {
 
+        }
+        private DateTime? getDate(string v)
+        {
+            try
+            {
+                return Convert.ToDateTime(v);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+        private int? getNumber(string v)
+        {
+            try
+            {
+                return Convert.ToInt32(v);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
         }
     }
 }
