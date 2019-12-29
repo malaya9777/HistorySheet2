@@ -50,12 +50,12 @@
 
     <asp:GridView ID="grdWitness" runat="server" Width="100%" CssClass="table-striped" GridLines="None" Font-Size="10" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowCommand="grdWitness_RowCommand">
         <Columns>
-            <asp:BoundField DataField="" HeaderText="" />
-            <asp:BoundField DataField="" HeaderText="" />
-            <asp:BoundField DataField="" HeaderText="" />
-            <asp:BoundField DataField="" HeaderText="" />
-            <asp:BoundField DataField="" HeaderText="" />
-            <asp:BoundField DataField="" HeaderText="" />
+            <asp:BoundField DataField="Name" HeaderText="Name" />
+            <asp:BoundField DataField="Gender" HeaderText="Gender" />
+            <asp:BoundField DataField="DOB" HeaderText="DOB" />
+            <asp:BoundField DataField="FathersName" HeaderText="FathersName" />
+            <asp:BoundField DataField="Address" HeaderText="Address" />
+
         </Columns>
     </asp:GridView>
 </asp:Content>

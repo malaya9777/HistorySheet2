@@ -44,6 +44,17 @@ namespace HistorySheet
                 var witness = new Witness();
                 witness.P_ID = masterID;
                 witness.Name = txtName.Text;
+                witness.Gender = ddlGender.SelectedValue;
+                witness.DOB = Convert.ToDateTime(txtDOB.Text);
+                witness.FathersName = txtFName.Text;
+                witness.Address = txtAddress.Text;
+                
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    db.Witnesses.InsertOnSubmit(witness);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+                }
             }
         }
     }
