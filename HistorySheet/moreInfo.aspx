@@ -46,8 +46,11 @@
             <asp:BoundField DataField="Status" HeaderText="Status" HeaderStyle-Font-Size="7" />
             <asp:BoundField DataField="ReportDate" HeaderText="Report Date" HeaderStyle-Font-Size="7" />
             <asp:TemplateField HeaderText="Delete">
-                <ItemTemplate>
+                <ItemTemplate>        
+                    <br />
                     <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger" Text="Delete" CommandArgument='<%# Eval("ID") %>' CommandName="remove" />
+                    <br />
+                    <br />
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

@@ -105,7 +105,7 @@ namespace HistorySheet
                 Bank.AccountNo = txtAcctNo.Text;
                 Bank.BankName = txtBankDetail.Text;
                 Bank.Balance = getNumber(txtBankBalance.Text);
-                Bank.ReportedOn = getDate(txtReportDate.Text);
+                Bank.ReportedOn = DateTime.Now;
 
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
                 {
@@ -127,7 +127,7 @@ namespace HistorySheet
                     n.Id,
                     n.BankName,
                     n.Balance,
-                    n.ReportedOn,
+                    ReportedOn=n.ReportedOn.Value.ToShortDateString(),
                 }).ToList();
 
                 grdBankDetail.DataSource = records;
@@ -142,7 +142,7 @@ namespace HistorySheet
                 var ID = Convert.ToInt32(e.CommandArgument);
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
                 {
-                    var records = db.BankAccounts.Where(n => n.P_Id == ID).SingleOrDefault();
+                    var records = db.BankAccounts.Where(n => n.Id == ID).SingleOrDefault();
                     db.BankAccounts.DeleteOnSubmit(records);
                     db.SubmitChanges();
                 }
@@ -204,7 +204,7 @@ namespace HistorySheet
 
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
                 {
-                    var records = db.PoliticalLinks.Where(n => n.P_Id == ID).SingleOrDefault();
+                    var records = db.PoliticalLinks.Where(n => n.Id == ID).SingleOrDefault();
                     db.PoliticalLinks.DeleteOnSubmit(records);
                     db.SubmitChanges();
 
