@@ -151,5 +151,27 @@ namespace HistorySheet
                 return null;
             }
         }
+
+        protected void btnAddPolitical_Click(object sender, EventArgs e)
+        {
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+            if (masterID != 0)
+            {
+                
+                var Political = new PoliticalLink();
+                Political.P_Id = masterID;
+                Political.Name = txtNamePolitical.Text;
+                Political.Status = ddlStatus2.SelectedValue == "Active" ? true : false;
+                Political.Since = getDate(txtSince.Text);
+                Political.ReportedOn = getDate(txtReportedon.Text);
+
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    db.PoliticalLinks.InsertOnSubmit(Political);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+                }
+            }
+        }
     }
 }

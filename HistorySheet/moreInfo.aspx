@@ -94,4 +94,35 @@
             </asp:TemplateField>
         </Columns>
     </asp:GridView>
+    <br />
+    <br />
+    <div class="panel panel-primary">
+        <div class="panel-heading">Political Links</div>
+        <div class="panel-body">
+            <div class="panel-row">
+                <div class="col-sm-2">
+                    <asp:TextBox runat="server" ID="txtNamePolitical" CssClass="form-control" Placeholder="Name"></asp:TextBox>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ValidationGroup="Political" ControlToValidate="txtNamePolitical" runat="server" Display="Dynamic" ID="rfvPolitical1"></asp:RequiredFieldValidator>
+                </div>
+                <div class="col-sam-2">
+                    <asp:DropDownList runat="server" ID="ddlStatus2" CssClass="form-control">
+                        <asp:ListItem>Active</asp:ListItem>
+                        <asp:ListItem>In-Active</asp:ListItem>
+                    </asp:DropDownList>
+                    <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="ddlStatus2" runat="server" ValidationGroup="Political"/>
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox runat="server" ID="txtSince" CssClass="form-control" Placeholder="Date Since"></asp:TextBox>
+                    <ajax:CalendarExtender ID="CE3" runat="server" Format="dd-MMM-yyyy" TargetControlID="txtSince"/>
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox runat="server" ID="txtReportedon" CssClass="form-control" Placeholder="Reported Date"></asp:TextBox>
+                    <ajax:CalendarExtender ID="CE4" runat="server" Format="dd-MMM-yyyy" TargetControlID="txtReportedon" />
+                </div>
+                <div class="col-sm-2">
+                    <asp:Button ID="btnAddPolitical" Text="Add" runat="server" CssClass="btn btn-primary" ValidationGroup="Political" OnClick="btnAddPolitical_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
 </asp:Content>
