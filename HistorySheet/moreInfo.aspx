@@ -29,10 +29,10 @@
                     </asp:DropDownList>
                 </div>
 
-                <div class="col-sm-2">
+                <%--<div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtReportDate" CssClass="form-control" Placeholder="Report Date" Visible="false"></asp:TextBox>
                     <ajax:CalendarExtender ID="CE1" TargetControlID="txtReportDate" runat="server" Format="dd-MMM-yyyy" />
-                </div>
+                </div>--%>
                 <div class="col-sm-2">
                     <asp:Button runat="server" ID="btnInsert" Text="Add" ValidationGroup="Add" CssClass="btn btn-primary" OnClick="btnInsert_Click" />
                 </div>
@@ -75,10 +75,10 @@
                     <asp:TextBox runat="server" ID="txtBankBalance" CssClass="form-control" placeholder="Bank Balance"></asp:TextBox>
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBankBalance" runat="server" Display="Dynamic" ValidationGroup="Bank"></asp:RequiredFieldValidator>
                 </div>
-                <div class="col-sm-2">
+                <%--<div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtBankReportDate" CssClass="form-control" placeholder="Report Date" Visible="false"></asp:TextBox>
                     <ajax:CalendarExtender ID="CE2" TargetControlID="txtBankReportDate" runat="server" Format="dd-MMM-yyyy" />
-                </div>
+                </div>--%>
                 <div class="col-sm-2">
                     <asp:Button runat="server" ID="btnBankDetail" ValidationGroup="Bank" Text="Add" CssClass="btn btn-primary" OnClick="btBankDetail_Click" />
                 </div>
@@ -123,10 +123,10 @@
                     <asp:TextBox runat="server" ID="txtSince" CssClass="form-control" Placeholder="Date Since"></asp:TextBox>
                     <ajax:CalendarExtender ID="CE3" runat="server" Format="dd-MMM-yyyy" TargetControlID="txtSince" />
                 </div>
-                <div class="col-sm-2">
+                <%--<div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtReportedon" CssClass="form-control" Placeholder="Reported Date" Visible="false"></asp:TextBox>
                     <ajax:CalendarExtender ID="CE4" runat="server" Format="dd-MMM-yyyy" TargetControlID="txtReportedon" />
-                </div>
+                </div>--%>
                 <div class="col-sm-2">
                     <asp:Button ID="btnAddPolitical" Text="Add" runat="server" CssClass="btn btn-primary" ValidationGroup="Political" OnClick="btnAddPolitical_Click" />
                 </div>

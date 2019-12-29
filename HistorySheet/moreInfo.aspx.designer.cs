@@ -87,24 +87,6 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
 
         /// <summary>
-        /// txtReportDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReportDate;
-
-        /// <summary>
-        /// CE1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CE1;
-
-        /// <summary>
         /// btnInsert control.
         /// </summary>
         /// <remarks>
@@ -168,24 +150,6 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.TextBox txtBankBalance;
 
         /// <summary>
-        /// txtBankReportDate control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtBankReportDate;
-
-        /// <summary>
-        /// CE2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CE2;
-
-        /// <summary>
         /// btnBankDetail control.
         /// </summary>
         /// <remarks>
@@ -247,24 +211,6 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender CE3;
-
-        /// <summary>
-        /// txtReportedon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReportedon;
-
-        /// <summary>
-        /// CE4 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CE4;
 
         /// <summary>
         /// btnAddPolitical control.
