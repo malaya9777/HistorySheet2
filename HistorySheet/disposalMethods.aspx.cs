@@ -143,6 +143,7 @@ namespace HistorySheet
                     var record = db.DisposalMethods.Where(n => n.ID == ID).SingleOrDefault();
                     db.DisposalMethods.DeleteOnSubmit(record);
                     db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
                 }
             }
         }

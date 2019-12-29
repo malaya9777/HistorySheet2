@@ -49,6 +49,8 @@
             <asp:BoundField DataField="ReceiverAddress" HeaderText="Receiver Address" />
             <asp:TemplateField HeaderText="Delete">
                 <ItemTemplate>
+                    <br />
+             
                     <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger" Text="Delete" CommandArgument='<%# Eval("ID") %>' CommandName="remove" />
                 </ItemTemplate>
             </asp:TemplateField>
