@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace HistorySheet
 {
@@ -33,6 +34,15 @@ namespace HistorySheet
         public static void refresh_page(HttpContext context)
         {
             context.Response.Redirect(context.Request.RawUrl);
+        }
+        public static string setDate(DateTime? d)
+        {
+            return d == null ? null : d.Value.ToShortDateString();
+        }
+
+        public static void readonlyTextbox(TextBox box)
+        {
+            box.Attributes.Add("readonly", "readonly");
         }
     }
 }

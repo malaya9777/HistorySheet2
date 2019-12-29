@@ -87,7 +87,17 @@ namespace HistorySheet
 
         protected void grdEnquiry_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            if (e.CommandName == "remove")
+            {
+                using(DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var ID = Convert.ToInt32(e.CommandArgument);
+                    var record = db.EnquiryNotes.Where(n => n.ID == ID).SingleOrDefault();
+                    db.EnquiryNotes.DeleteOnSubmit(record);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+                }
+            }
         }
     }
 }

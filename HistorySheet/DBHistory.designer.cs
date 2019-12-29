@@ -72,15 +72,15 @@ namespace HistorySheet
     partial void InsertAssociate(Associate instance);
     partial void UpdateAssociate(Associate instance);
     partial void DeleteAssociate(Associate instance);
-    partial void InsertPastArrest(PastArrest instance);
-    partial void UpdatePastArrest(PastArrest instance);
-    partial void DeletePastArrest(PastArrest instance);
     partial void InsertResidence(Residence instance);
     partial void UpdateResidence(Residence instance);
     partial void DeleteResidence(Residence instance);
     partial void InsertEnquiryNote(EnquiryNote instance);
     partial void UpdateEnquiryNote(EnquiryNote instance);
     partial void DeleteEnquiryNote(EnquiryNote instance);
+    partial void InsertPastArrest(PastArrest instance);
+    partial void UpdatePastArrest(PastArrest instance);
+    partial void DeletePastArrest(PastArrest instance);
     #endregion
 		
 		public DBHistoryDataContext() : 
@@ -233,14 +233,6 @@ namespace HistorySheet
 			}
 		}
 		
-		public System.Data.Linq.Table<PastArrest> PastArrests
-		{
-			get
-			{
-				return this.GetTable<PastArrest>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Residence> Residences
 		{
 			get
@@ -254,6 +246,14 @@ namespace HistorySheet
 			get
 			{
 				return this.GetTable<EnquiryNote>();
+			}
+		}
+		
+		public System.Data.Linq.Table<PastArrest> PastArrests
+		{
+			get
+			{
+				return this.GetTable<PastArrest>();
 			}
 		}
 	}
@@ -4495,236 +4495,6 @@ namespace HistorySheet
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PastArrests")]
-	public partial class PastArrest : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private System.Nullable<int> _P_ID;
-		
-		private string _PS;
-		
-		private System.Nullable<int> _CaseNo;
-		
-		private System.Nullable<System.DateTime> _Dtd;
-		
-		private string _Sections;
-		
-		private System.Nullable<System.DateTime> _ArrestedDate;
-		
-		private string _WhereArrested;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnP_IDChanging(System.Nullable<int> value);
-    partial void OnP_IDChanged();
-    partial void OnPSChanging(string value);
-    partial void OnPSChanged();
-    partial void OnCaseNoChanging(System.Nullable<int> value);
-    partial void OnCaseNoChanged();
-    partial void OnDtdChanging(System.Nullable<System.DateTime> value);
-    partial void OnDtdChanged();
-    partial void OnSectionsChanging(string value);
-    partial void OnSectionsChanged();
-    partial void OnArrestedDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnArrestedDateChanged();
-    partial void OnWhereArrestedChanging(string value);
-    partial void OnWhereArrestedChanged();
-    #endregion
-		
-		public PastArrest()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
-		public System.Nullable<int> P_ID
-		{
-			get
-			{
-				return this._P_ID;
-			}
-			set
-			{
-				if ((this._P_ID != value))
-				{
-					this.OnP_IDChanging(value);
-					this.SendPropertyChanging();
-					this._P_ID = value;
-					this.SendPropertyChanged("P_ID");
-					this.OnP_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(50)")]
-		public string PS
-		{
-			get
-			{
-				return this._PS;
-			}
-			set
-			{
-				if ((this._PS != value))
-				{
-					this.OnPSChanging(value);
-					this.SendPropertyChanging();
-					this._PS = value;
-					this.SendPropertyChanged("PS");
-					this.OnPSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseNo", DbType="Int")]
-		public System.Nullable<int> CaseNo
-		{
-			get
-			{
-				return this._CaseNo;
-			}
-			set
-			{
-				if ((this._CaseNo != value))
-				{
-					this.OnCaseNoChanging(value);
-					this.SendPropertyChanging();
-					this._CaseNo = value;
-					this.SendPropertyChanged("CaseNo");
-					this.OnCaseNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dtd", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Dtd
-		{
-			get
-			{
-				return this._Dtd;
-			}
-			set
-			{
-				if ((this._Dtd != value))
-				{
-					this.OnDtdChanging(value);
-					this.SendPropertyChanging();
-					this._Dtd = value;
-					this.SendPropertyChanged("Dtd");
-					this.OnDtdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sections", DbType="NVarChar(MAX)")]
-		public string Sections
-		{
-			get
-			{
-				return this._Sections;
-			}
-			set
-			{
-				if ((this._Sections != value))
-				{
-					this.OnSectionsChanging(value);
-					this.SendPropertyChanging();
-					this._Sections = value;
-					this.SendPropertyChanged("Sections");
-					this.OnSectionsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArrestedDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ArrestedDate
-		{
-			get
-			{
-				return this._ArrestedDate;
-			}
-			set
-			{
-				if ((this._ArrestedDate != value))
-				{
-					this.OnArrestedDateChanging(value);
-					this.SendPropertyChanging();
-					this._ArrestedDate = value;
-					this.SendPropertyChanged("ArrestedDate");
-					this.OnArrestedDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhereArrested", DbType="NVarChar(200)")]
-		public string WhereArrested
-		{
-			get
-			{
-				return this._WhereArrested;
-			}
-			set
-			{
-				if ((this._WhereArrested != value))
-				{
-					this.OnWhereArrestedChanging(value);
-					this.SendPropertyChanging();
-					this._WhereArrested = value;
-					this.SendPropertyChanged("WhereArrested");
-					this.OnWhereArrestedChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Residences")]
 	public partial class Residence : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5112,6 +4882,236 @@ namespace HistorySheet
 					this._EntryDate = value;
 					this.SendPropertyChanged("EntryDate");
 					this.OnEntryDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.PastArrests")]
+	public partial class PastArrest : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _P_ID;
+		
+		private string _PS;
+		
+		private System.Nullable<int> _CaseNo;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private string _Sections;
+		
+		private System.Nullable<System.DateTime> _ArrestedDate;
+		
+		private string _WhereArrested;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnP_IDChanging(System.Nullable<int> value);
+    partial void OnP_IDChanged();
+    partial void OnPSChanging(string value);
+    partial void OnPSChanged();
+    partial void OnCaseNoChanging(System.Nullable<int> value);
+    partial void OnCaseNoChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    partial void OnSectionsChanging(string value);
+    partial void OnSectionsChanged();
+    partial void OnArrestedDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnArrestedDateChanged();
+    partial void OnWhereArrestedChanging(string value);
+    partial void OnWhereArrestedChanged();
+    #endregion
+		
+		public PastArrest()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
+		public System.Nullable<int> P_ID
+		{
+			get
+			{
+				return this._P_ID;
+			}
+			set
+			{
+				if ((this._P_ID != value))
+				{
+					this.OnP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._P_ID = value;
+					this.SendPropertyChanged("P_ID");
+					this.OnP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(50)")]
+		public string PS
+		{
+			get
+			{
+				return this._PS;
+			}
+			set
+			{
+				if ((this._PS != value))
+				{
+					this.OnPSChanging(value);
+					this.SendPropertyChanging();
+					this._PS = value;
+					this.SendPropertyChanged("PS");
+					this.OnPSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseNo", DbType="Int")]
+		public System.Nullable<int> CaseNo
+		{
+			get
+			{
+				return this._CaseNo;
+			}
+			set
+			{
+				if ((this._CaseNo != value))
+				{
+					this.OnCaseNoChanging(value);
+					this.SendPropertyChanging();
+					this._CaseNo = value;
+					this.SendPropertyChanged("CaseNo");
+					this.OnCaseNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sections", DbType="NVarChar(MAX)")]
+		public string Sections
+		{
+			get
+			{
+				return this._Sections;
+			}
+			set
+			{
+				if ((this._Sections != value))
+				{
+					this.OnSectionsChanging(value);
+					this.SendPropertyChanging();
+					this._Sections = value;
+					this.SendPropertyChanged("Sections");
+					this.OnSectionsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ArrestedDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ArrestedDate
+		{
+			get
+			{
+				return this._ArrestedDate;
+			}
+			set
+			{
+				if ((this._ArrestedDate != value))
+				{
+					this.OnArrestedDateChanging(value);
+					this.SendPropertyChanging();
+					this._ArrestedDate = value;
+					this.SendPropertyChanged("ArrestedDate");
+					this.OnArrestedDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_WhereArrested", DbType="NVarChar(200)")]
+		public string WhereArrested
+		{
+			get
+			{
+				return this._WhereArrested;
+			}
+			set
+			{
+				if ((this._WhereArrested != value))
+				{
+					this.OnWhereArrestedChanging(value);
+					this.SendPropertyChanging();
+					this._WhereArrested = value;
+					this.SendPropertyChanged("WhereArrested");
+					this.OnWhereArrestedChanged();
 				}
 			}
 		}

@@ -17,6 +17,7 @@ namespace HistorySheet
                 if (masterID != 0)
                 {
                     loadDetails(masterID);
+                    loadReadonlyAttribute(masterID);
 
                 }
                 else
@@ -26,6 +27,12 @@ namespace HistorySheet
 
             }
         }
+
+        private void loadReadonlyAttribute(int masterID)
+        {
+            globalMethods.readonlyTextbox(txtCaseDate);
+        }
+
         private void loadDetails(int masterID)
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
@@ -35,6 +42,11 @@ namespace HistorySheet
                 fathersName.InnerText = "Father's name:" + record.FathersName + " @" + record.Fathersaliases;
                 category.InnerText = "Category: " + record.Category;
             }
+        }
+
+        protected void btnInsert_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
