@@ -365,6 +365,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="globalMethods.cs" />
     <Compile Include="HistoryList.aspx.cs">
       <DependentUpon>HistoryList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

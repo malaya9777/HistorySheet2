@@ -101,21 +101,21 @@ namespace HistorySheet
                         Conviction con = new Conviction();
                         con.P_ID = masterID;
                         con.IsSR = chkIsSR.Checked;
-                        con.SRNo = getNumber(txtSRNo.Text);
+                        con.SRNo = globalMethods.getNumber(txtSRNo.Text);
                         con.District = txtDistrict.Text;
                         con.PS = txtPS.Text;
-                        con.CaseNo = getNumber(txtCaseNo.Text);
-                        con.CaseDate = getDate(txtCaseDate.Text);
+                        con.CaseNo = globalMethods.getNumber(txtCaseNo.Text);
+                        con.CaseDate = globalMethods.getDate(txtCaseDate.Text);
                         con.Sections = txtSections.Text;
                         con.MO = txtMO.Text;
                         con.Court = txtCourt.Text;
                         con.Conviction1 = txtConviction.Text;
-                        con.ConvictionDate = getDate(txtConvictionDate.Text);
+                        con.ConvictionDate = globalMethods.getDate(txtConvictionDate.Text);
                         con.ConvitionSentence = txtConvitionSentence.Text;
-                        con.FPBSerialNo = getNumber(txtFPBSerialNo.Text);
-                        con.FPBDate = getDate(txtFPBDate.Text);
+                        con.FPBSerialNo = globalMethods.getNumber(txtFPBSerialNo.Text);
+                        con.FPBDate = globalMethods.getDate(txtFPBDate.Text);
                         con.IdentifyingWitness = txtWitness.Text;
-                        con.ReleaseDate = getDate(txtReleaseDate.Text);
+                        con.ReleaseDate = globalMethods.getDate(txtReleaseDate.Text);
                         db.Convictions.InsertOnSubmit(con);
                         db.SubmitChanges();
                         Response.Redirect(Request.RawUrl);
@@ -123,31 +123,7 @@ namespace HistorySheet
                     }
                 }
             }
-        }
-        private DateTime? getDate(string v)
-        {
-            try
-            {
-                return Convert.ToDateTime(v);
-            }
-            catch
-            {
-                return null;
-            }
-        }
-
-        private int? getNumber(string v)
-        {
-            try
-            {
-                return Convert.ToInt32(v);
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-        }
+        }       
 
         protected void grdConvictions_RowCommand(object sender, GridViewCommandEventArgs e)
         {

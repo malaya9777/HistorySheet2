@@ -164,6 +164,7 @@ namespace HistorySheet
                         aso.Name = record.Name;
                         aso.Aliases = record.Aliases;
                         aso.FathersName = record.FathersName;
+                        aso.Occupation = record.TradeProfession;
                         aso.Residence = "";
                         aso.AssociationNature = "Normal";
                         db.Associates.InsertOnSubmit(aso);
