@@ -55,7 +55,7 @@
     <br />
     <br />
     <div class="panel panel-primary">
-        <div class="panel-heading">Bank Details</div>
+        <div class="panel-heading">Add Bank Details</div>
         <div class="panel-body">
             <div class="pael-row">
                 <div class="col-sm-2">
@@ -84,12 +84,12 @@
     <br />
     <asp:GridView ID="grdBankDetail" runat="server" OnRowCommand="grdBankDetail_RowCommand" width="100" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
         <Columns>
-            <asp:BoundField DataField="BankName" HeaderText="Bank Name" HeaderStyle-Font-Size="6" />
+            <asp:BoundField DataField="BankName" HeaderText="Bank Name" HeaderStyle-Font-Size="7" />
             <asp:BoundField DataField="Balance" HeaderText="Bank Details" HeaderStyle-Font-Size="7" />
             <asp:BoundField DataField="ReportedOn" HeaderText="Reported On" HeaderStyle-Font-Size="7" />
             <asp:TemplateField HeaderText="Delete">
                 <ItemTemplate>
-                    <asp:Button ID="btnDeleteBank" runat="server" CssClass="btn btn-danger" Text="Danger" CommandArgument='<% # Eval("ID")%>' />
+                    <asp:Button ID="btnDeleteBank" runat="server" CssClass="btn btn-danger" Text="Danger" CommandArgument='<% # Eval("ID")%>' CommandName="remove"/>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -97,14 +97,14 @@
     <br />
     <br />
     <div class="panel panel-primary">
-        <div class="panel-heading">Political Links</div>
+        <div class="panel-heading">Add Political Links</div>
         <div class="panel-body">
             <div class="panel-row">
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtNamePolitical" CssClass="form-control" Placeholder="Name"></asp:TextBox>
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ValidationGroup="Political" ControlToValidate="txtNamePolitical" runat="server" Display="Dynamic" ID="rfvPolitical1"></asp:RequiredFieldValidator>
                 </div>
-                <div class="col-sam-2">
+                <div class="col-sm-2">
                     <asp:DropDownList runat="server" ID="ddlStatus2" CssClass="form-control">
                         <asp:ListItem>Active</asp:ListItem>
                         <asp:ListItem>In-Active</asp:ListItem>
@@ -125,4 +125,19 @@
             </div>
         </div>
     </div>
+    <br />
+    <br />
+    <asp:GridView ID="grdPoliticalLink" runat="server" OnRowCommand="grdPoliticalLink_RowCommand" width="100" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true">
+        <Columns>
+            <asp:BoundField DataField="Name" HeaderText="Name" HeaderStyle-Font-Size="7" />
+            <asp:BoundField DataField="Status" HeaderText="Status" HeaderStyle-Font-Size="7" />
+            <asp:BoundField DataField="Since" HeaderText="Since" HeaderStyle-Font-Size="7" />
+            <asp:BoundField DataField="ReportedOn" HeaderText="Reported Date" HeaderStyle-Font-Size="7" />
+            <asp:TemplateField HeaderText="Delete">
+                <ItemTemplate>
+                    <asp:Button ID="btnPoliticalLink" CssClass="btn btn-danger" CommandArgument='<%#Eval("ID") %>' Text="Delete" runat="server" CommandName="delete" />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 </asp:Content>

@@ -19,6 +19,7 @@ namespace HistorySheet
                     loadDetails(masterID);
                     loadMobileGrid(masterID);
                     loadBankGrid(masterID);
+                    loadPoliticalGrid(masterID);
                 }
 
             }
@@ -61,7 +62,17 @@ namespace HistorySheet
 
         protected void grdMobile_RowCommand(object sender, GridViewCommandEventArgs e)
         {
- 
+            if (e.CommandName == "remove")
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var record = db.MobileNumbers.Where(n => n.P_Id == ID).SingleOrDefault();
+                    db.MobileNumbers.DeleteOnSubmit(record);
+                    db.SubmitChanges();
+                }
+                Response.Redirect(Request.RawUrl);
+            }
         }
 
         private void loadMobileGrid(int ID)
@@ -172,6 +183,31 @@ namespace HistorySheet
                     Response.Redirect(Request.RawUrl);
                 }
             }
+        }
+
+        protected void grdPoliticalLink_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        private void loadPoliticalGrid(int ID)
+        {
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+                var records = db.PoliticalLinks.Where(n => n.P_Id == ID).Select(n => new
+                {
+                    n.Id,
+                    n.Name,
+                    n.Status,
+                    n.Since,
+                    n.ReportedOn,
+                }).ToList();
+
+                grdPoliticalLink.DataSource = records;
+                grdPoliticalLink.DataBind();
+            }
+            
         }
     }
 }
