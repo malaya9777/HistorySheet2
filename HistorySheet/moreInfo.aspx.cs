@@ -47,7 +47,7 @@ namespace HistorySheet
                 mobile.MobileNumber1 = txtMobNumber.Text;
                 mobile.Operator = txtOperator.Text;
                 mobile.Status = ddlStatus.SelectedValue == "Active" ? true : false;
-                mobile.ReportDate = Convert.ToDateTime(txtReportDate.Text);
+                mobile.ReportDate = DateTime.Now;
 
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
                 {
@@ -86,7 +86,7 @@ namespace HistorySheet
                     n.MobileNumber1,
                     n.Operator,
                     n.Status,
-                    n.ReportDate,
+                    ReportDate = n.ReportDate.Value.ToShortDateString(),
                 }).ToList();
 
                 grdMobile.DataSource = records;
@@ -127,7 +127,7 @@ namespace HistorySheet
                     n.Id,
                     n.BankName,
                     n.Balance,
-                    ReportedOn=n.ReportedOn.Value.ToShortDateString(),
+                    ReportedOn = n.ReportedOn.Value.ToShortDateString(),
                 }).ToList();
 
                 grdBankDetail.DataSource = records;
@@ -185,7 +185,7 @@ namespace HistorySheet
                 Political.Name = txtNamePolitical.Text;
                 Political.Status = ddlStatus2.SelectedValue == "Active" ? true : false;
                 Political.Since = getDate(txtSince.Text);
-                Political.ReportedOn = getDate(txtReportedon.Text);
+                Political.ReportedOn = DateTime.Now;
 
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
                 {
@@ -198,7 +198,7 @@ namespace HistorySheet
 
         protected void grdPoliticalLink_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            if (e.CommandName == "delete")
+            if (e.CommandName == "remove")
             {
                 var ID = Convert.ToInt32(e.CommandArgument);
 
@@ -223,8 +223,8 @@ namespace HistorySheet
                     n.Id,
                     n.Name,
                     n.Status,
-                    n.Since,
-                    n.ReportedOn,
+                    Since = n.Since.Value.ToShortDateString(),
+                    ReportedOn = n.ReportedOn.Value.ToShortDateString(),
                 }).ToList();
 
                 grdPoliticalLink.DataSource = records;
