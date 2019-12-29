@@ -82,7 +82,7 @@
     </div>
     <br />
     <br />
-    <asp:GridView ID="grdBankDetail" runat="server" OnRowCommand="grdBankDetail_RowCommand" width="100" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
+    <asp:GridView ID="grdBankDetail" runat="server" OnRowCommand="grdBankDetail_RowCommand" width="100%" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField DataField="BankName" HeaderText="Bank Name" HeaderStyle-Font-Size="7" />
             <asp:BoundField DataField="Balance" HeaderText="Bank Details" HeaderStyle-Font-Size="7" />
@@ -127,7 +127,7 @@
     </div>
     <br />
     <br />
-    <asp:GridView ID="grdPoliticalLink" runat="server" OnRowCommand="grdPoliticalLink_RowCommand" width="100" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="true">
+    <asp:GridView ID="grdPoliticalLink" runat="server" OnRowCommand="grdPoliticalLink_RowCommand" width="100%" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
         <Columns>
             <asp:BoundField DataField="Name" HeaderText="Name" HeaderStyle-Font-Size="7" />
             <asp:BoundField DataField="Status" HeaderText="Status" HeaderStyle-Font-Size="7" />

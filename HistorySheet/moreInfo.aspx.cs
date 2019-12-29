@@ -79,7 +79,7 @@ namespace HistorySheet
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                
+
                 var records = db.MobileNumbers.Where(n => n.P_Id == ID).Select(n => new
                 {
                     n.Id,
@@ -119,7 +119,7 @@ namespace HistorySheet
 
         private void loadBankGrid(int ID)
         {
-            using(DBHistoryDataContext db = new DBHistoryDataContext())
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
                 var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
                 var records = db.BankAccounts.Where(n => n.P_Id == ID).Select(n => new
@@ -137,8 +137,19 @@ namespace HistorySheet
 
         protected void grdBankDetail_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            if (e.CommandName == "remove")
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var records = db.BankAccounts.Where(n => n.P_Id == ID).SingleOrDefault();
+                    db.BankAccounts.DeleteOnSubmit(records);
+                    db.SubmitChanges();
+                }
+                Response.Redirect(Request.RawUrl);
+            }
         }
+
         private DateTime? getDate(string v)
         {
             try
@@ -168,7 +179,7 @@ namespace HistorySheet
             var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
             if (masterID != 0)
             {
-                
+
                 var Political = new PoliticalLink();
                 Political.P_Id = masterID;
                 Political.Name = txtNamePolitical.Text;
@@ -187,7 +198,19 @@ namespace HistorySheet
 
         protected void grdPoliticalLink_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName == "delete")
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
 
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var records = db.PoliticalLinks.Where(n => n.P_Id == ID).SingleOrDefault();
+                    db.PoliticalLinks.DeleteOnSubmit(records);
+                    db.SubmitChanges();
+
+                }
+                Response.Redirect(Request.RawUrl);
+            }
         }
 
         private void loadPoliticalGrid(int ID)
@@ -207,7 +230,7 @@ namespace HistorySheet
                 grdPoliticalLink.DataSource = records;
                 grdPoliticalLink.DataBind();
             }
-            
+
         }
     }
 }
