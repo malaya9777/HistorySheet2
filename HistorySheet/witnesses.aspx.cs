@@ -30,5 +30,21 @@ namespace HistorySheet
                 category.InnerText = "Category: " + record.Category;
             }
         }
+
+        protected void grdWitness_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+            if(masterID != 0)
+            {
+                var witness = new Witness();
+                witness.P_ID = masterID;
+                witness.Name = txtName.Text;
+            }
+        }
     }
 }
