@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -29,6 +31,7 @@ namespace HistorySheet
                     n.HistoryNo,
                     n.Category,
                     PanelColor = getPanelColor(n.Category),
+                    Image = getImage(n.Id),
                     n.HomeDistrict,
                     n.PoliceStation,
                     n.DateofReport,
@@ -38,6 +41,7 @@ namespace HistorySheet
                     n.FathersName,
                     n.Fathersaliases,
                     n.IsHusband,
+                    Prefix = n.IsHusband==true?"Husband's":"Father's",
                     n.TradeProfession,
                     n.YearBirth,
                     n.Height,
@@ -71,6 +75,24 @@ namespace HistorySheet
                 grdList.DataSource = records;
                 grdList.DataBind();
             }
+        }
+
+        private Array getImage(int id)
+        {
+            using(DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var image = db.Photographs_FPs.Where(s => s.P_ID == id && s.IsFingerPrint == false).Select(s => s.Image).FirstOrDefault();
+                if (image != null)
+                {
+                    return image.ToArray();
+                }
+                else
+                {
+                    var path = Server.MapPath(@"\DefaultImg\default.jpg");                  
+                    return File.ReadAllBytes(path);
+                }
+            }
+            
         }
 
         private string getPanelColor(string category)
