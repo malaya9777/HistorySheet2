@@ -50,17 +50,17 @@ namespace HistorySheet
             }
         }
 
-        private void loadWitnessGrid(int ID)
+        private void loadWitnessGrid(int masterID)
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
-            {
-                var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
-                var records = db.Witnesses.Where(n => n.P_ID == ID).Select(n => new
+            {               
+                var records = db.Witnesses.Where(n => n.P_ID == masterID).Select(n => new
                 {
                     n.ID,
                     n.Name,
                     n.Gender,
                     DOB = n.DOB.Value.ToShortDateString(),
+                    image = n.Image.ToArray(),
                     n.FathersName,
                     n.Address,
 
@@ -83,6 +83,7 @@ namespace HistorySheet
                 witness.DOB = getDate(txtDOB.Text);
                 witness.FathersName = txtFName.Text;
                 witness.Address = txtAddress.Text;
+                witness.Image = fuImage.FileBytes;
 
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
                 {

@@ -67,7 +67,7 @@ namespace HistorySheet
                 var ID = Convert.ToInt32(e.CommandArgument);
                 using (DBHistoryDataContext db = new DBHistoryDataContext())
                 {
-                    var record = db.MobileNumbers.Where(n => n.P_Id == ID).SingleOrDefault();
+                    var record = db.MobileNumbers.Where(n => n.Id == ID).SingleOrDefault();
                     db.MobileNumbers.DeleteOnSubmit(record);
                     db.SubmitChanges();
                 }
@@ -217,7 +217,7 @@ namespace HistorySheet
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+               
                 var records = db.PoliticalLinks.Where(n => n.P_Id == ID).Select(n => new
                 {
                     n.Id,
