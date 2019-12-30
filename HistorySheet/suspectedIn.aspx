@@ -38,7 +38,7 @@
                     <asp:Button ID="btnAdd" Text="Add" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
                 </div>
             </div>
-
+            <br />
             <div class="row">
                 <div class="col-sm-2">
                     <asp:CheckBox Text="Is SR" runat="server" ID="chkSR" AutoPostBack="true" OnCheckedChanged="chkSR_CheckedChanged" />
@@ -50,7 +50,7 @@
                     <asp:TextBox ID="txtPropertyKind" CssClass="form-control" runat="server" Placeholder="Type of Property" Enabled="false"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
-                    <asp:TextBox ID="txtPropertyValue" CssClass="form-conrtol" runat="server" Placeholder="Value of Property" Enabled="false"></asp:TextBox>
+                    <asp:TextBox ID="txtPropertyValue" CssClass="form-control" runat="server" Placeholder="Value of Property" Enabled="false"></asp:TextBox>
                 </div>
             </div>
 
