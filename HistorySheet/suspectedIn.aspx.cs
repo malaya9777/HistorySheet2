@@ -17,10 +17,6 @@ namespace HistorySheet
                 if (masterID != 0)
                     loadDetails(masterID);
 
-
-                txtSRNo.Enabled = false;
-                txtPropertyKind.Enabled = false;
-                txtPropertyValue.Enabled = false;
             }
 
 
@@ -39,11 +35,18 @@ namespace HistorySheet
 
         protected void chkSR_CheckedChanged(object sender, EventArgs e)
         {
-            if
-                (chkSR.Enabled == true)
+            if(chkSR.Checked)
+            {
                 txtSRNo.Enabled = true;
                 txtPropertyKind.Enabled = true;
                 txtPropertyValue.Enabled = true;
+            }
+            else
+            {
+                txtSRNo.Enabled = false;
+                txtPropertyKind.Enabled = false;
+                txtPropertyValue.Enabled = false;
+            }
             
 
         }
@@ -54,22 +57,50 @@ namespace HistorySheet
 
             if (masterID != 0)
             {
-                var suspect = new SuspectedCase();
-                suspect.P_ID = masterID;
-                suspect.District = txtDistrict.Text;
-                suspect.PS = txtPS.Text;
-                suspect.CaseNo = Convert.ToInt32(txtCaseNo);
-                suspect.CaseDate = Convert.ToDateTime(txtCaseDate);
-                suspect.SRNo = Convert.ToInt32(txtSRNo);
-                suspect.PropertyKind = txtPropertyKind.Text;
-                suspect.PropertyValue = txtPropertyValue.Text;
-
-                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                if (Page.IsValid)
                 {
-                    db.SuspectedCases.InsertOnSubmit(suspect);
-                    db.SubmitChanges();
-                    Response.Redirect(Request.RawUrl);
+                    using (DBHistoryDataContext db = new DBHistoryDataContext())
+                    {
+                        var suspect = new SuspectedCase();
+                        suspect.P_ID = masterID;
+                        suspect.IsSR = chkSR.Checked;
+                        suspect.District = txtDistrict.Text;
+                        suspect.PS = txtPS.Text;
+                        suspect.CaseNo = getNumber(txtCaseNo.Text);
+                        suspect.CaseDate = getDate(txtCaseDate.Text);
+                        suspect.SRNo = getNumber(txtSRNo.Text);
+                        suspect.PropertyKind = txtPropertyKind.Text;
+                        suspect.PropertyValue = txtPropertyValue.Text;
+                        db.SuspectedCases.InsertOnSubmit(suspect);
+                        db.SubmitChanges();
+                        Response.Redirect(Request.RawUrl);
+                    }
                 }
+            }
+        }
+
+        private DateTime? getDate(string v)
+        {
+            try
+            {
+                return Convert.ToDateTime(v);
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private int? getNumber(string v)
+        {
+            try
+            {
+                return Convert.ToInt32(v);
+            }
+            catch (Exception)
+            {
+
+                return null;
             }
         }
     }

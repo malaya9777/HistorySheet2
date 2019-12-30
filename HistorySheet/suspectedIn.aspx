@@ -13,7 +13,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Suspected In</div>
         <div class="panel-body">
-            <div class="panel-row">
+            <div class="row">
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtDistrict" CssClass="form-control" Placeholder="District"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfv1" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtDistrict" runat="server" ValidationGroup="suspect" Display="Dynamic" />
@@ -31,25 +31,29 @@
                     <asp:RequiredFieldValidator ID="rfv4" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtCaseDate" runat="server" Display="Dynamic" ValidationGroup="suspect"></asp:RequiredFieldValidator>
                     <ajax:CalendarExtender ID="CE1" runat="server" TargetControlID="txtCaseDate" Format="dd-MMM-yyyy" />
                 </div>
-                <div class="panel-row">
-                    <asp:CheckBox Text="text" runat="server" ID="chkSR" AutoPostBack="true" OnCheckedChanged="chkSR_CheckedChanged"/>
-                    <div class="col-sm-2">
-                        <asp:TextBox runat="server" ID="txtSRNo" CssClass="form-control" Placeholder="SR No" Enabled="false"></asp:TextBox>
-                    </div>
-                    <div class="col-sm-2">
-                        <asp:TextBox ID="txtPropertyKind" CssClass="form-control" runat="server" Placeholder="Type of Property" Enabled="false"></asp:TextBox>
-                    </div>
-                    <div class="col-sm-2">
-                        <asp:TextBox ID="txtPropertyValue" CssClass="form-conrtol" runat="server" Placeholder="Value of Property" Enabled="false"></asp:TextBox>
-                    </div>
-                </div>
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtRemarks" CssClass="form-control" Placeholder="Remarks"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
-                    <asp:Button ID="btnAdd" Text="Add" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click"  />
+                    <asp:Button ID="btnAdd" Text="Add" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-sm-2">
+                    <asp:CheckBox Text="Is SR" runat="server" ID="chkSR" AutoPostBack="true" OnCheckedChanged="chkSR_CheckedChanged" />
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox runat="server" ID="txtSRNo" CssClass="form-control" Placeholder="SR No" Enabled="false"></asp:TextBox>
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox ID="txtPropertyKind" CssClass="form-control" runat="server" Placeholder="Type of Property" Enabled="false"></asp:TextBox>
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox ID="txtPropertyValue" CssClass="form-conrtol" runat="server" Placeholder="Value of Property" Enabled="false"></asp:TextBox>
+                </div>
+            </div>
+
         </div>
     </div>
 </asp:Content>
