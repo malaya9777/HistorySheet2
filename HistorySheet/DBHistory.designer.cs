@@ -66,9 +66,6 @@ namespace HistorySheet
     partial void InsertAssociate(Associate instance);
     partial void UpdateAssociate(Associate instance);
     partial void DeleteAssociate(Associate instance);
-    partial void InsertResidence(Residence instance);
-    partial void UpdateResidence(Residence instance);
-    partial void DeleteResidence(Residence instance);
     partial void InsertEnquiryNote(EnquiryNote instance);
     partial void UpdateEnquiryNote(EnquiryNote instance);
     partial void DeleteEnquiryNote(EnquiryNote instance);
@@ -81,6 +78,9 @@ namespace HistorySheet
     partial void InsertRelate(Relate instance);
     partial void UpdateRelate(Relate instance);
     partial void DeleteRelate(Relate instance);
+    partial void InsertResidence(Residence instance);
+    partial void UpdateResidence(Residence instance);
+    partial void DeleteResidence(Residence instance);
     #endregion
 		
 		public DBHistoryDataContext() : 
@@ -217,14 +217,6 @@ namespace HistorySheet
 			}
 		}
 		
-		public System.Data.Linq.Table<Residence> Residences
-		{
-			get
-			{
-				return this.GetTable<Residence>();
-			}
-		}
-		
 		public System.Data.Linq.Table<EnquiryNote> EnquiryNotes
 		{
 			get
@@ -254,6 +246,14 @@ namespace HistorySheet
 			get
 			{
 				return this.GetTable<Relate>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Residence> Residences
+		{
+			get
+			{
+				return this.GetTable<Residence>();
 			}
 		}
 	}
@@ -3891,236 +3891,6 @@ namespace HistorySheet
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Residences")]
-	public partial class Residence : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private System.Nullable<int> _P_ID;
-		
-		private string _State;
-		
-		private string _District;
-		
-		private string _PS;
-		
-		private string _Address;
-		
-		private string _PeriodReside;
-		
-		private System.Nullable<bool> _FequentlyVisiting;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnP_IDChanging(System.Nullable<int> value);
-    partial void OnP_IDChanged();
-    partial void OnStateChanging(string value);
-    partial void OnStateChanged();
-    partial void OnDistrictChanging(string value);
-    partial void OnDistrictChanged();
-    partial void OnPSChanging(string value);
-    partial void OnPSChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnPeriodResideChanging(string value);
-    partial void OnPeriodResideChanged();
-    partial void OnFequentlyVisitingChanging(System.Nullable<bool> value);
-    partial void OnFequentlyVisitingChanged();
-    #endregion
-		
-		public Residence()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
-		public System.Nullable<int> P_ID
-		{
-			get
-			{
-				return this._P_ID;
-			}
-			set
-			{
-				if ((this._P_ID != value))
-				{
-					this.OnP_IDChanging(value);
-					this.SendPropertyChanging();
-					this._P_ID = value;
-					this.SendPropertyChanged("P_ID");
-					this.OnP_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(100)")]
-		public string State
-		{
-			get
-			{
-				return this._State;
-			}
-			set
-			{
-				if ((this._State != value))
-				{
-					this.OnStateChanging(value);
-					this.SendPropertyChanging();
-					this._State = value;
-					this.SendPropertyChanged("State");
-					this.OnStateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(100)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this.OnDistrictChanging(value);
-					this.SendPropertyChanging();
-					this._District = value;
-					this.SendPropertyChanged("District");
-					this.OnDistrictChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(200)")]
-		public string PS
-		{
-			get
-			{
-				return this._PS;
-			}
-			set
-			{
-				if ((this._PS != value))
-				{
-					this.OnPSChanging(value);
-					this.SendPropertyChanging();
-					this._PS = value;
-					this.SendPropertyChanged("PS");
-					this.OnPSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(200)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PeriodReside", DbType="NVarChar(200)")]
-		public string PeriodReside
-		{
-			get
-			{
-				return this._PeriodReside;
-			}
-			set
-			{
-				if ((this._PeriodReside != value))
-				{
-					this.OnPeriodResideChanging(value);
-					this.SendPropertyChanging();
-					this._PeriodReside = value;
-					this.SendPropertyChanged("PeriodReside");
-					this.OnPeriodResideChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FequentlyVisiting", DbType="Bit")]
-		public System.Nullable<bool> FequentlyVisiting
-		{
-			get
-			{
-				return this._FequentlyVisiting;
-			}
-			set
-			{
-				if ((this._FequentlyVisiting != value))
-				{
-					this.OnFequentlyVisitingChanging(value);
-					this.SendPropertyChanging();
-					this._FequentlyVisiting = value;
-					this.SendPropertyChanged("FequentlyVisiting");
-					this.OnFequentlyVisitingChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.EnquiryNote")]
 	public partial class EnquiryNote : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -5136,6 +4906,260 @@ namespace HistorySheet
 					this._Image = value;
 					this.SendPropertyChanged("Image");
 					this.OnImageChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Residences")]
+	public partial class Residence : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _P_ID;
+		
+		private string _Country;
+		
+		private string _State;
+		
+		private string _District;
+		
+		private string _PS;
+		
+		private string _Address;
+		
+		private string _PeriodReside;
+		
+		private System.Nullable<bool> _FequentlyVisiting;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnP_IDChanging(System.Nullable<int> value);
+    partial void OnP_IDChanged();
+    partial void OnCountryChanging(string value);
+    partial void OnCountryChanged();
+    partial void OnStateChanging(string value);
+    partial void OnStateChanged();
+    partial void OnDistrictChanging(string value);
+    partial void OnDistrictChanged();
+    partial void OnPSChanging(string value);
+    partial void OnPSChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnPeriodResideChanging(string value);
+    partial void OnPeriodResideChanged();
+    partial void OnFequentlyVisitingChanging(System.Nullable<bool> value);
+    partial void OnFequentlyVisitingChanged();
+    #endregion
+		
+		public Residence()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
+		public System.Nullable<int> P_ID
+		{
+			get
+			{
+				return this._P_ID;
+			}
+			set
+			{
+				if ((this._P_ID != value))
+				{
+					this.OnP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._P_ID = value;
+					this.SendPropertyChanged("P_ID");
+					this.OnP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Country", DbType="NVarChar(100)")]
+		public string Country
+		{
+			get
+			{
+				return this._Country;
+			}
+			set
+			{
+				if ((this._Country != value))
+				{
+					this.OnCountryChanging(value);
+					this.SendPropertyChanging();
+					this._Country = value;
+					this.SendPropertyChanged("Country");
+					this.OnCountryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_State", DbType="NVarChar(100)")]
+		public string State
+		{
+			get
+			{
+				return this._State;
+			}
+			set
+			{
+				if ((this._State != value))
+				{
+					this.OnStateChanging(value);
+					this.SendPropertyChanging();
+					this._State = value;
+					this.SendPropertyChanged("State");
+					this.OnStateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(100)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this.OnDistrictChanging(value);
+					this.SendPropertyChanging();
+					this._District = value;
+					this.SendPropertyChanged("District");
+					this.OnDistrictChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(200)")]
+		public string PS
+		{
+			get
+			{
+				return this._PS;
+			}
+			set
+			{
+				if ((this._PS != value))
+				{
+					this.OnPSChanging(value);
+					this.SendPropertyChanging();
+					this._PS = value;
+					this.SendPropertyChanged("PS");
+					this.OnPSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(900)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PeriodReside", DbType="NVarChar(200)")]
+		public string PeriodReside
+		{
+			get
+			{
+				return this._PeriodReside;
+			}
+			set
+			{
+				if ((this._PeriodReside != value))
+				{
+					this.OnPeriodResideChanging(value);
+					this.SendPropertyChanging();
+					this._PeriodReside = value;
+					this.SendPropertyChanged("PeriodReside");
+					this.OnPeriodResideChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FequentlyVisiting", DbType="Bit")]
+		public System.Nullable<bool> FequentlyVisiting
+		{
+			get
+			{
+				return this._FequentlyVisiting;
+			}
+			set
+			{
+				if ((this._FequentlyVisiting != value))
+				{
+					this.OnFequentlyVisitingChanging(value);
+					this.SendPropertyChanging();
+					this._FequentlyVisiting = value;
+					this.SendPropertyChanged("FequentlyVisiting");
+					this.OnFequentlyVisitingChanged();
 				}
 			}
 		}

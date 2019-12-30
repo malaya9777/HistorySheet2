@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Photos and Fingerprint" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="photos.aspx.cs" Inherits="HistorySheet.photos" %>
+﻿<%@ Page Title="Photos and Fingerprint" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" MaintainScrollPositionOnPostback="true" CodeBehind="photos.aspx.cs" Inherits="HistorySheet.photos" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div class="jumbotron">

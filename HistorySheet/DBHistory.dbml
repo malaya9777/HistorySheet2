@@ -185,18 +185,6 @@
       <Column Name="AssociationNature" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Residences" Member="Residences">
-    <Type Name="Residence">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="State" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="District" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="PeriodReside" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="FequentlyVisiting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.EnquiryNote" Member="EnquiryNotes">
     <Type Name="EnquiryNote">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -248,6 +236,19 @@
       <Column Name="NameofBank" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="IFSC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Residences" Member="Residences">
+    <Type Name="Residence">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PS" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(900)" CanBeNull="true" />
+      <Column Name="PeriodReside" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FequentlyVisiting" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
 </Database>
