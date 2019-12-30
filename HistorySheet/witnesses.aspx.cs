@@ -15,8 +15,11 @@ namespace HistorySheet
             {
                 var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
                 if (masterID != 0)
+                {
                     loadDetails(masterID);
-
+                    loadWitnessGrid(masterID);
+                }
+                
             }
         }
 
@@ -28,6 +31,77 @@ namespace HistorySheet
                 Name.InnerText = record.Name + " @" + record.Aliases;
                 fathersName.InnerText = "Father's name:" + record.FathersName + " @" + record.Fathersaliases;
                 category.InnerText = "Category: " + record.Category;
+            }
+        }
+
+        protected void grdWitness_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "remove")
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var records = db.Witnesses.Where(n => n.ID == ID).SingleOrDefault();
+                    db.Witnesses.DeleteOnSubmit(records);
+                    db.SubmitChanges();
+
+                }
+                Response.Redirect(Request.RawUrl);
+            }
+        }
+
+        private void loadWitnessGrid(int ID)
+        {
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+                var records = db.Witnesses.Where(n => n.P_ID == ID).Select(n => new
+                {
+                    n.ID,
+                    n.Name,
+                    n.Gender,
+                    DOB = n.DOB.Value.ToShortDateString(),
+                    n.FathersName,
+                    n.Address,
+
+                }).ToList();
+
+                grdWitness.DataSource = records;
+                grdWitness.DataBind();
+            }
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+            if (masterID != 0)
+            {
+                var witness = new Witness();
+                witness.P_ID = masterID;
+                witness.Name = txtName.Text;
+                witness.Gender = ddlGender.SelectedValue;
+                witness.DOB = getDate(txtDOB.Text);
+                witness.FathersName = txtFName.Text;
+                witness.Address = txtAddress.Text;
+
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    db.Witnesses.InsertOnSubmit(witness);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+                }
+            }
+        }
+
+        private DateTime? getDate(string Dt)
+        {
+            try
+            {
+                return Convert.ToDateTime(Dt);
+            }
+            catch
+            {
+                return null;
             }
         }
     }

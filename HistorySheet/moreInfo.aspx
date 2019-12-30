@@ -1,4 +1,5 @@
-﻿<%@ Page Title="List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="moreInfo.aspx.cs" Inherits="HistorySheet.moreInfo" %>
+﻿
+<%@ Page Title="List" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="moreInfo.aspx.cs" Inherits="HistorySheet.moreInfo" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 
