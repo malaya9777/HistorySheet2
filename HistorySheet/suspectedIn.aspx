@@ -34,9 +34,7 @@
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtRemarks" CssClass="form-control" Placeholder="Remarks"></asp:TextBox>
                 </div>
-                <div class="col-sm-2">
-                    <asp:Button ID="btnAdd" Text="Add" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
-                </div>
+                
             </div>
             <br />
             <div class="row">
@@ -51,6 +49,9 @@
                 </div>
                 <div class="col-sm-2">
                     <asp:TextBox ID="txtPropertyValue" CssClass="form-control" runat="server" Placeholder="Value of Property" Enabled="false"></asp:TextBox>
+                </div>
+                <div class="col-sm-2">
+                    <asp:Button ID="btnAdd" Text="Insert" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
                 </div>
             </div>
 
