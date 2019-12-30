@@ -15,7 +15,11 @@ namespace HistorySheet
             {
                 var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
                 if (masterID != 0)
+                {
                     loadDetails(masterID);
+                    loadSuspectGrid(masterID);
+                }
+                    
 
             }
 
@@ -35,7 +39,7 @@ namespace HistorySheet
 
         protected void chkSR_CheckedChanged(object sender, EventArgs e)
         {
-            if(chkSR.Checked)
+            if (chkSR.Checked)
             {
                 txtSRNo.Enabled = true;
                 txtPropertyKind.Enabled = true;
@@ -47,7 +51,7 @@ namespace HistorySheet
                 txtPropertyKind.Enabled = false;
                 txtPropertyValue.Enabled = false;
             }
-            
+
 
         }
 
@@ -101,6 +105,42 @@ namespace HistorySheet
             {
 
                 return null;
+            }
+        }
+
+        private void loadSuspectGrid(int ID)
+        {
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var records = db.SuspectedCases.Where(n => n.P_ID == ID).Select(n => new
+                {
+                    n.ID,
+                    n.District,
+                    n.PS,
+                    n.CaseNo,
+                    n.CaseDate,
+                    n.SRNo,
+                    n.PropertyKind,
+                    n.PropertyValue,
+                }).ToList();
+
+                grdSuspect.DataSource = records;
+                grdSuspect.DataBind();
+            }
+        }
+       
+        protected void grdSuspect_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if(e.CommandName == "remove")
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var records = db.SuspectedCases.Where(n => n.ID == ID).SingleOrDefault();
+                    db.SuspectedCases.DeleteOnSubmit(records);
+                    db.SubmitChanges();
+                }
+                Response.Redirect(Request.RawUrl);
             }
         }
     }
