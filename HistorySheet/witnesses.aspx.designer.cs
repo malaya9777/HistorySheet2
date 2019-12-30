@@ -96,6 +96,15 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv3;
 
         /// <summary>
+        /// CE1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::AjaxControlToolkit.CalendarExtender CE1;
+
+        /// <summary>
         /// txtFName control.
         /// </summary>
         /// <remarks>
@@ -130,24 +139,6 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv5;
-
-        /// <summary>
-        /// txtImage control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtImage;
-
-        /// <summary>
-        /// rfv6 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv6;
 
         /// <summary>
         /// btnAdd control.

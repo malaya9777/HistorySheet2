@@ -1,9 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="witnesses.aspx.cs" Inherits="HistorySheet.witnesses" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-     <div class="jumbotron">
+    <div class="jumbotron">
         <h4 id="Name" runat="server"></h4>
-        <p id="fathersName" runat="server" style="padding:0;margin:0;font-size:15px"></p>
-        <p id="category" runat="server" style="padding:0;margin:0;font-size:15px"></p>
+        <p id="fathersName" runat="server" style="padding: 0; margin: 0; font-size: 15px"></p>
+        <p id="category" runat="server" style="padding: 0; margin: 0; font-size: 15px"></p>
     </div>
     <br />
     <br />
@@ -17,31 +19,32 @@
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="txtName" runat="server" ID="rfv1" ValidationGroup="witness" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
-                    <asp:DropDownList runat="server" ID="ddlGender" Width="100%" placeholder="Gender">
-                        <asp:listitem>--Select--</asp:listitem>
-                        <asp:listitem>Male</asp:listitem>
-                        <asp:listitem>Female</asp:listitem>
-                        <asp:listitem>Trans</asp:listitem>
+                    <asp:DropDownList runat="server" ID="ddlGender" Width="100%" placeholder="Gender" CssClass="form-control">
+                        <asp:ListItem>--Select--</asp:ListItem>
+                        <asp:ListItem>Male</asp:ListItem>
+                        <asp:ListItem>Female</asp:ListItem>
+                        <asp:ListItem>Trans</asp:ListItem>
                     </asp:DropDownList>
                     <asp:RequiredFieldValidator ErrorMessage="*" ID="rfv2" ForeColor="Red" ControlToValidate="ddlGender" runat="server" ValidationGroup="witness"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtDOB" CssClass="form-control" Width="100%" placeholder="Date of Birth"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfv3" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtDOB" runat="server" ValidationGroup="witness"></asp:RequiredFieldValidator>
+                    <ajax:CalendarExtender ID="CE1" runat="server" Format="dd-MMM-yyyy" TargetControlID="txtDOB" />
                 </div>
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtFName" CssClass="form-control" Width="100%" placeholder="Father Name"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfv4" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtFName" ValidationGroup="witness" runat="server" ></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv4" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtFName" ValidationGroup="witness" runat="server"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtAddress" CssClass="form-control" Width="100%" placeholder="Address"></asp:TextBox>
-                    <asp:RequiredFieldValidator ID="rfv5" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtAddress" ValidationGroup="witness" runat="server" ></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="rfv5" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtAddress" ValidationGroup="witness" runat="server"></asp:RequiredFieldValidator>
                 </div>
-                <div class="col-sm-2">
-                    <asp:TextBox runat="server" ID="txtImage" CssClass="form-control" Width="100%" placeholder="Address"></asp:TextBox>
+                <%--<div class="col-sm-2">
+                    <asp:TextBox runat="server" ID="txtImage" CssClass="form-control" Width="100%" placeholder="Image"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfv6" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtImage" ValidationGroup="witness" runat="server" ></asp:RequiredFieldValidator>
-                </div>
-                <asp:Button ID="btnAdd" Text="Add" runat="server" CssClass="btn btn-primary" ValidationGroup="witness" OnClick="btnAdd_Click"/>
+                </div>--%>
+                <asp:Button ID="btnAdd" Text="Add" runat="server" CssClass="btn btn-primary" ValidationGroup="witness" OnClick="btnAdd_Click" />
             </div>
         </div>
     </div>
