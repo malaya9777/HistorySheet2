@@ -8,17 +8,23 @@
                 <ItemTemplate>
                     <div class="panel panel-<%# Eval("PanelColor") %>">
                         <div class="panel-heading">
-                            <%# Eval("Name") +" @"+ Eval("Aliases") %>
+                           <h5><%# Eval("Name") +" @"+ Eval("Aliases") %></h5> 
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-sm-2">
                                     <h1><%# Eval("Category") %></h1>
                                 </div>
-                                <div class="col-sm-2">
-
+                                <div class="col-sm-2" style="overflow:hidden">
+                                    <asp:Image ID="img" runat="server" ImageUrl=<%# "data:Image/jpg;base64,"+Convert.ToBase64String((byte[]) Eval("Image")) %>  Height="150px"/>
                                 </div>
-                                <div class="col-sm-2"></div>
+                                <div class="col-sm-4">
+                                    <p><%# Eval("Prefix") %> Name: <%# Eval("FathersName") +" @"+Eval("FathersAliases") %></p>
+                                    <p>Home District: <%# Eval("HomeDistrict") %></p>
+                                    <p>Police Station: <%# Eval("PoliceStation") %></p>
+                                    <p>Gender: <%# Eval("Gender") %></p>
+                                    <p>Year of Birth: <%# Eval("YearBirth") %></p>
+                                </div>
                                 <div class="col-sm-2"></div>
                             </div>                                                        
                         </div>

@@ -48,9 +48,6 @@ namespace HistorySheet
     partial void InsertUserLog(UserLog instance);
     partial void UpdateUserLog(UserLog instance);
     partial void DeleteUserLog(UserLog instance);
-    partial void InsertMaster(Master instance);
-    partial void UpdateMaster(Master instance);
-    partial void DeleteMaster(Master instance);
     partial void InsertBankAccount(BankAccount instance);
     partial void UpdateBankAccount(BankAccount instance);
     partial void DeleteBankAccount(BankAccount instance);
@@ -81,6 +78,9 @@ namespace HistorySheet
     partial void InsertWitness(Witness instance);
     partial void UpdateWitness(Witness instance);
     partial void DeleteWitness(Witness instance);
+    partial void InsertMaster(Master instance);
+    partial void UpdateMaster(Master instance);
+    partial void DeleteMaster(Master instance);
     #endregion
 		
 		public DBHistoryDataContext() : 
@@ -169,14 +169,6 @@ namespace HistorySheet
 			}
 		}
 		
-		public System.Data.Linq.Table<Master> Masters
-		{
-			get
-			{
-				return this.GetTable<Master>();
-			}
-		}
-		
 		public System.Data.Linq.Table<BankAccount> BankAccounts
 		{
 			get
@@ -254,6 +246,14 @@ namespace HistorySheet
 			get
 			{
 				return this.GetTable<Witness>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Master> Masters
+		{
+			get
+			{
+				return this.GetTable<Master>();
 			}
 		}
 	}
@@ -1646,1124 +1646,6 @@ namespace HistorySheet
 					this._UserID = value;
 					this.SendPropertyChanged("UserID");
 					this.OnUserIDChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Master")]
-	public partial class Master : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _Id;
-		
-		private System.Nullable<int> _CrimeDBID;
-		
-		private System.Nullable<int> _SPMODBID;
-		
-		private string _HistoryNo;
-		
-		private string _Category;
-		
-		private string _HomeDistrict;
-		
-		private string _PoliceStation;
-		
-		private System.Nullable<System.DateTime> _DateofReport;
-		
-		private string _Name;
-		
-		private string _Aliases;
-		
-		private string _Gender;
-		
-		private string _FathersName;
-		
-		private string _Fathersaliases;
-		
-		private System.Nullable<bool> _IsHusband;
-		
-		private string _TradeProfession;
-		
-		private System.Nullable<System.DateTime> _YearBirth;
-		
-		private System.Nullable<double> _Height;
-		
-		private string _Build;
-		
-		private string _HairColor;
-		
-		private string _HairCut;
-		
-		private string _Eyebrows;
-		
-		private string _Forehead;
-		
-		private string _Eyes;
-		
-		private string _Nose;
-		
-		private string _Mouth;
-		
-		private string _Chin;
-		
-		private string _Teeth;
-		
-		private string _Fingers;
-		
-		private string _Ears;
-		
-		private string _Face;
-		
-		private string _Complexion;
-		
-		private string _FacialHair;
-		
-		private string _FacialHairType;
-		
-		private string _Marks;
-		
-		private string _Deformities;
-		
-		private string _Manners;
-		
-		private string _Gait;
-		
-		private string _Speech;
-		
-		private string _Appearance;
-		
-		private string _Dressing;
-		
-		private string _Accomplishments;
-		
-		private string _Habits;
-		
-		private string _BadHabits;
-		
-		private string _OtherDescriptivePoints;
-		
-		private System.Nullable<System.DateTime> _LastUpdate;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdChanging(int value);
-    partial void OnIdChanged();
-    partial void OnCrimeDBIDChanging(System.Nullable<int> value);
-    partial void OnCrimeDBIDChanged();
-    partial void OnSPMODBIDChanging(System.Nullable<int> value);
-    partial void OnSPMODBIDChanged();
-    partial void OnHistoryNoChanging(string value);
-    partial void OnHistoryNoChanged();
-    partial void OnCategoryChanging(string value);
-    partial void OnCategoryChanged();
-    partial void OnHomeDistrictChanging(string value);
-    partial void OnHomeDistrictChanged();
-    partial void OnPoliceStationChanging(string value);
-    partial void OnPoliceStationChanged();
-    partial void OnDateofReportChanging(System.Nullable<System.DateTime> value);
-    partial void OnDateofReportChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnAliasesChanging(string value);
-    partial void OnAliasesChanged();
-    partial void OnGenderChanging(string value);
-    partial void OnGenderChanged();
-    partial void OnFathersNameChanging(string value);
-    partial void OnFathersNameChanged();
-    partial void OnFathersaliasesChanging(string value);
-    partial void OnFathersaliasesChanged();
-    partial void OnIsHusbandChanging(System.Nullable<bool> value);
-    partial void OnIsHusbandChanged();
-    partial void OnTradeProfessionChanging(string value);
-    partial void OnTradeProfessionChanged();
-    partial void OnYearBirthChanging(System.Nullable<System.DateTime> value);
-    partial void OnYearBirthChanged();
-    partial void OnHeightChanging(System.Nullable<double> value);
-    partial void OnHeightChanged();
-    partial void OnBuildChanging(string value);
-    partial void OnBuildChanged();
-    partial void OnHairColorChanging(string value);
-    partial void OnHairColorChanged();
-    partial void OnHairCutChanging(string value);
-    partial void OnHairCutChanged();
-    partial void OnEyebrowsChanging(string value);
-    partial void OnEyebrowsChanged();
-    partial void OnForeheadChanging(string value);
-    partial void OnForeheadChanged();
-    partial void OnEyesChanging(string value);
-    partial void OnEyesChanged();
-    partial void OnNoseChanging(string value);
-    partial void OnNoseChanged();
-    partial void OnMouthChanging(string value);
-    partial void OnMouthChanged();
-    partial void OnChinChanging(string value);
-    partial void OnChinChanged();
-    partial void OnTeethChanging(string value);
-    partial void OnTeethChanged();
-    partial void OnFingersChanging(string value);
-    partial void OnFingersChanged();
-    partial void OnEarsChanging(string value);
-    partial void OnEarsChanged();
-    partial void OnFaceChanging(string value);
-    partial void OnFaceChanged();
-    partial void OnComplexionChanging(string value);
-    partial void OnComplexionChanged();
-    partial void OnFacialHairChanging(string value);
-    partial void OnFacialHairChanged();
-    partial void OnFacialHairTypeChanging(string value);
-    partial void OnFacialHairTypeChanged();
-    partial void OnMarksChanging(string value);
-    partial void OnMarksChanged();
-    partial void OnDeformitiesChanging(string value);
-    partial void OnDeformitiesChanged();
-    partial void OnMannersChanging(string value);
-    partial void OnMannersChanged();
-    partial void OnGaitChanging(string value);
-    partial void OnGaitChanged();
-    partial void OnSpeechChanging(string value);
-    partial void OnSpeechChanged();
-    partial void OnAppearanceChanging(string value);
-    partial void OnAppearanceChanged();
-    partial void OnDressingChanging(string value);
-    partial void OnDressingChanged();
-    partial void OnAccomplishmentsChanging(string value);
-    partial void OnAccomplishmentsChanged();
-    partial void OnHabitsChanging(string value);
-    partial void OnHabitsChanged();
-    partial void OnBadHabitsChanging(string value);
-    partial void OnBadHabitsChanged();
-    partial void OnOtherDescriptivePointsChanging(string value);
-    partial void OnOtherDescriptivePointsChanged();
-    partial void OnLastUpdateChanging(System.Nullable<System.DateTime> value);
-    partial void OnLastUpdateChanged();
-    #endregion
-		
-		public Master()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int Id
-		{
-			get
-			{
-				return this._Id;
-			}
-			set
-			{
-				if ((this._Id != value))
-				{
-					this.OnIdChanging(value);
-					this.SendPropertyChanging();
-					this._Id = value;
-					this.SendPropertyChanged("Id");
-					this.OnIdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CrimeDBID", DbType="Int")]
-		public System.Nullable<int> CrimeDBID
-		{
-			get
-			{
-				return this._CrimeDBID;
-			}
-			set
-			{
-				if ((this._CrimeDBID != value))
-				{
-					this.OnCrimeDBIDChanging(value);
-					this.SendPropertyChanging();
-					this._CrimeDBID = value;
-					this.SendPropertyChanged("CrimeDBID");
-					this.OnCrimeDBIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPMODBID", DbType="Int")]
-		public System.Nullable<int> SPMODBID
-		{
-			get
-			{
-				return this._SPMODBID;
-			}
-			set
-			{
-				if ((this._SPMODBID != value))
-				{
-					this.OnSPMODBIDChanging(value);
-					this.SendPropertyChanging();
-					this._SPMODBID = value;
-					this.SendPropertyChanged("SPMODBID");
-					this.OnSPMODBIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HistoryNo", DbType="NVarChar(200)")]
-		public string HistoryNo
-		{
-			get
-			{
-				return this._HistoryNo;
-			}
-			set
-			{
-				if ((this._HistoryNo != value))
-				{
-					this.OnHistoryNoChanging(value);
-					this.SendPropertyChanging();
-					this._HistoryNo = value;
-					this.SendPropertyChanged("HistoryNo");
-					this.OnHistoryNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(1)")]
-		public string Category
-		{
-			get
-			{
-				return this._Category;
-			}
-			set
-			{
-				if ((this._Category != value))
-				{
-					this.OnCategoryChanging(value);
-					this.SendPropertyChanging();
-					this._Category = value;
-					this.SendPropertyChanged("Category");
-					this.OnCategoryChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeDistrict", DbType="NVarChar(200)")]
-		public string HomeDistrict
-		{
-			get
-			{
-				return this._HomeDistrict;
-			}
-			set
-			{
-				if ((this._HomeDistrict != value))
-				{
-					this.OnHomeDistrictChanging(value);
-					this.SendPropertyChanging();
-					this._HomeDistrict = value;
-					this.SendPropertyChanged("HomeDistrict");
-					this.OnHomeDistrictChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliceStation", DbType="NVarChar(200)")]
-		public string PoliceStation
-		{
-			get
-			{
-				return this._PoliceStation;
-			}
-			set
-			{
-				if ((this._PoliceStation != value))
-				{
-					this.OnPoliceStationChanging(value);
-					this.SendPropertyChanging();
-					this._PoliceStation = value;
-					this.SendPropertyChanged("PoliceStation");
-					this.OnPoliceStationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateofReport", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DateofReport
-		{
-			get
-			{
-				return this._DateofReport;
-			}
-			set
-			{
-				if ((this._DateofReport != value))
-				{
-					this.OnDateofReportChanging(value);
-					this.SendPropertyChanging();
-					this._DateofReport = value;
-					this.SendPropertyChanged("DateofReport");
-					this.OnDateofReportChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(500)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aliases", DbType="NVarChar(200)")]
-		public string Aliases
-		{
-			get
-			{
-				return this._Aliases;
-			}
-			set
-			{
-				if ((this._Aliases != value))
-				{
-					this.OnAliasesChanging(value);
-					this.SendPropertyChanging();
-					this._Aliases = value;
-					this.SendPropertyChanged("Aliases");
-					this.OnAliasesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(100)")]
-		public string Gender
-		{
-			get
-			{
-				return this._Gender;
-			}
-			set
-			{
-				if ((this._Gender != value))
-				{
-					this.OnGenderChanging(value);
-					this.SendPropertyChanging();
-					this._Gender = value;
-					this.SendPropertyChanged("Gender");
-					this.OnGenderChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FathersName", DbType="NVarChar(500)")]
-		public string FathersName
-		{
-			get
-			{
-				return this._FathersName;
-			}
-			set
-			{
-				if ((this._FathersName != value))
-				{
-					this.OnFathersNameChanging(value);
-					this.SendPropertyChanging();
-					this._FathersName = value;
-					this.SendPropertyChanged("FathersName");
-					this.OnFathersNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fathersaliases", DbType="NVarChar(500)")]
-		public string Fathersaliases
-		{
-			get
-			{
-				return this._Fathersaliases;
-			}
-			set
-			{
-				if ((this._Fathersaliases != value))
-				{
-					this.OnFathersaliasesChanging(value);
-					this.SendPropertyChanging();
-					this._Fathersaliases = value;
-					this.SendPropertyChanged("Fathersaliases");
-					this.OnFathersaliasesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsHusband", DbType="Bit")]
-		public System.Nullable<bool> IsHusband
-		{
-			get
-			{
-				return this._IsHusband;
-			}
-			set
-			{
-				if ((this._IsHusband != value))
-				{
-					this.OnIsHusbandChanging(value);
-					this.SendPropertyChanging();
-					this._IsHusband = value;
-					this.SendPropertyChanged("IsHusband");
-					this.OnIsHusbandChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TradeProfession", DbType="NVarChar(500)")]
-		public string TradeProfession
-		{
-			get
-			{
-				return this._TradeProfession;
-			}
-			set
-			{
-				if ((this._TradeProfession != value))
-				{
-					this.OnTradeProfessionChanging(value);
-					this.SendPropertyChanging();
-					this._TradeProfession = value;
-					this.SendPropertyChanged("TradeProfession");
-					this.OnTradeProfessionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YearBirth", DbType="Date")]
-		public System.Nullable<System.DateTime> YearBirth
-		{
-			get
-			{
-				return this._YearBirth;
-			}
-			set
-			{
-				if ((this._YearBirth != value))
-				{
-					this.OnYearBirthChanging(value);
-					this.SendPropertyChanging();
-					this._YearBirth = value;
-					this.SendPropertyChanged("YearBirth");
-					this.OnYearBirthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Float")]
-		public System.Nullable<double> Height
-		{
-			get
-			{
-				return this._Height;
-			}
-			set
-			{
-				if ((this._Height != value))
-				{
-					this.OnHeightChanging(value);
-					this.SendPropertyChanging();
-					this._Height = value;
-					this.SendPropertyChanged("Height");
-					this.OnHeightChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Build", DbType="NVarChar(100)")]
-		public string Build
-		{
-			get
-			{
-				return this._Build;
-			}
-			set
-			{
-				if ((this._Build != value))
-				{
-					this.OnBuildChanging(value);
-					this.SendPropertyChanging();
-					this._Build = value;
-					this.SendPropertyChanged("Build");
-					this.OnBuildChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HairColor", DbType="NVarChar(100)")]
-		public string HairColor
-		{
-			get
-			{
-				return this._HairColor;
-			}
-			set
-			{
-				if ((this._HairColor != value))
-				{
-					this.OnHairColorChanging(value);
-					this.SendPropertyChanging();
-					this._HairColor = value;
-					this.SendPropertyChanged("HairColor");
-					this.OnHairColorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HairCut", DbType="NVarChar(100)")]
-		public string HairCut
-		{
-			get
-			{
-				return this._HairCut;
-			}
-			set
-			{
-				if ((this._HairCut != value))
-				{
-					this.OnHairCutChanging(value);
-					this.SendPropertyChanging();
-					this._HairCut = value;
-					this.SendPropertyChanged("HairCut");
-					this.OnHairCutChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eyebrows", DbType="NVarChar(100)")]
-		public string Eyebrows
-		{
-			get
-			{
-				return this._Eyebrows;
-			}
-			set
-			{
-				if ((this._Eyebrows != value))
-				{
-					this.OnEyebrowsChanging(value);
-					this.SendPropertyChanging();
-					this._Eyebrows = value;
-					this.SendPropertyChanged("Eyebrows");
-					this.OnEyebrowsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Forehead", DbType="NVarChar(100)")]
-		public string Forehead
-		{
-			get
-			{
-				return this._Forehead;
-			}
-			set
-			{
-				if ((this._Forehead != value))
-				{
-					this.OnForeheadChanging(value);
-					this.SendPropertyChanging();
-					this._Forehead = value;
-					this.SendPropertyChanged("Forehead");
-					this.OnForeheadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eyes", DbType="NVarChar(100)")]
-		public string Eyes
-		{
-			get
-			{
-				return this._Eyes;
-			}
-			set
-			{
-				if ((this._Eyes != value))
-				{
-					this.OnEyesChanging(value);
-					this.SendPropertyChanging();
-					this._Eyes = value;
-					this.SendPropertyChanged("Eyes");
-					this.OnEyesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nose", DbType="NVarChar(100)")]
-		public string Nose
-		{
-			get
-			{
-				return this._Nose;
-			}
-			set
-			{
-				if ((this._Nose != value))
-				{
-					this.OnNoseChanging(value);
-					this.SendPropertyChanging();
-					this._Nose = value;
-					this.SendPropertyChanged("Nose");
-					this.OnNoseChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mouth", DbType="NVarChar(100)")]
-		public string Mouth
-		{
-			get
-			{
-				return this._Mouth;
-			}
-			set
-			{
-				if ((this._Mouth != value))
-				{
-					this.OnMouthChanging(value);
-					this.SendPropertyChanging();
-					this._Mouth = value;
-					this.SendPropertyChanged("Mouth");
-					this.OnMouthChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chin", DbType="NVarChar(100)")]
-		public string Chin
-		{
-			get
-			{
-				return this._Chin;
-			}
-			set
-			{
-				if ((this._Chin != value))
-				{
-					this.OnChinChanging(value);
-					this.SendPropertyChanging();
-					this._Chin = value;
-					this.SendPropertyChanged("Chin");
-					this.OnChinChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Teeth", DbType="NVarChar(100)")]
-		public string Teeth
-		{
-			get
-			{
-				return this._Teeth;
-			}
-			set
-			{
-				if ((this._Teeth != value))
-				{
-					this.OnTeethChanging(value);
-					this.SendPropertyChanging();
-					this._Teeth = value;
-					this.SendPropertyChanged("Teeth");
-					this.OnTeethChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fingers", DbType="NVarChar(100)")]
-		public string Fingers
-		{
-			get
-			{
-				return this._Fingers;
-			}
-			set
-			{
-				if ((this._Fingers != value))
-				{
-					this.OnFingersChanging(value);
-					this.SendPropertyChanging();
-					this._Fingers = value;
-					this.SendPropertyChanged("Fingers");
-					this.OnFingersChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ears", DbType="NVarChar(100)")]
-		public string Ears
-		{
-			get
-			{
-				return this._Ears;
-			}
-			set
-			{
-				if ((this._Ears != value))
-				{
-					this.OnEarsChanging(value);
-					this.SendPropertyChanging();
-					this._Ears = value;
-					this.SendPropertyChanged("Ears");
-					this.OnEarsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Face", DbType="NVarChar(100)")]
-		public string Face
-		{
-			get
-			{
-				return this._Face;
-			}
-			set
-			{
-				if ((this._Face != value))
-				{
-					this.OnFaceChanging(value);
-					this.SendPropertyChanging();
-					this._Face = value;
-					this.SendPropertyChanged("Face");
-					this.OnFaceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Complexion", DbType="NVarChar(100)")]
-		public string Complexion
-		{
-			get
-			{
-				return this._Complexion;
-			}
-			set
-			{
-				if ((this._Complexion != value))
-				{
-					this.OnComplexionChanging(value);
-					this.SendPropertyChanging();
-					this._Complexion = value;
-					this.SendPropertyChanged("Complexion");
-					this.OnComplexionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacialHair", DbType="NVarChar(100)")]
-		public string FacialHair
-		{
-			get
-			{
-				return this._FacialHair;
-			}
-			set
-			{
-				if ((this._FacialHair != value))
-				{
-					this.OnFacialHairChanging(value);
-					this.SendPropertyChanging();
-					this._FacialHair = value;
-					this.SendPropertyChanged("FacialHair");
-					this.OnFacialHairChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacialHairType", DbType="NVarChar(100)")]
-		public string FacialHairType
-		{
-			get
-			{
-				return this._FacialHairType;
-			}
-			set
-			{
-				if ((this._FacialHairType != value))
-				{
-					this.OnFacialHairTypeChanging(value);
-					this.SendPropertyChanging();
-					this._FacialHairType = value;
-					this.SendPropertyChanged("FacialHairType");
-					this.OnFacialHairTypeChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Marks", DbType="NVarChar(4000)")]
-		public string Marks
-		{
-			get
-			{
-				return this._Marks;
-			}
-			set
-			{
-				if ((this._Marks != value))
-				{
-					this.OnMarksChanging(value);
-					this.SendPropertyChanging();
-					this._Marks = value;
-					this.SendPropertyChanged("Marks");
-					this.OnMarksChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deformities", DbType="NVarChar(4000)")]
-		public string Deformities
-		{
-			get
-			{
-				return this._Deformities;
-			}
-			set
-			{
-				if ((this._Deformities != value))
-				{
-					this.OnDeformitiesChanging(value);
-					this.SendPropertyChanging();
-					this._Deformities = value;
-					this.SendPropertyChanged("Deformities");
-					this.OnDeformitiesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Manners", DbType="NVarChar(4000)")]
-		public string Manners
-		{
-			get
-			{
-				return this._Manners;
-			}
-			set
-			{
-				if ((this._Manners != value))
-				{
-					this.OnMannersChanging(value);
-					this.SendPropertyChanging();
-					this._Manners = value;
-					this.SendPropertyChanged("Manners");
-					this.OnMannersChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gait", DbType="NVarChar(4000)")]
-		public string Gait
-		{
-			get
-			{
-				return this._Gait;
-			}
-			set
-			{
-				if ((this._Gait != value))
-				{
-					this.OnGaitChanging(value);
-					this.SendPropertyChanging();
-					this._Gait = value;
-					this.SendPropertyChanged("Gait");
-					this.OnGaitChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speech", DbType="NVarChar(MAX)")]
-		public string Speech
-		{
-			get
-			{
-				return this._Speech;
-			}
-			set
-			{
-				if ((this._Speech != value))
-				{
-					this.OnSpeechChanging(value);
-					this.SendPropertyChanging();
-					this._Speech = value;
-					this.SendPropertyChanged("Speech");
-					this.OnSpeechChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appearance", DbType="NVarChar(MAX)")]
-		public string Appearance
-		{
-			get
-			{
-				return this._Appearance;
-			}
-			set
-			{
-				if ((this._Appearance != value))
-				{
-					this.OnAppearanceChanging(value);
-					this.SendPropertyChanging();
-					this._Appearance = value;
-					this.SendPropertyChanged("Appearance");
-					this.OnAppearanceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dressing", DbType="NVarChar(MAX)")]
-		public string Dressing
-		{
-			get
-			{
-				return this._Dressing;
-			}
-			set
-			{
-				if ((this._Dressing != value))
-				{
-					this.OnDressingChanging(value);
-					this.SendPropertyChanging();
-					this._Dressing = value;
-					this.SendPropertyChanged("Dressing");
-					this.OnDressingChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Accomplishments", DbType="NVarChar(MAX)")]
-		public string Accomplishments
-		{
-			get
-			{
-				return this._Accomplishments;
-			}
-			set
-			{
-				if ((this._Accomplishments != value))
-				{
-					this.OnAccomplishmentsChanging(value);
-					this.SendPropertyChanging();
-					this._Accomplishments = value;
-					this.SendPropertyChanged("Accomplishments");
-					this.OnAccomplishmentsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Habits", DbType="NVarChar(MAX)")]
-		public string Habits
-		{
-			get
-			{
-				return this._Habits;
-			}
-			set
-			{
-				if ((this._Habits != value))
-				{
-					this.OnHabitsChanging(value);
-					this.SendPropertyChanging();
-					this._Habits = value;
-					this.SendPropertyChanged("Habits");
-					this.OnHabitsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BadHabits", DbType="NVarChar(MAX)")]
-		public string BadHabits
-		{
-			get
-			{
-				return this._BadHabits;
-			}
-			set
-			{
-				if ((this._BadHabits != value))
-				{
-					this.OnBadHabitsChanging(value);
-					this.SendPropertyChanging();
-					this._BadHabits = value;
-					this.SendPropertyChanged("BadHabits");
-					this.OnBadHabitsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherDescriptivePoints", DbType="NVarChar(MAX)")]
-		public string OtherDescriptivePoints
-		{
-			get
-			{
-				return this._OtherDescriptivePoints;
-			}
-			set
-			{
-				if ((this._OtherDescriptivePoints != value))
-				{
-					this.OnOtherDescriptivePointsChanging(value);
-					this.SendPropertyChanging();
-					this._OtherDescriptivePoints = value;
-					this.SendPropertyChanged("OtherDescriptivePoints");
-					this.OnOtherDescriptivePointsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> LastUpdate
-		{
-			get
-			{
-				return this._LastUpdate;
-			}
-			set
-			{
-				if ((this._LastUpdate != value))
-				{
-					this.OnLastUpdateChanging(value);
-					this.SendPropertyChanging();
-					this._LastUpdate = value;
-					this.SendPropertyChanged("LastUpdate");
-					this.OnLastUpdateChanged();
 				}
 			}
 		}
@@ -5160,6 +4042,1124 @@ namespace HistorySheet
 					this._Image = value;
 					this.SendPropertyChanged("Image");
 					this.OnImageChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Master")]
+	public partial class Master : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _Id;
+		
+		private System.Nullable<int> _CrimeDBID;
+		
+		private System.Nullable<int> _SPMODBID;
+		
+		private string _HistoryNo;
+		
+		private string _Category;
+		
+		private string _HomeDistrict;
+		
+		private string _PoliceStation;
+		
+		private System.Nullable<System.DateTime> _DateofReport;
+		
+		private string _Name;
+		
+		private string _Aliases;
+		
+		private string _Gender;
+		
+		private string _FathersName;
+		
+		private string _Fathersaliases;
+		
+		private System.Nullable<bool> _IsHusband;
+		
+		private string _TradeProfession;
+		
+		private string _YearBirth;
+		
+		private System.Nullable<double> _Height;
+		
+		private string _Build;
+		
+		private string _HairColor;
+		
+		private string _HairCut;
+		
+		private string _Eyebrows;
+		
+		private string _Forehead;
+		
+		private string _Eyes;
+		
+		private string _Nose;
+		
+		private string _Mouth;
+		
+		private string _Chin;
+		
+		private string _Teeth;
+		
+		private string _Fingers;
+		
+		private string _Ears;
+		
+		private string _Face;
+		
+		private string _Complexion;
+		
+		private string _FacialHair;
+		
+		private string _FacialHairType;
+		
+		private string _Marks;
+		
+		private string _Deformities;
+		
+		private string _Manners;
+		
+		private string _Gait;
+		
+		private string _Speech;
+		
+		private string _Appearance;
+		
+		private string _Dressing;
+		
+		private string _Accomplishments;
+		
+		private string _Habits;
+		
+		private string _BadHabits;
+		
+		private string _OtherDescriptivePoints;
+		
+		private System.Nullable<System.DateTime> _LastUpdate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdChanging(int value);
+    partial void OnIdChanged();
+    partial void OnCrimeDBIDChanging(System.Nullable<int> value);
+    partial void OnCrimeDBIDChanged();
+    partial void OnSPMODBIDChanging(System.Nullable<int> value);
+    partial void OnSPMODBIDChanged();
+    partial void OnHistoryNoChanging(string value);
+    partial void OnHistoryNoChanged();
+    partial void OnCategoryChanging(string value);
+    partial void OnCategoryChanged();
+    partial void OnHomeDistrictChanging(string value);
+    partial void OnHomeDistrictChanged();
+    partial void OnPoliceStationChanging(string value);
+    partial void OnPoliceStationChanged();
+    partial void OnDateofReportChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateofReportChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnAliasesChanging(string value);
+    partial void OnAliasesChanged();
+    partial void OnGenderChanging(string value);
+    partial void OnGenderChanged();
+    partial void OnFathersNameChanging(string value);
+    partial void OnFathersNameChanged();
+    partial void OnFathersaliasesChanging(string value);
+    partial void OnFathersaliasesChanged();
+    partial void OnIsHusbandChanging(System.Nullable<bool> value);
+    partial void OnIsHusbandChanged();
+    partial void OnTradeProfessionChanging(string value);
+    partial void OnTradeProfessionChanged();
+    partial void OnYearBirthChanging(string value);
+    partial void OnYearBirthChanged();
+    partial void OnHeightChanging(System.Nullable<double> value);
+    partial void OnHeightChanged();
+    partial void OnBuildChanging(string value);
+    partial void OnBuildChanged();
+    partial void OnHairColorChanging(string value);
+    partial void OnHairColorChanged();
+    partial void OnHairCutChanging(string value);
+    partial void OnHairCutChanged();
+    partial void OnEyebrowsChanging(string value);
+    partial void OnEyebrowsChanged();
+    partial void OnForeheadChanging(string value);
+    partial void OnForeheadChanged();
+    partial void OnEyesChanging(string value);
+    partial void OnEyesChanged();
+    partial void OnNoseChanging(string value);
+    partial void OnNoseChanged();
+    partial void OnMouthChanging(string value);
+    partial void OnMouthChanged();
+    partial void OnChinChanging(string value);
+    partial void OnChinChanged();
+    partial void OnTeethChanging(string value);
+    partial void OnTeethChanged();
+    partial void OnFingersChanging(string value);
+    partial void OnFingersChanged();
+    partial void OnEarsChanging(string value);
+    partial void OnEarsChanged();
+    partial void OnFaceChanging(string value);
+    partial void OnFaceChanged();
+    partial void OnComplexionChanging(string value);
+    partial void OnComplexionChanged();
+    partial void OnFacialHairChanging(string value);
+    partial void OnFacialHairChanged();
+    partial void OnFacialHairTypeChanging(string value);
+    partial void OnFacialHairTypeChanged();
+    partial void OnMarksChanging(string value);
+    partial void OnMarksChanged();
+    partial void OnDeformitiesChanging(string value);
+    partial void OnDeformitiesChanged();
+    partial void OnMannersChanging(string value);
+    partial void OnMannersChanged();
+    partial void OnGaitChanging(string value);
+    partial void OnGaitChanged();
+    partial void OnSpeechChanging(string value);
+    partial void OnSpeechChanged();
+    partial void OnAppearanceChanging(string value);
+    partial void OnAppearanceChanged();
+    partial void OnDressingChanging(string value);
+    partial void OnDressingChanged();
+    partial void OnAccomplishmentsChanging(string value);
+    partial void OnAccomplishmentsChanged();
+    partial void OnHabitsChanging(string value);
+    partial void OnHabitsChanged();
+    partial void OnBadHabitsChanging(string value);
+    partial void OnBadHabitsChanged();
+    partial void OnOtherDescriptivePointsChanging(string value);
+    partial void OnOtherDescriptivePointsChanged();
+    partial void OnLastUpdateChanging(System.Nullable<System.DateTime> value);
+    partial void OnLastUpdateChanged();
+    #endregion
+		
+		public Master()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this.OnIdChanging(value);
+					this.SendPropertyChanging();
+					this._Id = value;
+					this.SendPropertyChanged("Id");
+					this.OnIdChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CrimeDBID", DbType="Int")]
+		public System.Nullable<int> CrimeDBID
+		{
+			get
+			{
+				return this._CrimeDBID;
+			}
+			set
+			{
+				if ((this._CrimeDBID != value))
+				{
+					this.OnCrimeDBIDChanging(value);
+					this.SendPropertyChanging();
+					this._CrimeDBID = value;
+					this.SendPropertyChanged("CrimeDBID");
+					this.OnCrimeDBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPMODBID", DbType="Int")]
+		public System.Nullable<int> SPMODBID
+		{
+			get
+			{
+				return this._SPMODBID;
+			}
+			set
+			{
+				if ((this._SPMODBID != value))
+				{
+					this.OnSPMODBIDChanging(value);
+					this.SendPropertyChanging();
+					this._SPMODBID = value;
+					this.SendPropertyChanged("SPMODBID");
+					this.OnSPMODBIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HistoryNo", DbType="NVarChar(200)")]
+		public string HistoryNo
+		{
+			get
+			{
+				return this._HistoryNo;
+			}
+			set
+			{
+				if ((this._HistoryNo != value))
+				{
+					this.OnHistoryNoChanging(value);
+					this.SendPropertyChanging();
+					this._HistoryNo = value;
+					this.SendPropertyChanged("HistoryNo");
+					this.OnHistoryNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(1)")]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this.OnCategoryChanging(value);
+					this.SendPropertyChanging();
+					this._Category = value;
+					this.SendPropertyChanged("Category");
+					this.OnCategoryChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeDistrict", DbType="NVarChar(200)")]
+		public string HomeDistrict
+		{
+			get
+			{
+				return this._HomeDistrict;
+			}
+			set
+			{
+				if ((this._HomeDistrict != value))
+				{
+					this.OnHomeDistrictChanging(value);
+					this.SendPropertyChanging();
+					this._HomeDistrict = value;
+					this.SendPropertyChanged("HomeDistrict");
+					this.OnHomeDistrictChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliceStation", DbType="NVarChar(200)")]
+		public string PoliceStation
+		{
+			get
+			{
+				return this._PoliceStation;
+			}
+			set
+			{
+				if ((this._PoliceStation != value))
+				{
+					this.OnPoliceStationChanging(value);
+					this.SendPropertyChanging();
+					this._PoliceStation = value;
+					this.SendPropertyChanged("PoliceStation");
+					this.OnPoliceStationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateofReport", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateofReport
+		{
+			get
+			{
+				return this._DateofReport;
+			}
+			set
+			{
+				if ((this._DateofReport != value))
+				{
+					this.OnDateofReportChanging(value);
+					this.SendPropertyChanging();
+					this._DateofReport = value;
+					this.SendPropertyChanged("DateofReport");
+					this.OnDateofReportChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(500)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aliases", DbType="NVarChar(200)")]
+		public string Aliases
+		{
+			get
+			{
+				return this._Aliases;
+			}
+			set
+			{
+				if ((this._Aliases != value))
+				{
+					this.OnAliasesChanging(value);
+					this.SendPropertyChanging();
+					this._Aliases = value;
+					this.SendPropertyChanged("Aliases");
+					this.OnAliasesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(100)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this.OnGenderChanging(value);
+					this.SendPropertyChanging();
+					this._Gender = value;
+					this.SendPropertyChanged("Gender");
+					this.OnGenderChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FathersName", DbType="NVarChar(500)")]
+		public string FathersName
+		{
+			get
+			{
+				return this._FathersName;
+			}
+			set
+			{
+				if ((this._FathersName != value))
+				{
+					this.OnFathersNameChanging(value);
+					this.SendPropertyChanging();
+					this._FathersName = value;
+					this.SendPropertyChanged("FathersName");
+					this.OnFathersNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fathersaliases", DbType="NVarChar(500)")]
+		public string Fathersaliases
+		{
+			get
+			{
+				return this._Fathersaliases;
+			}
+			set
+			{
+				if ((this._Fathersaliases != value))
+				{
+					this.OnFathersaliasesChanging(value);
+					this.SendPropertyChanging();
+					this._Fathersaliases = value;
+					this.SendPropertyChanged("Fathersaliases");
+					this.OnFathersaliasesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsHusband", DbType="Bit")]
+		public System.Nullable<bool> IsHusband
+		{
+			get
+			{
+				return this._IsHusband;
+			}
+			set
+			{
+				if ((this._IsHusband != value))
+				{
+					this.OnIsHusbandChanging(value);
+					this.SendPropertyChanging();
+					this._IsHusband = value;
+					this.SendPropertyChanged("IsHusband");
+					this.OnIsHusbandChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TradeProfession", DbType="NVarChar(500)")]
+		public string TradeProfession
+		{
+			get
+			{
+				return this._TradeProfession;
+			}
+			set
+			{
+				if ((this._TradeProfession != value))
+				{
+					this.OnTradeProfessionChanging(value);
+					this.SendPropertyChanging();
+					this._TradeProfession = value;
+					this.SendPropertyChanged("TradeProfession");
+					this.OnTradeProfessionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YearBirth", DbType="NVarChar(10)")]
+		public string YearBirth
+		{
+			get
+			{
+				return this._YearBirth;
+			}
+			set
+			{
+				if ((this._YearBirth != value))
+				{
+					this.OnYearBirthChanging(value);
+					this.SendPropertyChanging();
+					this._YearBirth = value;
+					this.SendPropertyChanged("YearBirth");
+					this.OnYearBirthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Float")]
+		public System.Nullable<double> Height
+		{
+			get
+			{
+				return this._Height;
+			}
+			set
+			{
+				if ((this._Height != value))
+				{
+					this.OnHeightChanging(value);
+					this.SendPropertyChanging();
+					this._Height = value;
+					this.SendPropertyChanged("Height");
+					this.OnHeightChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Build", DbType="NVarChar(100)")]
+		public string Build
+		{
+			get
+			{
+				return this._Build;
+			}
+			set
+			{
+				if ((this._Build != value))
+				{
+					this.OnBuildChanging(value);
+					this.SendPropertyChanging();
+					this._Build = value;
+					this.SendPropertyChanged("Build");
+					this.OnBuildChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HairColor", DbType="NVarChar(100)")]
+		public string HairColor
+		{
+			get
+			{
+				return this._HairColor;
+			}
+			set
+			{
+				if ((this._HairColor != value))
+				{
+					this.OnHairColorChanging(value);
+					this.SendPropertyChanging();
+					this._HairColor = value;
+					this.SendPropertyChanged("HairColor");
+					this.OnHairColorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HairCut", DbType="NVarChar(100)")]
+		public string HairCut
+		{
+			get
+			{
+				return this._HairCut;
+			}
+			set
+			{
+				if ((this._HairCut != value))
+				{
+					this.OnHairCutChanging(value);
+					this.SendPropertyChanging();
+					this._HairCut = value;
+					this.SendPropertyChanged("HairCut");
+					this.OnHairCutChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eyebrows", DbType="NVarChar(100)")]
+		public string Eyebrows
+		{
+			get
+			{
+				return this._Eyebrows;
+			}
+			set
+			{
+				if ((this._Eyebrows != value))
+				{
+					this.OnEyebrowsChanging(value);
+					this.SendPropertyChanging();
+					this._Eyebrows = value;
+					this.SendPropertyChanged("Eyebrows");
+					this.OnEyebrowsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Forehead", DbType="NVarChar(100)")]
+		public string Forehead
+		{
+			get
+			{
+				return this._Forehead;
+			}
+			set
+			{
+				if ((this._Forehead != value))
+				{
+					this.OnForeheadChanging(value);
+					this.SendPropertyChanging();
+					this._Forehead = value;
+					this.SendPropertyChanged("Forehead");
+					this.OnForeheadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eyes", DbType="NVarChar(100)")]
+		public string Eyes
+		{
+			get
+			{
+				return this._Eyes;
+			}
+			set
+			{
+				if ((this._Eyes != value))
+				{
+					this.OnEyesChanging(value);
+					this.SendPropertyChanging();
+					this._Eyes = value;
+					this.SendPropertyChanged("Eyes");
+					this.OnEyesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nose", DbType="NVarChar(100)")]
+		public string Nose
+		{
+			get
+			{
+				return this._Nose;
+			}
+			set
+			{
+				if ((this._Nose != value))
+				{
+					this.OnNoseChanging(value);
+					this.SendPropertyChanging();
+					this._Nose = value;
+					this.SendPropertyChanged("Nose");
+					this.OnNoseChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mouth", DbType="NVarChar(100)")]
+		public string Mouth
+		{
+			get
+			{
+				return this._Mouth;
+			}
+			set
+			{
+				if ((this._Mouth != value))
+				{
+					this.OnMouthChanging(value);
+					this.SendPropertyChanging();
+					this._Mouth = value;
+					this.SendPropertyChanged("Mouth");
+					this.OnMouthChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chin", DbType="NVarChar(100)")]
+		public string Chin
+		{
+			get
+			{
+				return this._Chin;
+			}
+			set
+			{
+				if ((this._Chin != value))
+				{
+					this.OnChinChanging(value);
+					this.SendPropertyChanging();
+					this._Chin = value;
+					this.SendPropertyChanged("Chin");
+					this.OnChinChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Teeth", DbType="NVarChar(100)")]
+		public string Teeth
+		{
+			get
+			{
+				return this._Teeth;
+			}
+			set
+			{
+				if ((this._Teeth != value))
+				{
+					this.OnTeethChanging(value);
+					this.SendPropertyChanging();
+					this._Teeth = value;
+					this.SendPropertyChanged("Teeth");
+					this.OnTeethChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fingers", DbType="NVarChar(100)")]
+		public string Fingers
+		{
+			get
+			{
+				return this._Fingers;
+			}
+			set
+			{
+				if ((this._Fingers != value))
+				{
+					this.OnFingersChanging(value);
+					this.SendPropertyChanging();
+					this._Fingers = value;
+					this.SendPropertyChanged("Fingers");
+					this.OnFingersChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ears", DbType="NVarChar(100)")]
+		public string Ears
+		{
+			get
+			{
+				return this._Ears;
+			}
+			set
+			{
+				if ((this._Ears != value))
+				{
+					this.OnEarsChanging(value);
+					this.SendPropertyChanging();
+					this._Ears = value;
+					this.SendPropertyChanged("Ears");
+					this.OnEarsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Face", DbType="NVarChar(100)")]
+		public string Face
+		{
+			get
+			{
+				return this._Face;
+			}
+			set
+			{
+				if ((this._Face != value))
+				{
+					this.OnFaceChanging(value);
+					this.SendPropertyChanging();
+					this._Face = value;
+					this.SendPropertyChanged("Face");
+					this.OnFaceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Complexion", DbType="NVarChar(100)")]
+		public string Complexion
+		{
+			get
+			{
+				return this._Complexion;
+			}
+			set
+			{
+				if ((this._Complexion != value))
+				{
+					this.OnComplexionChanging(value);
+					this.SendPropertyChanging();
+					this._Complexion = value;
+					this.SendPropertyChanged("Complexion");
+					this.OnComplexionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacialHair", DbType="NVarChar(100)")]
+		public string FacialHair
+		{
+			get
+			{
+				return this._FacialHair;
+			}
+			set
+			{
+				if ((this._FacialHair != value))
+				{
+					this.OnFacialHairChanging(value);
+					this.SendPropertyChanging();
+					this._FacialHair = value;
+					this.SendPropertyChanged("FacialHair");
+					this.OnFacialHairChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacialHairType", DbType="NVarChar(100)")]
+		public string FacialHairType
+		{
+			get
+			{
+				return this._FacialHairType;
+			}
+			set
+			{
+				if ((this._FacialHairType != value))
+				{
+					this.OnFacialHairTypeChanging(value);
+					this.SendPropertyChanging();
+					this._FacialHairType = value;
+					this.SendPropertyChanged("FacialHairType");
+					this.OnFacialHairTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Marks", DbType="NVarChar(4000)")]
+		public string Marks
+		{
+			get
+			{
+				return this._Marks;
+			}
+			set
+			{
+				if ((this._Marks != value))
+				{
+					this.OnMarksChanging(value);
+					this.SendPropertyChanging();
+					this._Marks = value;
+					this.SendPropertyChanged("Marks");
+					this.OnMarksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deformities", DbType="NVarChar(4000)")]
+		public string Deformities
+		{
+			get
+			{
+				return this._Deformities;
+			}
+			set
+			{
+				if ((this._Deformities != value))
+				{
+					this.OnDeformitiesChanging(value);
+					this.SendPropertyChanging();
+					this._Deformities = value;
+					this.SendPropertyChanged("Deformities");
+					this.OnDeformitiesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Manners", DbType="NVarChar(4000)")]
+		public string Manners
+		{
+			get
+			{
+				return this._Manners;
+			}
+			set
+			{
+				if ((this._Manners != value))
+				{
+					this.OnMannersChanging(value);
+					this.SendPropertyChanging();
+					this._Manners = value;
+					this.SendPropertyChanged("Manners");
+					this.OnMannersChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gait", DbType="NVarChar(4000)")]
+		public string Gait
+		{
+			get
+			{
+				return this._Gait;
+			}
+			set
+			{
+				if ((this._Gait != value))
+				{
+					this.OnGaitChanging(value);
+					this.SendPropertyChanging();
+					this._Gait = value;
+					this.SendPropertyChanged("Gait");
+					this.OnGaitChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speech", DbType="NVarChar(MAX)")]
+		public string Speech
+		{
+			get
+			{
+				return this._Speech;
+			}
+			set
+			{
+				if ((this._Speech != value))
+				{
+					this.OnSpeechChanging(value);
+					this.SendPropertyChanging();
+					this._Speech = value;
+					this.SendPropertyChanged("Speech");
+					this.OnSpeechChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appearance", DbType="NVarChar(MAX)")]
+		public string Appearance
+		{
+			get
+			{
+				return this._Appearance;
+			}
+			set
+			{
+				if ((this._Appearance != value))
+				{
+					this.OnAppearanceChanging(value);
+					this.SendPropertyChanging();
+					this._Appearance = value;
+					this.SendPropertyChanged("Appearance");
+					this.OnAppearanceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dressing", DbType="NVarChar(MAX)")]
+		public string Dressing
+		{
+			get
+			{
+				return this._Dressing;
+			}
+			set
+			{
+				if ((this._Dressing != value))
+				{
+					this.OnDressingChanging(value);
+					this.SendPropertyChanging();
+					this._Dressing = value;
+					this.SendPropertyChanged("Dressing");
+					this.OnDressingChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Accomplishments", DbType="NVarChar(MAX)")]
+		public string Accomplishments
+		{
+			get
+			{
+				return this._Accomplishments;
+			}
+			set
+			{
+				if ((this._Accomplishments != value))
+				{
+					this.OnAccomplishmentsChanging(value);
+					this.SendPropertyChanging();
+					this._Accomplishments = value;
+					this.SendPropertyChanged("Accomplishments");
+					this.OnAccomplishmentsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Habits", DbType="NVarChar(MAX)")]
+		public string Habits
+		{
+			get
+			{
+				return this._Habits;
+			}
+			set
+			{
+				if ((this._Habits != value))
+				{
+					this.OnHabitsChanging(value);
+					this.SendPropertyChanging();
+					this._Habits = value;
+					this.SendPropertyChanged("Habits");
+					this.OnHabitsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BadHabits", DbType="NVarChar(MAX)")]
+		public string BadHabits
+		{
+			get
+			{
+				return this._BadHabits;
+			}
+			set
+			{
+				if ((this._BadHabits != value))
+				{
+					this.OnBadHabitsChanging(value);
+					this.SendPropertyChanging();
+					this._BadHabits = value;
+					this.SendPropertyChanged("BadHabits");
+					this.OnBadHabitsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherDescriptivePoints", DbType="NVarChar(MAX)")]
+		public string OtherDescriptivePoints
+		{
+			get
+			{
+				return this._OtherDescriptivePoints;
+			}
+			set
+			{
+				if ((this._OtherDescriptivePoints != value))
+				{
+					this.OnOtherDescriptivePointsChanging(value);
+					this.SendPropertyChanging();
+					this._OtherDescriptivePoints = value;
+					this.SendPropertyChanged("OtherDescriptivePoints");
+					this.OnOtherDescriptivePointsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastUpdate
+		{
+			get
+			{
+				return this._LastUpdate;
+			}
+			set
+			{
+				if ((this._LastUpdate != value))
+				{
+					this.OnLastUpdateChanging(value);
+					this.SendPropertyChanging();
+					this._LastUpdate = value;
+					this.SendPropertyChanged("LastUpdate");
+					this.OnLastUpdateChanged();
 				}
 			}
 		}

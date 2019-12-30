@@ -97,7 +97,7 @@ namespace HistorySheet
             h.TradeProfession = txtProfession.Text; 
             h.CrimeDBID = Convert.ToInt32(importID.Value);
             h.DateofReport = getDate(txtReportDate.Text);
-            h.YearBirth = getDate(txtBirthYear.Text);
+            h.YearBirth = txtBirthYear.Text;
             h.Height = getHeight(txtHeight.Text);
             h.Build = ddlBuild.SelectedValue;
             h.HairColor = txtHaircolor.Text;
