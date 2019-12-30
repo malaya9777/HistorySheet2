@@ -56,6 +56,11 @@
             <asp:BoundField DataField="FathersName" HeaderText="FathersName" />
             <asp:BoundField DataField="Address" HeaderText="Address" />
 
+            <asp:TemplateField HeaderText="Delete">
+                <ItemTemplate>
+                    <asp:Button ID="btnDelete" CssClass="btn btn-danger" Text="Delete" runat="server" CommandArgument='<%#Eval("ID") %>' CommandName="remove" />
+                </ItemTemplate>
+            </asp:TemplateField>
         </Columns>
     </asp:GridView>
 </asp:Content>

@@ -33,7 +33,18 @@ namespace HistorySheet
 
         protected void grdWitness_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-
+            if (e.CommandName == "remove")
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var records = db.Witnesses.Where(n => n.ID == ID).SingleOrDefault();
+                    db.Witnesses.DeleteOnSubmit(records);
+                    db.SubmitChanges();
+                    
+                }
+                Response.Redirect(Request.RawUrl);
+            }
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)
