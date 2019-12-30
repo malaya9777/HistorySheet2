@@ -46,4 +46,21 @@
             </div>
         </div>
     </div>
+    <asp:GridView ID="grdOffence" runat="server" GridLines="None" Width="100%" RowStyle-Height="40" OnRowCommand="grdOffence_RowCommand" OnPageIndexChanging="grdOffence_PageIndexChanging" Font-Size="10" PagerSettings-PageButtonCount="5" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" CssClass="table-striped" AllowPaging="true" PageSize="5">
+        <Columns>
+            <asp:BoundField DataField="PS" HeaderText="Police Station" />
+            <asp:BoundField DataField="CaseNo" HeaderText="Case No" />
+            <asp:BoundField DataField="Date" HeaderText="Case Date" />
+            <asp:BoundField DataField="Sections" HeaderText="Sections" />
+            <asp:BoundField DataField="MODetails" HeaderText="MO Details" />
+            <asp:BoundField DataField="Remarks" HeaderText="Remarks" />
+            <asp:BoundField DataField="Important" HeaderText="Is Important" />
+            <asp:TemplateField HeaderText="Delete">
+                <ItemTemplate>
+                    <asp:Button ID="btnDelete" runat="server" CssClass="btn btn-danger" Text="Delete" CommandArgument='<%# Eval("ID") %>' CommandName="remove" />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+        <PagerStyle HorizontalAlign="Left" CssClass="GridPager" />
+    </asp:GridView>
 </asp:Content>

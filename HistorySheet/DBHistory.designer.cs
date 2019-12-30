@@ -39,15 +39,9 @@ namespace HistorySheet
     partial void InsertDisposalMethod(DisposalMethod instance);
     partial void UpdateDisposalMethod(DisposalMethod instance);
     partial void DeleteDisposalMethod(DisposalMethod instance);
-    partial void InsertOffence(Offence instance);
-    partial void UpdateOffence(Offence instance);
-    partial void DeleteOffence(Offence instance);
     partial void InsertPhotographs_FP(Photographs_FP instance);
     partial void UpdatePhotographs_FP(Photographs_FP instance);
     partial void DeletePhotographs_FP(Photographs_FP instance);
-    partial void InsertRelate(Relate instance);
-    partial void UpdateRelate(Relate instance);
-    partial void DeleteRelate(Relate instance);
     partial void InsertSuspectedCase(SuspectedCase instance);
     partial void UpdateSuspectedCase(SuspectedCase instance);
     partial void DeleteSuspectedCase(SuspectedCase instance);
@@ -81,6 +75,12 @@ namespace HistorySheet
     partial void InsertPastArrest(PastArrest instance);
     partial void UpdatePastArrest(PastArrest instance);
     partial void DeletePastArrest(PastArrest instance);
+    partial void InsertOffence(Offence instance);
+    partial void UpdateOffence(Offence instance);
+    partial void DeleteOffence(Offence instance);
+    partial void InsertRelate(Relate instance);
+    partial void UpdateRelate(Relate instance);
+    partial void DeleteRelate(Relate instance);
     #endregion
 		
 		public DBHistoryDataContext() : 
@@ -145,27 +145,11 @@ namespace HistorySheet
 			}
 		}
 		
-		public System.Data.Linq.Table<Offence> Offences
-		{
-			get
-			{
-				return this.GetTable<Offence>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Photographs_FP> Photographs_FPs
 		{
 			get
 			{
 				return this.GetTable<Photographs_FP>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Relate> Relates
-		{
-			get
-			{
-				return this.GetTable<Relate>();
 			}
 		}
 		
@@ -254,6 +238,22 @@ namespace HistorySheet
 			get
 			{
 				return this.GetTable<PastArrest>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Offence> Offences
+		{
+			get
+			{
+				return this.GetTable<Offence>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Relate> Relates
+		{
+			get
+			{
+				return this.GetTable<Relate>();
 			}
 		}
 	}
@@ -1221,260 +1221,6 @@ namespace HistorySheet
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Offences")]
-	public partial class Offence : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private System.Nullable<int> _P_ID;
-		
-		private string _PS;
-		
-		private System.Nullable<int> _CaseNo;
-		
-		private System.Nullable<System.DateTime> _Dtd;
-		
-		private string _Sections;
-		
-		private string _MODetails;
-		
-		private string _Remarks;
-		
-		private System.Nullable<bool> _Important;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnP_IDChanging(System.Nullable<int> value);
-    partial void OnP_IDChanged();
-    partial void OnPSChanging(string value);
-    partial void OnPSChanged();
-    partial void OnCaseNoChanging(System.Nullable<int> value);
-    partial void OnCaseNoChanged();
-    partial void OnDtdChanging(System.Nullable<System.DateTime> value);
-    partial void OnDtdChanged();
-    partial void OnSectionsChanging(string value);
-    partial void OnSectionsChanged();
-    partial void OnMODetailsChanging(string value);
-    partial void OnMODetailsChanged();
-    partial void OnRemarksChanging(string value);
-    partial void OnRemarksChanged();
-    partial void OnImportantChanging(System.Nullable<bool> value);
-    partial void OnImportantChanged();
-    #endregion
-		
-		public Offence()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
-		public System.Nullable<int> P_ID
-		{
-			get
-			{
-				return this._P_ID;
-			}
-			set
-			{
-				if ((this._P_ID != value))
-				{
-					this.OnP_IDChanging(value);
-					this.SendPropertyChanging();
-					this._P_ID = value;
-					this.SendPropertyChanged("P_ID");
-					this.OnP_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(100)")]
-		public string PS
-		{
-			get
-			{
-				return this._PS;
-			}
-			set
-			{
-				if ((this._PS != value))
-				{
-					this.OnPSChanging(value);
-					this.SendPropertyChanging();
-					this._PS = value;
-					this.SendPropertyChanged("PS");
-					this.OnPSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseNo", DbType="Int")]
-		public System.Nullable<int> CaseNo
-		{
-			get
-			{
-				return this._CaseNo;
-			}
-			set
-			{
-				if ((this._CaseNo != value))
-				{
-					this.OnCaseNoChanging(value);
-					this.SendPropertyChanging();
-					this._CaseNo = value;
-					this.SendPropertyChanged("CaseNo");
-					this.OnCaseNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dtd", DbType="DateTime")]
-		public System.Nullable<System.DateTime> Dtd
-		{
-			get
-			{
-				return this._Dtd;
-			}
-			set
-			{
-				if ((this._Dtd != value))
-				{
-					this.OnDtdChanging(value);
-					this.SendPropertyChanging();
-					this._Dtd = value;
-					this.SendPropertyChanged("Dtd");
-					this.OnDtdChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sections", DbType="NVarChar(500)")]
-		public string Sections
-		{
-			get
-			{
-				return this._Sections;
-			}
-			set
-			{
-				if ((this._Sections != value))
-				{
-					this.OnSectionsChanging(value);
-					this.SendPropertyChanging();
-					this._Sections = value;
-					this.SendPropertyChanged("Sections");
-					this.OnSectionsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODetails", DbType="NVarChar(500)")]
-		public string MODetails
-		{
-			get
-			{
-				return this._MODetails;
-			}
-			set
-			{
-				if ((this._MODetails != value))
-				{
-					this.OnMODetailsChanging(value);
-					this.SendPropertyChanging();
-					this._MODetails = value;
-					this.SendPropertyChanged("MODetails");
-					this.OnMODetailsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(500)")]
-		public string Remarks
-		{
-			get
-			{
-				return this._Remarks;
-			}
-			set
-			{
-				if ((this._Remarks != value))
-				{
-					this.OnRemarksChanging(value);
-					this.SendPropertyChanging();
-					this._Remarks = value;
-					this.SendPropertyChanged("Remarks");
-					this.OnRemarksChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Important", DbType="Bit")]
-		public System.Nullable<bool> Important
-		{
-			get
-			{
-				return this._Important;
-			}
-			set
-			{
-				if ((this._Important != value))
-				{
-					this.OnImportantChanging(value);
-					this.SendPropertyChanging();
-					this._Important = value;
-					this.SendPropertyChanged("Important");
-					this.OnImportantChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Photographs_FP")]
 	public partial class Photographs_FP : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -1564,356 +1310,6 @@ namespace HistorySheet
 					this._IsFingerPrint = value;
 					this.SendPropertyChanged("IsFingerPrint");
 					this.OnIsFingerPrintChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
-		public System.Data.Linq.Binary Image
-		{
-			get
-			{
-				return this._Image;
-			}
-			set
-			{
-				if ((this._Image != value))
-				{
-					this.OnImageChanging(value);
-					this.SendPropertyChanging();
-					this._Image = value;
-					this.SendPropertyChanged("Image");
-					this.OnImageChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Relates")]
-	public partial class Relate : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private string _Name;
-		
-		private string _Aliases;
-		
-		private string _FathersName;
-		
-		private string _Relationship;
-		
-		private string _Address;
-		
-		private string _Occupation;
-		
-		private System.Nullable<int> _RefMasterID;
-		
-		private string _Mobile;
-		
-		private string _BankAccount;
-		
-		private string _NameofBank;
-		
-		private string _IFSC;
-		
-		private System.Data.Linq.Binary _Image;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnNameChanging(string value);
-    partial void OnNameChanged();
-    partial void OnAliasesChanging(string value);
-    partial void OnAliasesChanged();
-    partial void OnFathersNameChanging(string value);
-    partial void OnFathersNameChanged();
-    partial void OnRelationshipChanging(string value);
-    partial void OnRelationshipChanged();
-    partial void OnAddressChanging(string value);
-    partial void OnAddressChanged();
-    partial void OnOccupationChanging(string value);
-    partial void OnOccupationChanged();
-    partial void OnRefMasterIDChanging(System.Nullable<int> value);
-    partial void OnRefMasterIDChanged();
-    partial void OnMobileChanging(string value);
-    partial void OnMobileChanged();
-    partial void OnBankAccountChanging(string value);
-    partial void OnBankAccountChanged();
-    partial void OnNameofBankChanging(string value);
-    partial void OnNameofBankChanged();
-    partial void OnIFSCChanging(string value);
-    partial void OnIFSCChanged();
-    partial void OnImageChanging(System.Data.Linq.Binary value);
-    partial void OnImageChanged();
-    #endregion
-		
-		public Relate()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200)")]
-		public string Name
-		{
-			get
-			{
-				return this._Name;
-			}
-			set
-			{
-				if ((this._Name != value))
-				{
-					this.OnNameChanging(value);
-					this.SendPropertyChanging();
-					this._Name = value;
-					this.SendPropertyChanged("Name");
-					this.OnNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aliases", DbType="NVarChar(200)")]
-		public string Aliases
-		{
-			get
-			{
-				return this._Aliases;
-			}
-			set
-			{
-				if ((this._Aliases != value))
-				{
-					this.OnAliasesChanging(value);
-					this.SendPropertyChanging();
-					this._Aliases = value;
-					this.SendPropertyChanged("Aliases");
-					this.OnAliasesChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FathersName", DbType="NVarChar(200)")]
-		public string FathersName
-		{
-			get
-			{
-				return this._FathersName;
-			}
-			set
-			{
-				if ((this._FathersName != value))
-				{
-					this.OnFathersNameChanging(value);
-					this.SendPropertyChanging();
-					this._FathersName = value;
-					this.SendPropertyChanged("FathersName");
-					this.OnFathersNameChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Relationship", DbType="NVarChar(200)")]
-		public string Relationship
-		{
-			get
-			{
-				return this._Relationship;
-			}
-			set
-			{
-				if ((this._Relationship != value))
-				{
-					this.OnRelationshipChanging(value);
-					this.SendPropertyChanging();
-					this._Relationship = value;
-					this.SendPropertyChanged("Relationship");
-					this.OnRelationshipChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(500)")]
-		public string Address
-		{
-			get
-			{
-				return this._Address;
-			}
-			set
-			{
-				if ((this._Address != value))
-				{
-					this.OnAddressChanging(value);
-					this.SendPropertyChanging();
-					this._Address = value;
-					this.SendPropertyChanged("Address");
-					this.OnAddressChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Occupation", DbType="NVarChar(200)")]
-		public string Occupation
-		{
-			get
-			{
-				return this._Occupation;
-			}
-			set
-			{
-				if ((this._Occupation != value))
-				{
-					this.OnOccupationChanging(value);
-					this.SendPropertyChanging();
-					this._Occupation = value;
-					this.SendPropertyChanged("Occupation");
-					this.OnOccupationChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RefMasterID", DbType="Int")]
-		public System.Nullable<int> RefMasterID
-		{
-			get
-			{
-				return this._RefMasterID;
-			}
-			set
-			{
-				if ((this._RefMasterID != value))
-				{
-					this.OnRefMasterIDChanging(value);
-					this.SendPropertyChanging();
-					this._RefMasterID = value;
-					this.SendPropertyChanged("RefMasterID");
-					this.OnRefMasterIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NVarChar(50)")]
-		public string Mobile
-		{
-			get
-			{
-				return this._Mobile;
-			}
-			set
-			{
-				if ((this._Mobile != value))
-				{
-					this.OnMobileChanging(value);
-					this.SendPropertyChanging();
-					this._Mobile = value;
-					this.SendPropertyChanged("Mobile");
-					this.OnMobileChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankAccount", DbType="NVarChar(50)")]
-		public string BankAccount
-		{
-			get
-			{
-				return this._BankAccount;
-			}
-			set
-			{
-				if ((this._BankAccount != value))
-				{
-					this.OnBankAccountChanging(value);
-					this.SendPropertyChanging();
-					this._BankAccount = value;
-					this.SendPropertyChanged("BankAccount");
-					this.OnBankAccountChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameofBank", DbType="NVarChar(50)")]
-		public string NameofBank
-		{
-			get
-			{
-				return this._NameofBank;
-			}
-			set
-			{
-				if ((this._NameofBank != value))
-				{
-					this.OnNameofBankChanging(value);
-					this.SendPropertyChanging();
-					this._NameofBank = value;
-					this.SendPropertyChanged("NameofBank");
-					this.OnNameofBankChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IFSC", DbType="NVarChar(50)")]
-		public string IFSC
-		{
-			get
-			{
-				return this._IFSC;
-			}
-			set
-			{
-				if ((this._IFSC != value))
-				{
-					this.OnIFSCChanging(value);
-					this.SendPropertyChanging();
-					this._IFSC = value;
-					this.SendPropertyChanged("IFSC");
-					this.OnIFSCChanged();
 				}
 			}
 		}
@@ -5112,6 +4508,634 @@ namespace HistorySheet
 					this._WhereArrested = value;
 					this.SendPropertyChanged("WhereArrested");
 					this.OnWhereArrestedChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Offences")]
+	public partial class Offence : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _P_ID;
+		
+		private string _PS;
+		
+		private System.Nullable<int> _CaseNo;
+		
+		private System.Nullable<System.DateTime> _Date;
+		
+		private string _Sections;
+		
+		private string _MODetails;
+		
+		private string _Remarks;
+		
+		private System.Nullable<bool> _Important;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnP_IDChanging(System.Nullable<int> value);
+    partial void OnP_IDChanged();
+    partial void OnPSChanging(string value);
+    partial void OnPSChanged();
+    partial void OnCaseNoChanging(System.Nullable<int> value);
+    partial void OnCaseNoChanged();
+    partial void OnDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnDateChanged();
+    partial void OnSectionsChanging(string value);
+    partial void OnSectionsChanged();
+    partial void OnMODetailsChanging(string value);
+    partial void OnMODetailsChanged();
+    partial void OnRemarksChanging(string value);
+    partial void OnRemarksChanged();
+    partial void OnImportantChanging(System.Nullable<bool> value);
+    partial void OnImportantChanged();
+    #endregion
+		
+		public Offence()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
+		public System.Nullable<int> P_ID
+		{
+			get
+			{
+				return this._P_ID;
+			}
+			set
+			{
+				if ((this._P_ID != value))
+				{
+					this.OnP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._P_ID = value;
+					this.SendPropertyChanged("P_ID");
+					this.OnP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(100)")]
+		public string PS
+		{
+			get
+			{
+				return this._PS;
+			}
+			set
+			{
+				if ((this._PS != value))
+				{
+					this.OnPSChanging(value);
+					this.SendPropertyChanging();
+					this._PS = value;
+					this.SendPropertyChanged("PS");
+					this.OnPSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseNo", DbType="Int")]
+		public System.Nullable<int> CaseNo
+		{
+			get
+			{
+				return this._CaseNo;
+			}
+			set
+			{
+				if ((this._CaseNo != value))
+				{
+					this.OnCaseNoChanging(value);
+					this.SendPropertyChanging();
+					this._CaseNo = value;
+					this.SendPropertyChanged("CaseNo");
+					this.OnCaseNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Date", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Date
+		{
+			get
+			{
+				return this._Date;
+			}
+			set
+			{
+				if ((this._Date != value))
+				{
+					this.OnDateChanging(value);
+					this.SendPropertyChanging();
+					this._Date = value;
+					this.SendPropertyChanged("Date");
+					this.OnDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sections", DbType="NVarChar(500)")]
+		public string Sections
+		{
+			get
+			{
+				return this._Sections;
+			}
+			set
+			{
+				if ((this._Sections != value))
+				{
+					this.OnSectionsChanging(value);
+					this.SendPropertyChanging();
+					this._Sections = value;
+					this.SendPropertyChanged("Sections");
+					this.OnSectionsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODetails", DbType="NVarChar(500)")]
+		public string MODetails
+		{
+			get
+			{
+				return this._MODetails;
+			}
+			set
+			{
+				if ((this._MODetails != value))
+				{
+					this.OnMODetailsChanging(value);
+					this.SendPropertyChanging();
+					this._MODetails = value;
+					this.SendPropertyChanged("MODetails");
+					this.OnMODetailsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(500)")]
+		public string Remarks
+		{
+			get
+			{
+				return this._Remarks;
+			}
+			set
+			{
+				if ((this._Remarks != value))
+				{
+					this.OnRemarksChanging(value);
+					this.SendPropertyChanging();
+					this._Remarks = value;
+					this.SendPropertyChanged("Remarks");
+					this.OnRemarksChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Important", DbType="Bit")]
+		public System.Nullable<bool> Important
+		{
+			get
+			{
+				return this._Important;
+			}
+			set
+			{
+				if ((this._Important != value))
+				{
+					this.OnImportantChanging(value);
+					this.SendPropertyChanging();
+					this._Important = value;
+					this.SendPropertyChanged("Important");
+					this.OnImportantChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Relates")]
+	public partial class Relate : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _P_ID;
+		
+		private string _Name;
+		
+		private string _Aliases;
+		
+		private string _FathersName;
+		
+		private string _Relationship;
+		
+		private string _Address;
+		
+		private string _Occupation;
+		
+		private System.Nullable<int> _RefMasterID;
+		
+		private string _Mobile;
+		
+		private string _BankAccount;
+		
+		private string _NameofBank;
+		
+		private string _IFSC;
+		
+		private System.Data.Linq.Binary _Image;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnP_IDChanging(System.Nullable<int> value);
+    partial void OnP_IDChanged();
+    partial void OnNameChanging(string value);
+    partial void OnNameChanged();
+    partial void OnAliasesChanging(string value);
+    partial void OnAliasesChanged();
+    partial void OnFathersNameChanging(string value);
+    partial void OnFathersNameChanged();
+    partial void OnRelationshipChanging(string value);
+    partial void OnRelationshipChanged();
+    partial void OnAddressChanging(string value);
+    partial void OnAddressChanged();
+    partial void OnOccupationChanging(string value);
+    partial void OnOccupationChanged();
+    partial void OnRefMasterIDChanging(System.Nullable<int> value);
+    partial void OnRefMasterIDChanged();
+    partial void OnMobileChanging(string value);
+    partial void OnMobileChanged();
+    partial void OnBankAccountChanging(string value);
+    partial void OnBankAccountChanged();
+    partial void OnNameofBankChanging(string value);
+    partial void OnNameofBankChanged();
+    partial void OnIFSCChanging(string value);
+    partial void OnIFSCChanged();
+    partial void OnImageChanging(System.Data.Linq.Binary value);
+    partial void OnImageChanged();
+    #endregion
+		
+		public Relate()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
+		public System.Nullable<int> P_ID
+		{
+			get
+			{
+				return this._P_ID;
+			}
+			set
+			{
+				if ((this._P_ID != value))
+				{
+					this.OnP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._P_ID = value;
+					this.SendPropertyChanged("P_ID");
+					this.OnP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(200)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this.OnNameChanging(value);
+					this.SendPropertyChanging();
+					this._Name = value;
+					this.SendPropertyChanged("Name");
+					this.OnNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aliases", DbType="NVarChar(200)")]
+		public string Aliases
+		{
+			get
+			{
+				return this._Aliases;
+			}
+			set
+			{
+				if ((this._Aliases != value))
+				{
+					this.OnAliasesChanging(value);
+					this.SendPropertyChanging();
+					this._Aliases = value;
+					this.SendPropertyChanged("Aliases");
+					this.OnAliasesChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FathersName", DbType="NVarChar(200)")]
+		public string FathersName
+		{
+			get
+			{
+				return this._FathersName;
+			}
+			set
+			{
+				if ((this._FathersName != value))
+				{
+					this.OnFathersNameChanging(value);
+					this.SendPropertyChanging();
+					this._FathersName = value;
+					this.SendPropertyChanged("FathersName");
+					this.OnFathersNameChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Relationship", DbType="NVarChar(200)")]
+		public string Relationship
+		{
+			get
+			{
+				return this._Relationship;
+			}
+			set
+			{
+				if ((this._Relationship != value))
+				{
+					this.OnRelationshipChanging(value);
+					this.SendPropertyChanging();
+					this._Relationship = value;
+					this.SendPropertyChanged("Relationship");
+					this.OnRelationshipChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Address", DbType="NVarChar(500)")]
+		public string Address
+		{
+			get
+			{
+				return this._Address;
+			}
+			set
+			{
+				if ((this._Address != value))
+				{
+					this.OnAddressChanging(value);
+					this.SendPropertyChanging();
+					this._Address = value;
+					this.SendPropertyChanged("Address");
+					this.OnAddressChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Occupation", DbType="NVarChar(200)")]
+		public string Occupation
+		{
+			get
+			{
+				return this._Occupation;
+			}
+			set
+			{
+				if ((this._Occupation != value))
+				{
+					this.OnOccupationChanging(value);
+					this.SendPropertyChanging();
+					this._Occupation = value;
+					this.SendPropertyChanged("Occupation");
+					this.OnOccupationChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RefMasterID", DbType="Int")]
+		public System.Nullable<int> RefMasterID
+		{
+			get
+			{
+				return this._RefMasterID;
+			}
+			set
+			{
+				if ((this._RefMasterID != value))
+				{
+					this.OnRefMasterIDChanging(value);
+					this.SendPropertyChanging();
+					this._RefMasterID = value;
+					this.SendPropertyChanged("RefMasterID");
+					this.OnRefMasterIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mobile", DbType="NVarChar(50)")]
+		public string Mobile
+		{
+			get
+			{
+				return this._Mobile;
+			}
+			set
+			{
+				if ((this._Mobile != value))
+				{
+					this.OnMobileChanging(value);
+					this.SendPropertyChanging();
+					this._Mobile = value;
+					this.SendPropertyChanged("Mobile");
+					this.OnMobileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankAccount", DbType="NVarChar(50)")]
+		public string BankAccount
+		{
+			get
+			{
+				return this._BankAccount;
+			}
+			set
+			{
+				if ((this._BankAccount != value))
+				{
+					this.OnBankAccountChanging(value);
+					this.SendPropertyChanging();
+					this._BankAccount = value;
+					this.SendPropertyChanged("BankAccount");
+					this.OnBankAccountChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NameofBank", DbType="NVarChar(50)")]
+		public string NameofBank
+		{
+			get
+			{
+				return this._NameofBank;
+			}
+			set
+			{
+				if ((this._NameofBank != value))
+				{
+					this.OnNameofBankChanging(value);
+					this.SendPropertyChanging();
+					this._NameofBank = value;
+					this.SendPropertyChanged("NameofBank");
+					this.OnNameofBankChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IFSC", DbType="NVarChar(50)")]
+		public string IFSC
+		{
+			get
+			{
+				return this._IFSC;
+			}
+			set
+			{
+				if ((this._IFSC != value))
+				{
+					this.OnIFSCChanging(value);
+					this.SendPropertyChanging();
+					this._IFSC = value;
+					this.SendPropertyChanged("IFSC");
+					this.OnIFSCChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Image", DbType="VarBinary(MAX)", UpdateCheck=UpdateCheck.Never)]
+		public System.Data.Linq.Binary Image
+		{
+			get
+			{
+				return this._Image;
+			}
+			set
+			{
+				if ((this._Image != value))
+				{
+					this.OnImageChanging(value);
+					this.SendPropertyChanging();
+					this._Image = value;
+					this.SendPropertyChanged("Image");
+					this.OnImageChanged();
 				}
 			}
 		}

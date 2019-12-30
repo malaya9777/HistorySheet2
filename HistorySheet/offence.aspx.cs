@@ -18,12 +18,24 @@ namespace HistorySheet
                 {
                     loadDetails(masterID);
                     loadReadonlyAttribute(masterID);
+                    loadGrid(masterID);
 
                 }
                 else
                 {
                     Response.Redirect("HistoryList");
-                }             
+                }
+
+            }
+        }
+
+        private void loadGrid(int masterID)
+        {
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var records = db.Offences.Where(n => n.P_ID == masterID).ToList();
+                grdOffence.DataSource = records;
+                grdOffence.DataBind();
 
             }
         }
@@ -46,7 +58,48 @@ namespace HistorySheet
 
         protected void btnInsert_Click(object sender, EventArgs e)
         {
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+            if (masterID != 0)
+            {
+                var off = new Offence();
+                off.P_ID = masterID;
+                off.PS = txtPS.Text;
+                off.CaseNo = globalMethods.getNumber(txtCaseNo.Text);
+                off.Date = globalMethods.getDate(txtCaseDate.Text);
+                off.Sections = txtSection.Text;
+                off.MODetails = txtMOdetails.Text;
+                off.Remarks = txtRemarks.Text;
+                off.Important = chkIsImportant.Checked;
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    db.Offences.InsertOnSubmit(off);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+                }
 
+            }
+        }
+
+        protected void grdOffence_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "remove")
+            {
+                var ID = Convert.ToInt32(e.CommandArgument);
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var record = db.Offences.Where(n => n.ID == ID).SingleOrDefault();
+                    db.Offences.DeleteOnSubmit(record);
+                    db.SubmitChanges();
+                    Response.Redirect(Request.RawUrl);
+                }
+            }
+        }
+
+        protected void grdOffence_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdOffence.PageIndex = e.NewPageIndex;
+            var masterID = Convert.ToInt32(Request.QueryString["H_Id"]);
+            loadGrid(masterID);
         }
     }
 }

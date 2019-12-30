@@ -52,41 +52,11 @@
       <Column Name="PageContaining" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
     </Type>
   </Table>
-  <Table Name="dbo.Offences" Member="Offences">
-    <Type Name="Offence">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Dtd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Sections" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="MODetails" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Remarks" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Important" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Photographs_FP" Member="Photographs_FPs">
     <Type Name="Photographs_FP">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="IsFingerPrint" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Relates" Member="Relates">
-    <Type Name="Relate">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Aliases" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="FathersName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Relationship" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Occupation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="RefMasterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Mobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="BankAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="NameofBank" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="IFSC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
       <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
@@ -247,6 +217,37 @@
       <Column Name="Sections" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="ArrestedDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="WhereArrested" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Offences" Member="Offences">
+    <Type Name="Offence">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sections" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MODetails" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Important" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Relates" Member="Relates">
+    <Type Name="Relate">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Name" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Aliases" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="FathersName" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Relationship" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Address" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Occupation" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="RefMasterID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="BankAccount" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="NameofBank" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="IFSC" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
 </Database>
