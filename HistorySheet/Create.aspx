@@ -82,7 +82,7 @@
         </div>
         <div class="form-group col-md-6">
             <label for="txtBirthYear">Year of Birth</label>
-            <asp:TextBox ID="txtBirthYear" runat="server" CssClass="form-control" placeholder="Year of Birth"></asp:TextBox>
+            <asp:TextBox ID="txtBirthYear" runat="server" CssClass="form-control" placeholder="Year of Birth" MaxLength="4"></asp:TextBox>
         </div>
         <div class="form-group col-md-6">
             <label for="txtHeight">Height</label>
