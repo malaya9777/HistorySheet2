@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="Create" Language="C#" MasterPageFile="~/Site.Master" ClientIDMode="Static" AutoEventWireup="true" CodeBehind="Create.aspx.cs" Inherits="HistorySheet.Create" %>
+
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 
 
@@ -23,7 +24,7 @@
     <asp:HiddenField ID="importID" runat="server" />
     <hr />
     <div class="form-row">
-        <div  class="form-group col-md-6">
+        <div class="form-group col-md-6">
             <label for="ddlCategory">Category</label>
             <asp:DropDownList ID="ddlCategory" runat="server" CssClass="form-control">
                 <asp:ListItem Text="A" Value="A" Selected="True"></asp:ListItem>
@@ -60,8 +61,8 @@
             <label for="chkGender">Gender</label>
             <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
                 <asp:ListItem Text="Male" Value="male" Selected="True"></asp:ListItem>
-                <asp:ListItem Text="Female" Value="female" ></asp:ListItem>
-                <asp:ListItem Text="Transgender" Value="Transgender" ></asp:ListItem>
+                <asp:ListItem Text="Female" Value="female"></asp:ListItem>
+                <asp:ListItem Text="Transgender" Value="Transgender"></asp:ListItem>
             </asp:RadioButtonList>
         </div>
         <div class="form-group col-md-6">
@@ -82,7 +83,7 @@
         </div>
         <div class="form-group col-md-6">
             <label for="txtBirthYear">Year of Birth</label>
-            <asp:TextBox ID="txtBirthYear" runat="server" CssClass="form-control" placeholder="Year of Birth"></asp:TextBox>
+            <asp:TextBox ID="txtBirthYear" runat="server" CssClass="form-control" placeholder="Year of Birth" MaxLength="4" TextMode="Number"></asp:TextBox>
         </div>
         <div class="form-group col-md-6">
             <label for="txtHeight">Height</label>
@@ -287,7 +288,7 @@
             <label for="txtSpeech">Speech</label>
             <asp:TextBox ID="txtSpeech" runat="server" CssClass="form-control" placeholder="Sheech"></asp:TextBox>
         </div>
-         <div class="form-group col-md-6">
+        <div class="form-group col-md-6">
             <label for="txtAppreance">Appreance</label>
             <asp:TextBox ID="txtAppreance" runat="server" CssClass="form-control" placeholder="Appreance"></asp:TextBox>
         </div>
@@ -329,7 +330,7 @@
             <asp:Button ID="btnSearch" runat="server" class="btn btn-success mb-2" Text="Search" OnClick="btnSearch_Click" />
         </div>
         <hr />
-        <asp:GridView ID="grdAccused" runat="server" GridLines="None" Width="800px" PagerSettings-PageButtonCount="5"  ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" CssClass="table-striped" AllowPaging="true" PageSize="5" OnRowCommand="grdAccused_RowCommand" OnPageIndexChanging="grdAccused_PageIndexChanging">
+        <asp:GridView ID="grdAccused" runat="server" GridLines="None" Width="800px" PagerSettings-PageButtonCount="5" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" CssClass="table-striped" AllowPaging="true" PageSize="5" OnRowCommand="grdAccused_RowCommand" OnPageIndexChanging="grdAccused_PageIndexChanging">
             <Columns>
                 <asp:TemplateField HeaderText="SL No" ItemStyle-Width="100px" ItemStyle-Height="50px">
                     <ItemTemplate>
