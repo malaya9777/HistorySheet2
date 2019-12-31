@@ -63,37 +63,57 @@ namespace HistorySheet
                 habits.InnerText = record.Habits;
                 badhabits.InnerText = record.BadHabits;
                 otherDescriptivePoints.InnerText = record.OtherDescriptivePoints;
-                loadPhotos(ID);
+
+                var images = db.Photographs_FPs.Where(n => n.P_ID == ID).ToList();
+                loadImages(images);
+                var witnesses = db.Witnesses.Where(n => n.P_ID == ID).ToList();
+                loadWitnesses(witnesses);
+                
 
 
             }
         }
 
-        private void loadPhotos(int iD)
+        private void loadImages(List<Photographs_FP> images)
         {
-            using(DBHistoryDataContext db = new DBHistoryDataContext())
+            if (images.Count() > 0)
             {
-                var images = db.Photographs_FPs.Where(n => n.P_ID == iD).ToList();
-                if (images.Count() > 0)
+                string emptyImageHTML = "";
+                string emptyFPHTML = "";
+                foreach (var img in images)
                 {
-                    string emptyImageHTML = "";
-                    string emptyFPHTML = "";
-                    foreach(var img in images)
+                    if (img.IsFingerPrint == false)
                     {
-                        if (img.IsFingerPrint == false)
-                        {
-                            emptyImageHTML += "<div><img src=\"data:image;base64," + Convert.ToBase64String(img.Image.ToArray()) + "\" style='width:150px;'></div>";
-                        }
-                        else
-                        {
-                            emptyFPHTML += "<div><img src=\"data:image;base64," + Convert.ToBase64String(img.Image.ToArray()) + "\" style='width:150px;'></div>";
-                        }
-                        
+                        emptyImageHTML += "<div><img src=\"data:image;base64," + Convert.ToBase64String(img.Image.ToArray()) + "\" style='width:150px;'></div>";
                     }
-                    imgContainer.InnerHtml = emptyImageHTML;
-                    fingerprintContainer.InnerHtml = emptyFPHTML;
+                    else
+                    {
+                        emptyFPHTML += "<div><img src=\"data:image;base64," + Convert.ToBase64String(img.Image.ToArray()) + "\" style='width:150px;'></div>";
+                    }
+
                 }
+                imgContainer.InnerHtml = emptyImageHTML;
+                fingerprintContainer.InnerHtml = emptyFPHTML;
             }
         }
+
+        private void loadWitnesses(List<Witness> witnesses)
+        {
+            if (witnesses.Count() > 0)
+            {
+                var emptyHTML = "";
+                foreach(var wit in witnesses)
+                {
+                    emptyHTML += $"<div><img src='data:image/jpg;base64,{Convert.ToBase64String(wit.Image.ToArray())}' /></div>" +
+                        $"<div><p>{wit.Name}</p><p> Gender: {wit.Gender}</p><p> Gender: {wit.DOB.Value.ToString("dd-MMM-yy")}</p><p>Fathser's Name: {wit.FathersName}</p></div>" +
+                        $"<div>{wit.Address}</div>";
+                       
+                     
+                }
+
+            }
+        }
+
+       
     }
 }
