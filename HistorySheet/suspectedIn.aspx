@@ -23,7 +23,7 @@
                     <asp:RequiredFieldValidator ID="rfv2" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtPS" runat="server" Display="Dynamic" ValidationGroup="suspect"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
-                    <asp:TextBox ID="txtCaseNo" runat="server" CssClass="form-control" Placeholder="Case No"></asp:TextBox>
+                    <asp:TextBox ID="txtCaseNo" runat="server" CssClass="form-control" Placeholder="Case No" TextMode="Number"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="rfv3" ErrorMessage="*" ForeColor="Red" ControlToValidate="txtCaseNo" runat="server" Display="Dynamic" ValidationGroup="suspect"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">

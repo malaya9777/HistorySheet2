@@ -33,7 +33,7 @@
                 </div>
                 <div class="col-sm-2">
                     <label for="CaseNo">Case No</label>
-                    <asp:TextBox ID="txtCaseNo" runat="server" CssClass="form-control" placeholder="Case No"></asp:TextBox>
+                    <asp:TextBox ID="txtCaseNo" runat="server" CssClass="form-control" placeholder="Case No" TextMode="Number"></asp:TextBox>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtCaseNo" ErrorMessage="*" ForeColor="Red" Display="Dynamic" ValidationGroup="mannualInsert"></asp:RequiredFieldValidator>
 
                 </div>

@@ -15,7 +15,7 @@
         <div class="panel-body">
             <div class="panel-row">
                 <div class="col-sm-2">
-                    <asp:TextBox runat="server" ID="txtMobNumber" CssClass="form-control" Placeholder="Mobile No."></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtMobNumber" CssClass="form-control" Placeholder="Mobile No." TextMode="Number" MaxLength="10"></asp:TextBox>
                     <asp:RequiredFieldValidator ErrorMessage="*" ControlToValidate="txtMobNumber" runat="server" ID="rfv1" ValidationGroup="Add" Display="Dynamic" ForeColor="Red"></asp:RequiredFieldValidator>
                 </div>
 
@@ -30,10 +30,6 @@
                     </asp:DropDownList>
                 </div>
 
-                <%--<div class="col-sm-2">
-                    <asp:TextBox runat="server" ID="txtReportDate" CssClass="form-control" Placeholder="Report Date" Visible="false"></asp:TextBox>
-                    <ajax:CalendarExtender ID="CE1" TargetControlID="txtReportDate" runat="server" Format="dd-MMM-yyyy" />
-                </div>--%>
                 <div class="col-sm-2">
                     <asp:Button runat="server" ID="btnInsert" Text="Add" ValidationGroup="Add" CssClass="btn btn-primary" OnClick="btnInsert_Click" />
                 </div>
@@ -65,7 +61,7 @@
         <div class="panel-body">
             <div class="pael-row">
                 <div class="col-sm-2">
-                    <asp:TextBox runat="server" ID="txtAcctNo" CssClass="form-control" Placeholder="Bank Account Number"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtAcctNo" CssClass="form-control" Placeholder="Bank Account Number" TextMode="Number"></asp:TextBox>
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ID="rfvBank1" ControlToValidate="txtAcctNo" runat="server" ValidationGroup="Bank" Display="Dynamic"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
@@ -73,7 +69,7 @@
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ID="rfvBank2" ControlToValidate="txtBankDetail" runat="server" Display="Dynamic" ValidationGroup="Bank"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-sm-2">
-                    <asp:TextBox runat="server" ID="txtBankBalance" CssClass="form-control" placeholder="Bank Balance"></asp:TextBox>
+                    <asp:TextBox runat="server" ID="txtBankBalance" CssClass="form-control" placeholder="Bank Balance" TextMode="Number"></asp:TextBox>
                     <asp:RequiredFieldValidator ErrorMessage="*" ForeColor="Red" ControlToValidate="txtBankBalance" runat="server" Display="Dynamic" ValidationGroup="Bank"></asp:RequiredFieldValidator>
                 </div>
                 <%--<div class="col-sm-2">
