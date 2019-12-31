@@ -26,6 +26,9 @@
                                     <p>Year of Birth: <%# Eval("YearBirth") %></p>
                                 </div>
                                 <div class="col-sm-2"></div>
+                                <div class="col-sm-2">
+                                    <a href='<%# "IndividualHistorySheet?H_ID="+Eval("ID") %>'>View Details</a>
+                                </div>
                             </div>                                                        
                         </div>
                     </div>

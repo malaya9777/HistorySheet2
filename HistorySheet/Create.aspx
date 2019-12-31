@@ -62,7 +62,7 @@
             <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
                 <asp:ListItem Text="Male" Value="male" Selected="True"></asp:ListItem>
                 <asp:ListItem Text="Female" Value="female"></asp:ListItem>
-                <asp:ListItem Text="Transgender" Value="Transgender"></asp:ListItem>
+                <asp:ListItem Text="Transgender" Value="transgender"></asp:ListItem>
             </asp:RadioButtonList>
         </div>
         <div class="form-group col-md-6">

@@ -104,3 +104,16 @@ p {
 td{
     padding:10px;
 }
+.imageContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 5px;
+    background:#cccccc;
+    padding:10px;
+    box-sizing:border-box;
+}
+.relativeContainer{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap:5px;
+}

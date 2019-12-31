@@ -137,6 +137,7 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <Content Include="HistorySheet.html" />
+    <Content Include="IndividualHistorySheet.aspx" />
     <Content Include="moreInfo.aspx" />
     <Content Include="offence.aspx" />
     <Content Include="photos.aspx" />
@@ -373,6 +374,13 @@
     </Compile>
     <Compile Include="HistoryList.aspx.designer.cs">
       <DependentUpon>HistoryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="IndividualHistorySheet.aspx.cs">
+      <DependentUpon>IndividualHistorySheet.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="IndividualHistorySheet.aspx.designer.cs">
+      <DependentUpon>IndividualHistorySheet.aspx</DependentUpon>
     </Compile>
     <Compile Include="moreInfo.aspx.cs">
       <DependentUpon>moreInfo.aspx</DependentUpon>

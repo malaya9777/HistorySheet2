@@ -93,7 +93,7 @@ namespace HistorySheet
             h.FathersName = txtFName.Text;
             h.Fathersaliases = txtFAliases.Text;
             h.IsHusband = Convert.ToBoolean(rblPrefix.SelectedValue);
-            h.Gender = rblPrefix.SelectedValue;
+            h.Gender = rblGender.SelectedValue;
             h.TradeProfession = txtProfession.Text; 
             h.CrimeDBID = Convert.ToInt32(importID.Value);
             h.DateofReport = getDate(txtReportDate.Text);

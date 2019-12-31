@@ -19,7 +19,7 @@ namespace HistorySheet
                     loadDetails(masterID);
                     loadWitnessGrid(masterID);
                 }
-                
+
             }
         }
 
@@ -53,14 +53,14 @@ namespace HistorySheet
         private void loadWitnessGrid(int masterID)
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
-            {               
+            {
                 var records = db.Witnesses.Where(n => n.P_ID == masterID).Select(n => new
                 {
                     n.ID,
                     n.Name,
                     n.Gender,
                     DOB = n.DOB.Value.ToShortDateString(),
-                    image = n.Image.ToArray(),
+                    Image = n.Image.ToArray(),
                     n.FathersName,
                     n.Address,
 
@@ -69,6 +69,11 @@ namespace HistorySheet
                 grdWitness.DataSource = records;
                 grdWitness.DataBind();
             }
+        }
+
+        private byte[] getDefaultImage()
+        {
+            return globalMethods.getDefaultImage(HttpContext.Current);
         }
 
         protected void btnAdd_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 
@@ -19,8 +20,19 @@ namespace HistorySheet
                 if (photoID!=0)
                 {
                     var image = db.Photographs_FPs.Where(n => n.ID == photoID).SingleOrDefault();
-                    context.Response.BinaryWrite((byte[])image.Image.ToArray());
-                    context.Response.ContentType = "image/jpeg";
+                    if (image != null)
+                    {
+                        context.Response.BinaryWrite((byte[])image.Image.ToArray());
+                        context.Response.ContentType = "image/jpeg";
+                    }
+                    else
+                    {
+                       
+                        var path = context.Server.MapPath(@"\DefaultImg\default.jpg");
+                        context.Response.BinaryWrite((byte[])File.ReadAllBytes(path));
+                        context.Response.ContentType = "image/jpeg";
+                    }
+                    
                 }
                 else
                 {

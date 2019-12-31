@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI.WebControls;
@@ -43,6 +44,13 @@ namespace HistorySheet
         public static void readonlyTextbox(TextBox box)
         {
             box.Attributes.Add("readonly", "readonly");
+        }
+       
+
+        internal static byte[] getDefaultImage(HttpContext current)
+        {
+            var path = current.Server.MapPath(@"\DefaultImg\default.jpg");
+            return File.ReadAllBytes(path);
         }
     }
 }
