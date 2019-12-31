@@ -64,12 +64,12 @@
                 <div class="col-sm-2">
                     <label>Mobile Number</label>
 
-                    <asp:TextBox ID="txtMobileNumber" runat="server" CssClass="form-control" placeholder="Mobile Number"></asp:TextBox>
+                    <asp:TextBox ID="txtMobileNumber" runat="server" CssClass="form-control" placeholder="Mobile Number" MaxLength="10" TextMode="Number"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
                     <label>Account Number</label>
 
-                    <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" placeholder="Account Number"></asp:TextBox>
+                    <asp:TextBox ID="txtAccountNumber" runat="server" CssClass="form-control" placeholder="Account Number" TextMode="Number"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
                     <label>Bank Name</label>
