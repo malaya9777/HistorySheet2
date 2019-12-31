@@ -125,6 +125,7 @@ namespace HistorySheet
                 var records = db.BankAccounts.Where(n => n.P_Id == ID).Select(n => new
                 {
                     n.Id,
+                    n.AccountNo,
                     n.BankName,
                     n.Balance,
                     ReportedOn = n.ReportedOn.Value.ToShortDateString(),

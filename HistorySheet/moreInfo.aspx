@@ -90,6 +90,7 @@
     <br />
     <asp:GridView ID="grdBankDetail" runat="server" OnRowCommand="grdBankDetail_RowCommand" Width="100%" GridLines="None" Font-Size="10" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false">
         <Columns>
+            <asp:BoundField DataField="AccountNo" HeaderText="Bank A/C Number" />
             <asp:BoundField DataField="BankName" HeaderText="Bank Name" />
             <asp:BoundField DataField="Balance" HeaderText="Bank Details" />
             <asp:BoundField DataField="ReportedOn" HeaderText="Reported On" />

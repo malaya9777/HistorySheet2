@@ -34,7 +34,9 @@
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtRemarks" CssClass="form-control" Placeholder="Remarks"></asp:TextBox>
                 </div>
-                
+                <div class="col-sm-2">
+                    <asp:Button ID="btnAdd" Text="Insert" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
+                </div>
             </div>
             <br />
             <div class="row">
@@ -50,11 +52,28 @@
                 <div class="col-sm-2">
                     <asp:TextBox ID="txtPropertyValue" CssClass="form-control" runat="server" Placeholder="Value of Property" Enabled="false"></asp:TextBox>
                 </div>
-                <div class="col-sm-2">
-                    <asp:Button ID="btnAdd" Text="Insert" runat="server" CssClass="btn btn-primary" OnClick="btnAdd_Click" />
-                </div>
             </div>
-
+            <br />
+            <br />
+            <asp:GridView runat="server" ID="grdSuspect" GridLines="None" Width="100%" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowCommand="grdSuspect_RowCommand">
+                <Columns>
+                    <asp:BoundField DataField="District" HeaderText="District" />
+                    <asp:BoundField DataField="PS" HeaderText="Police Station" />
+                    <asp:BoundField DataField="CaseNo" HeaderText="Case No" />
+                    <asp:BoundField DataField="CaseDate" HeaderText="Case Date" />
+                    <asp:BoundField DataField="SRNo" HeaderText="SR No" />
+                    <asp:BoundField DataField="PropertyKind" HeaderText="Property Kind" />
+                    <asp:BoundField DataField="PropertyValue" HeaderText="Property Value" />
+                    <asp:TemplateField HeaderText="Delete">
+                        <ItemTemplate>
+                            <br />
+                            <asp:Button Text="Delete" runat="server" ID="btnDelete" CssClass="btn btn-danger" CommandArgument='<%# Eval("ID") %>' CommandName="remove"/>
+                            <br />
+                            <br />
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
     </div>
 </asp:Content>

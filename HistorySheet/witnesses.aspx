@@ -7,9 +7,6 @@
         <p id="fathersName" runat="server" style="padding: 0; margin: 0; font-size: 15px"></p>
         <p id="category" runat="server" style="padding: 0; margin: 0; font-size: 15px"></p>
     </div>
-    <br />
-    <br />
-
     <div class="panel panel-primary">
         <div class="panel-heading">Details of Witness</div>
         <div class="panel-body">
@@ -46,7 +43,7 @@
             </div>
             <div class="row">
                 <div class="col-sm-2">
-                    <asp:Button ID="btnAdd" Text="Add" runat="server" CssClass="btn btn-primary" ValidationGroup="witness" OnClick="btnAdd_Click" />
+                    <asp:Button ID="btnAdd" Text="Insert" runat="server" CssClass="btn btn-primary" ValidationGroup="witness" OnClick="btnAdd_Click" />
                 </div>
             </div>
         </div>
