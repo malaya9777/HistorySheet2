@@ -53,6 +53,7 @@ namespace HistorySheet
                 {
                     var record = db.Residences.Where(n => n.ID == ID).SingleOrDefault();
                     db.Residences.DeleteOnSubmit(record);
+                    db.SubmitChanges();
                     Response.Redirect(Request.RawUrl);
                 }
             }
@@ -78,6 +79,7 @@ namespace HistorySheet
                 r.District = txtDistrict.Text;
                 r.PS = txtPoliceStation.Text;
                 r.Address = txtAddress.Text;
+                r.PeriodReside = txtResideingPeriod.Text;
                 r.FequentlyVisiting = chkFrequentlyVisiting.Checked;
                 using(DBHistoryDataContext db = new DBHistoryDataContext())
                 {

@@ -68,9 +68,45 @@ namespace HistorySheet
                 loadImages(images);
                 var witnesses = db.Witnesses.Where(n => n.P_ID == ID).ToList();
                 loadWitnesses(witnesses);
+                var residence = db.Residences.Where(n => n.P_ID == ID).ToList();
+                loadResidence(residence);
+                var offence = db.Offences.Where(n => n.P_ID == ID).ToList();
+                loadOffence(offence);
                 
 
 
+            }
+        }
+
+        private void loadOffence(List<Offence> offence)
+        {
+            if (offence.Count > 0)
+            {
+                string emptyHTML = "";
+                foreach(var o in offence)
+                {
+                    emptyHTML += $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>PS: {o.PS}</p><p>Case No: {o.CaseNo}</p><p>Case Date: {o.Date.Value.ToString("dd-MMM-yyyy")}</p><p>Sections: {o.Sections}</p></div>" +
+                        $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>MO Details: {o.MODetails}</p></div>" +
+                        $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>Remarks: {o.Remarks}</p></div>" +
+                        $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>Is Important: {o.Important}</p></div>";
+                }
+                offenceContainer.InnerHtml = emptyHTML;
+            }
+        }
+
+        private void loadResidence(List<Residence> residence)
+        {
+            if (residence.Count > 0)
+            {
+                string emptyHTML = "";
+                foreach(var r in residence)
+                {
+                    emptyHTML += $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>Country:{r.Country}</p><p>State:{r.State}</p><p>District:{r.District}</p><p>Police Station:{r.PS}</p></div>" +
+                        $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>Address:{r.Address}</p></div>" +
+                        $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>Period Resided:{r.PeriodReside}</p></div>" +
+                        $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>Frequently Visited:{r.FequentlyVisiting}</p></div>";
+                }
+                residenceContainer.InnerHtml = emptyHTML;
             }
         }
 
@@ -104,12 +140,22 @@ namespace HistorySheet
                 var emptyHTML = "";
                 foreach(var wit in witnesses)
                 {
-                    emptyHTML += $"<div><img src='data:image/jpg;base64,{Convert.ToBase64String(wit.Image.ToArray())}' /></div>" +
-                        $"<div><p>{wit.Name}</p><p> Gender: {wit.Gender}</p><p> Gender: {wit.DOB.Value.ToString("dd-MMM-yy")}</p><p>Fathser's Name: {wit.FathersName}</p></div>" +
-                        $"<div>{wit.Address}</div>";
-                       
+                    if(wit.Image.Length == 0)
+                    {
+                        emptyHTML += $"<div style='border-bottom:1px solid #000'><img src='data:image/jpg;base64,{Convert.ToBase64String(globalMethods.getDefaultImage(HttpContext.Current))}' style='width:100px' /></div>" +
+                       $"<div style='border-bottom:1px solid #000'><p>{wit.Name}</p><p> Gender: {wit.Gender}</p><p> Gender: {wit.DOB.Value.ToString("dd-MMM-yy")}</p><p>Fathser's Name: {wit.FathersName}</p></div>" +
+                       $"<div style='border-bottom:1px solid #000'><p>{wit.Address}</p></div>";
+                    }
+                    else
+                    {
+                        emptyHTML += $"<div style='border-bottom:1px solid #000'><img src='data:image/jpg;base64,{Convert.ToBase64String(wit.Image.ToArray())}' style='width:100px' /></div>" +
+                       $"<div style='border-bottom:1px solid #000'><p>{wit.Name}</p><p> Gender: {wit.Gender}</p><p> Gender: {wit.DOB.Value.ToString("dd-MMM-yy")}</p><p>Fathser's Name: {wit.FathersName}</p></div>" +
+                       $"<div style='border-bottom:1px solid #000'><p>{wit.Address}</p></div>";
+                    }
+                                   
                      
                 }
+                witnessContainer.InnerHtml = emptyHTML;
 
             }
         }

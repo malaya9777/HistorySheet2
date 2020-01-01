@@ -152,21 +152,25 @@
             <div class="sub-head-6">
                 <div>
                     <p>6. Identifying witnesses and their father's names and addresse.</p>
-                    <div class="witnessContainer" runat="server">
-
+                    <div id="witnessContainer" class="witnessContainer" runat="server">
+                       
                     </div>
                 </div>
             </div>
             <div class="sub-head-7">
                 <div>
                     <p>7. Places of residence (All places in which he has ever resided and period </br>of residences also include places frequently visited).</p>
-                    <p>123</p>
+                    <div id="residenceContainer" runat="server" class="residenceContainer">
+
+                    </div>
                 </div>
             </div>
             <div class="sub-head-8">
                 <div>
                     <p>8. Class of offender. (Append notes showing M.O. details, means of transport used,</br> kind property stolen. in all cases in which such features are distinctive and likely</br> to be of importance. How did he become addicted to crime ?)</p>
-                    <p>123</p>
+                   <div id="offenceContainer" runat="server" class="offenceContainer">
+
+                   </div>
                 </div>
             </div>
             <div>

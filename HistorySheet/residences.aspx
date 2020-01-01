@@ -36,11 +36,15 @@
 
                 </div>
                 <div class="col-sm-2">
-                    <asp:CheckBox ID="chkFrequentlyVisiting" runat="server" Text="Frequently visiting" />
+                    <asp:TextBox ID="txtResideingPeriod" runat="server" CssClass="form-control" placeholder="Residing period"></asp:TextBox>
                 </div>
+
             </div>
             <br />
             <div class="row">
+                <div class="col-sm-2">
+                    <asp:CheckBox ID="chkFrequentlyVisiting" runat="server" Text="Frequently visiting" />
+                </div>
                 <div class="col-sm-2">
                     <asp:Button ID="btnInsert" runat="server" CssClass="btn btn-primary" Text="Insert" ValidationGroup="insert" OnClick="btnInsert_Click" />
                 </div>
@@ -54,6 +58,7 @@
             <asp:BoundField DataField="District" HeaderText="District" />
             <asp:BoundField DataField="PS" HeaderText="Police Station" />
             <asp:BoundField DataField="Address" HeaderText="Address" />
+            <asp:BoundField DataField="PeriodReside" HeaderText="Period Resided" />
             <asp:BoundField DataField="FequentlyVisiting" HeaderText="Frequently visiting" />
             <asp:TemplateField HeaderText="Delete">
                 <ItemTemplate>
