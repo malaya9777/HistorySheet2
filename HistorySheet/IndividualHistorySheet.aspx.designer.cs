@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HistorySheet
-{
-
-
-    public partial class IndividualHistorySheet
-    {
-
+namespace HistorySheet {
+    
+    
+    public partial class IndividualHistorySheet {
+        
         /// <summary>
         /// form1 control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// historyNo control.
         /// </summary>
@@ -31,7 +29,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl historyNo;
-
+        
         /// <summary>
         /// homeDistrict control.
         /// </summary>
@@ -40,7 +38,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl homeDistrict;
-
+        
         /// <summary>
         /// policeStation control.
         /// </summary>
@@ -49,7 +47,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl policeStation;
-
+        
         /// <summary>
         /// dateofOpening control.
         /// </summary>
@@ -58,7 +56,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dateofOpening;
-
+        
         /// <summary>
         /// Name control.
         /// </summary>
@@ -67,7 +65,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Name;
-
+        
         /// <summary>
         /// Aname control.
         /// </summary>
@@ -76,7 +74,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Aname;
-
+        
         /// <summary>
         /// FnameHname control.
         /// </summary>
@@ -85,7 +83,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl FnameHname;
-
+        
         /// <summary>
         /// Trade control.
         /// </summary>
@@ -94,7 +92,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Trade;
-
+        
         /// <summary>
         /// yearofbirth control.
         /// </summary>
@@ -103,7 +101,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl yearofbirth;
-
+        
         /// <summary>
         /// Height control.
         /// </summary>
@@ -112,7 +110,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl Height;
-
+        
         /// <summary>
         /// built control.
         /// </summary>
@@ -121,7 +119,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl built;
-
+        
         /// <summary>
         /// hair control.
         /// </summary>
@@ -130,7 +128,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl hair;
-
+        
         /// <summary>
         /// eyebrow control.
         /// </summary>
@@ -139,7 +137,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eyebrow;
-
+        
         /// <summary>
         /// forehead control.
         /// </summary>
@@ -148,7 +146,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl forehead;
-
+        
         /// <summary>
         /// eyes control.
         /// </summary>
@@ -157,7 +155,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl eyes;
-
+        
         /// <summary>
         /// nose control.
         /// </summary>
@@ -166,7 +164,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl nose;
-
+        
         /// <summary>
         /// mouth control.
         /// </summary>
@@ -175,7 +173,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl mouth;
-
+        
         /// <summary>
         /// chin control.
         /// </summary>
@@ -184,7 +182,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl chin;
-
+        
         /// <summary>
         /// teeth control.
         /// </summary>
@@ -193,7 +191,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl teeth;
-
+        
         /// <summary>
         /// finger control.
         /// </summary>
@@ -202,7 +200,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl finger;
-
+        
         /// <summary>
         /// ears control.
         /// </summary>
@@ -211,7 +209,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ears;
-
+        
         /// <summary>
         /// face control.
         /// </summary>
@@ -220,7 +218,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl face;
-
+        
         /// <summary>
         /// complexion control.
         /// </summary>
@@ -229,7 +227,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl complexion;
-
+        
         /// <summary>
         /// facialhair control.
         /// </summary>
@@ -238,7 +236,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl facialhair;
-
+        
         /// <summary>
         /// facialhairtype control.
         /// </summary>
@@ -247,7 +245,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl facialhairtype;
-
+        
         /// <summary>
         /// marks control.
         /// </summary>
@@ -256,7 +254,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl marks;
-
+        
         /// <summary>
         /// deformities control.
         /// </summary>
@@ -265,7 +263,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl deformities;
-
+        
         /// <summary>
         /// manners control.
         /// </summary>
@@ -274,7 +272,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl manners;
-
+        
         /// <summary>
         /// gait control.
         /// </summary>
@@ -283,7 +281,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl gait;
-
+        
         /// <summary>
         /// speech control.
         /// </summary>
@@ -292,7 +290,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl speech;
-
+        
         /// <summary>
         /// appearance control.
         /// </summary>
@@ -301,7 +299,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl appearance;
-
+        
         /// <summary>
         /// dressing control.
         /// </summary>
@@ -310,7 +308,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl dressing;
-
+        
         /// <summary>
         /// accomplishments control.
         /// </summary>
@@ -319,7 +317,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl accomplishments;
-
+        
         /// <summary>
         /// habits control.
         /// </summary>
@@ -328,7 +326,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl habits;
-
+        
         /// <summary>
         /// badhabits control.
         /// </summary>
@@ -337,7 +335,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl badhabits;
-
+        
         /// <summary>
         /// otherDescriptivePoints control.
         /// </summary>
@@ -346,7 +344,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl otherDescriptivePoints;
-
+        
         /// <summary>
         /// imgContainer control.
         /// </summary>
@@ -355,7 +353,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl imgContainer;
-
+        
         /// <summary>
         /// fingerprintContainer control.
         /// </summary>
@@ -364,7 +362,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl fingerprintContainer;
-
+        
         /// <summary>
         /// witnessContainer control.
         /// </summary>
@@ -373,7 +371,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl witnessContainer;
-
+        
         /// <summary>
         /// residenceContainer control.
         /// </summary>
@@ -382,7 +380,7 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl residenceContainer;
-
+        
         /// <summary>
         /// offenceContainer control.
         /// </summary>
@@ -391,5 +389,23 @@ namespace HistorySheet
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl offenceContainer;
+        
+        /// <summary>
+        /// associateTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable associateTable;
+        
+        /// <summary>
+        /// tblRelatives control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable tblRelatives;
     }
 }

@@ -177,19 +177,13 @@
                 <p>9. Associates (Likely to be visited)</p>
             </div>
             <div>
-                <table class="tblborder">
+                <table class="tblborder" border="1" id="associateTable" runat="server">
                     <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;">Name, Father's name and caste</td>
-                        <td class="bottomBorder" style="border-right: 2px solid; width: 200px;">Residence</td>
-                        <td class="bottomBorder" style="border-right: 2px solid; width: 200px;">Occupation</td>
-                        <td class="bottomBorder">Nature of association and refrence to History Sheet, if any.</td>
-                    </tr>
-                    <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid"></td>
-                        <td class="bottomBorder"></td>
-                    </tr>
+                        <td>Name, Father's name and caste</td>
+                        <td>Residence</td>
+                        <td>Occupation</td>
+                        <td>Nature of association and refrence to History Sheet, if any.</td>
+                    </tr>                    
                 </table>
             </div>
 
@@ -197,19 +191,13 @@
                 <p>10. Relates those(Likely to visit to be specified)</p>
             </div>
             <div>
-                <table class="tblborder">
+                <table class="tblborder" id="tblRelatives" border="1" runat="server">
                     <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;">Name and Relationship</td>
-                        <td class="bottomBorder" style="border-right: 2px solid; width: 200px;">Residence</td>
-                        <td class="bottomBorder" style="border-right: 2px solid; width: 200px;">Occupation</td>
-                        <td class="bottomBorder">Reference to History Sheet, if any</td>
-                    </tr>
-                    <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder"></td>
-                    </tr>
+                        <td>Name and Relationship</td>
+                        <td>Residence</td>
+                        <td>Occupation</td>
+                        <td>Reference to History Sheet, if any</td>
+                    </tr>                    
                 </table>
             </div>
 

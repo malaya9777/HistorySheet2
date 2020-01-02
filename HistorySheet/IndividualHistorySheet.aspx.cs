@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace HistorySheet
@@ -72,9 +73,62 @@ namespace HistorySheet
                 loadResidence(residence);
                 var offence = db.Offences.Where(n => n.P_ID == ID).ToList();
                 loadOffence(offence);
+                var associates = db.Associates.Where(n => n.P_ID == ID).ToList();
+                loadAssociates(associates);
+                var relatives = db.Relates.Where(n => n.P_ID == ID).ToList();
+                loadRelatives(relatives);
                 
 
 
+            }
+        }
+
+        private void loadRelatives(List<Relate> relatives)
+        {
+            if (relatives.Count > 0)
+            {
+                foreach(var r in relatives)
+                {
+                    HtmlTableCell td1 = new HtmlTableCell();
+                    td1.InnerHtml = $"<p>{r.Name}</p><p>Relationship:{r.Relationship}</p>";
+                    HtmlTableCell td2 = new HtmlTableCell();
+                    td2.InnerHtml = $"<p>{r.Address}</p>";
+                    HtmlTableCell td3 = new HtmlTableCell();
+                    td3.InnerHtml = $"<p>{r.Occupation}</p>";
+                    HtmlTableCell td4 = new HtmlTableCell();
+                    td4.InnerHtml = $"<a href='IndividualHistorySheet?H_ID={r.RefMasterID}'>{r.RefMasterID}<a>";
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(td1);
+                    row.Cells.Add(td2);
+                    row.Cells.Add(td3);
+                    row.Cells.Add(td4);
+                    tblRelatives.Rows.Add(row);
+                }
+            }
+        }
+
+        private void loadAssociates(List<Associate> associates)
+        {
+            if (associates.Count > 0)
+            {
+                
+                foreach(var a in associates)
+                {
+                    HtmlTableRow row = new HtmlTableRow();
+                    HtmlTableCell td1 = new HtmlTableCell();
+                    td1.InnerHtml = $"<p>{a.Name} @{a.Aliases}, Father's Name:{a.FathersName}</p>";
+                    HtmlTableCell td2 = new HtmlTableCell();
+                    td2.InnerHtml = $"<p>{a.Residence}<p>";
+                    HtmlTableCell td3 = new HtmlTableCell();
+                    td3.InnerHtml = $"<p>{a.Occupation}<p>";
+                    HtmlTableCell td4 = new HtmlTableCell();
+                    td4.InnerHtml = $"<p>{a.AssociationNature}, <a href='IndividualHistorySheet?H_ID={a.HistoryMasterID}'>{a.HistoryMasterID}</a></p>";
+                    row.Cells.Add(td1);
+                    row.Cells.Add(td2);
+                    row.Cells.Add(td3);
+                    row.Cells.Add(td4);
+                    associateTable.Rows.Add(row);
+                }
             }
         }
 
