@@ -75,6 +75,8 @@ namespace HistorySheet
                         suspect.SRNo = getNumber(txtSRNo.Text);
                         suspect.PropertyKind = txtPropertyKind.Text;
                         suspect.PropertyValue = txtPropertyValue.Text;
+                        suspect.MODetails = txtMODetails.Text;
+                        suspect.Sections = txtSections.Text;
                         db.SuspectedCases.InsertOnSubmit(suspect);
                         db.SubmitChanges();
                         Response.Redirect(Request.RawUrl);

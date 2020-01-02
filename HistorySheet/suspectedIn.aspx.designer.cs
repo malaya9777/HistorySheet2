@@ -177,6 +177,24 @@ namespace HistorySheet
         protected global::System.Web.UI.WebControls.TextBox txtPropertyValue;
 
         /// <summary>
+        /// txtSections control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtSections;
+
+        /// <summary>
+        /// txtMODetails control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtMODetails;
+
+        /// <summary>
         /// grdSuspect control.
         /// </summary>
         /// <remarks>

@@ -39,9 +39,6 @@ namespace HistorySheet
     partial void InsertPhotographs_FP(Photographs_FP instance);
     partial void UpdatePhotographs_FP(Photographs_FP instance);
     partial void DeletePhotographs_FP(Photographs_FP instance);
-    partial void InsertSuspectedCase(SuspectedCase instance);
-    partial void UpdateSuspectedCase(SuspectedCase instance);
-    partial void DeleteSuspectedCase(SuspectedCase instance);
     partial void InsertUser(User instance);
     partial void UpdateUser(User instance);
     partial void DeleteUser(User instance);
@@ -81,6 +78,9 @@ namespace HistorySheet
     partial void InsertMaster(Master instance);
     partial void UpdateMaster(Master instance);
     partial void DeleteMaster(Master instance);
+    partial void InsertSuspectedCase(SuspectedCase instance);
+    partial void UpdateSuspectedCase(SuspectedCase instance);
+    partial void DeleteSuspectedCase(SuspectedCase instance);
     #endregion
 		
 		public DBHistoryDataContext() : 
@@ -142,14 +142,6 @@ namespace HistorySheet
 			get
 			{
 				return this.GetTable<Photographs_FP>();
-			}
-		}
-		
-		public System.Data.Linq.Table<SuspectedCase> SuspectedCases
-		{
-			get
-			{
-				return this.GetTable<SuspectedCase>();
 			}
 		}
 		
@@ -254,6 +246,14 @@ namespace HistorySheet
 			get
 			{
 				return this.GetTable<Master>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SuspectedCase> SuspectedCases
+		{
+			get
+			{
+				return this.GetTable<SuspectedCase>();
 			}
 		}
 	}
@@ -1100,308 +1100,6 @@ namespace HistorySheet
 					this._Image = value;
 					this.SendPropertyChanged("Image");
 					this.OnImageChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SuspectedCases")]
-	public partial class SuspectedCase : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private System.Nullable<int> _P_ID;
-		
-		private string _District;
-		
-		private string _PS;
-		
-		private System.Nullable<int> _CaseNo;
-		
-		private System.Nullable<System.DateTime> _CaseDate;
-		
-		private System.Nullable<bool> _IsSR;
-		
-		private System.Nullable<int> _SRNo;
-		
-		private string _PropertyKind;
-		
-		private string _PropertyValue;
-		
-		private string _Remarks;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnP_IDChanging(System.Nullable<int> value);
-    partial void OnP_IDChanged();
-    partial void OnDistrictChanging(string value);
-    partial void OnDistrictChanged();
-    partial void OnPSChanging(string value);
-    partial void OnPSChanged();
-    partial void OnCaseNoChanging(System.Nullable<int> value);
-    partial void OnCaseNoChanged();
-    partial void OnCaseDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCaseDateChanged();
-    partial void OnIsSRChanging(System.Nullable<bool> value);
-    partial void OnIsSRChanged();
-    partial void OnSRNoChanging(System.Nullable<int> value);
-    partial void OnSRNoChanged();
-    partial void OnPropertyKindChanging(string value);
-    partial void OnPropertyKindChanged();
-    partial void OnPropertyValueChanging(string value);
-    partial void OnPropertyValueChanged();
-    partial void OnRemarksChanging(string value);
-    partial void OnRemarksChanged();
-    #endregion
-		
-		public SuspectedCase()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
-		public System.Nullable<int> P_ID
-		{
-			get
-			{
-				return this._P_ID;
-			}
-			set
-			{
-				if ((this._P_ID != value))
-				{
-					this.OnP_IDChanging(value);
-					this.SendPropertyChanging();
-					this._P_ID = value;
-					this.SendPropertyChanged("P_ID");
-					this.OnP_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(100)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this.OnDistrictChanging(value);
-					this.SendPropertyChanging();
-					this._District = value;
-					this.SendPropertyChanged("District");
-					this.OnDistrictChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(100)")]
-		public string PS
-		{
-			get
-			{
-				return this._PS;
-			}
-			set
-			{
-				if ((this._PS != value))
-				{
-					this.OnPSChanging(value);
-					this.SendPropertyChanging();
-					this._PS = value;
-					this.SendPropertyChanged("PS");
-					this.OnPSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseNo", DbType="Int")]
-		public System.Nullable<int> CaseNo
-		{
-			get
-			{
-				return this._CaseNo;
-			}
-			set
-			{
-				if ((this._CaseNo != value))
-				{
-					this.OnCaseNoChanging(value);
-					this.SendPropertyChanging();
-					this._CaseNo = value;
-					this.SendPropertyChanged("CaseNo");
-					this.OnCaseNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CaseDate
-		{
-			get
-			{
-				return this._CaseDate;
-			}
-			set
-			{
-				if ((this._CaseDate != value))
-				{
-					this.OnCaseDateChanging(value);
-					this.SendPropertyChanging();
-					this._CaseDate = value;
-					this.SendPropertyChanged("CaseDate");
-					this.OnCaseDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSR", DbType="Bit")]
-		public System.Nullable<bool> IsSR
-		{
-			get
-			{
-				return this._IsSR;
-			}
-			set
-			{
-				if ((this._IsSR != value))
-				{
-					this.OnIsSRChanging(value);
-					this.SendPropertyChanging();
-					this._IsSR = value;
-					this.SendPropertyChanged("IsSR");
-					this.OnIsSRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRNo", DbType="Int")]
-		public System.Nullable<int> SRNo
-		{
-			get
-			{
-				return this._SRNo;
-			}
-			set
-			{
-				if ((this._SRNo != value))
-				{
-					this.OnSRNoChanging(value);
-					this.SendPropertyChanging();
-					this._SRNo = value;
-					this.SendPropertyChanged("SRNo");
-					this.OnSRNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyKind", DbType="NVarChar(100)")]
-		public string PropertyKind
-		{
-			get
-			{
-				return this._PropertyKind;
-			}
-			set
-			{
-				if ((this._PropertyKind != value))
-				{
-					this.OnPropertyKindChanging(value);
-					this.SendPropertyChanging();
-					this._PropertyKind = value;
-					this.SendPropertyChanged("PropertyKind");
-					this.OnPropertyKindChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyValue", DbType="NVarChar(50)")]
-		public string PropertyValue
-		{
-			get
-			{
-				return this._PropertyValue;
-			}
-			set
-			{
-				if ((this._PropertyValue != value))
-				{
-					this.OnPropertyValueChanging(value);
-					this.SendPropertyChanging();
-					this._PropertyValue = value;
-					this.SendPropertyChanged("PropertyValue");
-					this.OnPropertyValueChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(MAX)")]
-		public string Remarks
-		{
-			get
-			{
-				return this._Remarks;
-			}
-			set
-			{
-				if ((this._Remarks != value))
-				{
-					this.OnRemarksChanging(value);
-					this.SendPropertyChanging();
-					this._Remarks = value;
-					this.SendPropertyChanged("Remarks");
-					this.OnRemarksChanged();
 				}
 			}
 		}
@@ -5160,6 +4858,356 @@ namespace HistorySheet
 					this._LastUpdate = value;
 					this.SendPropertyChanged("LastUpdate");
 					this.OnLastUpdateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SuspectedCases")]
+	public partial class SuspectedCase : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _P_ID;
+		
+		private string _District;
+		
+		private string _PS;
+		
+		private System.Nullable<int> _CaseNo;
+		
+		private System.Nullable<System.DateTime> _CaseDate;
+		
+		private string _Sections;
+		
+		private string _MODetails;
+		
+		private System.Nullable<bool> _IsSR;
+		
+		private System.Nullable<int> _SRNo;
+		
+		private string _PropertyKind;
+		
+		private string _PropertyValue;
+		
+		private string _Remarks;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnP_IDChanging(System.Nullable<int> value);
+    partial void OnP_IDChanged();
+    partial void OnDistrictChanging(string value);
+    partial void OnDistrictChanged();
+    partial void OnPSChanging(string value);
+    partial void OnPSChanged();
+    partial void OnCaseNoChanging(System.Nullable<int> value);
+    partial void OnCaseNoChanged();
+    partial void OnCaseDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCaseDateChanged();
+    partial void OnSectionsChanging(string value);
+    partial void OnSectionsChanged();
+    partial void OnMODetailsChanging(string value);
+    partial void OnMODetailsChanged();
+    partial void OnIsSRChanging(System.Nullable<bool> value);
+    partial void OnIsSRChanged();
+    partial void OnSRNoChanging(System.Nullable<int> value);
+    partial void OnSRNoChanged();
+    partial void OnPropertyKindChanging(string value);
+    partial void OnPropertyKindChanged();
+    partial void OnPropertyValueChanging(string value);
+    partial void OnPropertyValueChanged();
+    partial void OnRemarksChanging(string value);
+    partial void OnRemarksChanged();
+    #endregion
+		
+		public SuspectedCase()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
+		public System.Nullable<int> P_ID
+		{
+			get
+			{
+				return this._P_ID;
+			}
+			set
+			{
+				if ((this._P_ID != value))
+				{
+					this.OnP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._P_ID = value;
+					this.SendPropertyChanged("P_ID");
+					this.OnP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(100)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this.OnDistrictChanging(value);
+					this.SendPropertyChanging();
+					this._District = value;
+					this.SendPropertyChanged("District");
+					this.OnDistrictChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(100)")]
+		public string PS
+		{
+			get
+			{
+				return this._PS;
+			}
+			set
+			{
+				if ((this._PS != value))
+				{
+					this.OnPSChanging(value);
+					this.SendPropertyChanging();
+					this._PS = value;
+					this.SendPropertyChanged("PS");
+					this.OnPSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseNo", DbType="Int")]
+		public System.Nullable<int> CaseNo
+		{
+			get
+			{
+				return this._CaseNo;
+			}
+			set
+			{
+				if ((this._CaseNo != value))
+				{
+					this.OnCaseNoChanging(value);
+					this.SendPropertyChanging();
+					this._CaseNo = value;
+					this.SendPropertyChanged("CaseNo");
+					this.OnCaseNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CaseDate
+		{
+			get
+			{
+				return this._CaseDate;
+			}
+			set
+			{
+				if ((this._CaseDate != value))
+				{
+					this.OnCaseDateChanging(value);
+					this.SendPropertyChanging();
+					this._CaseDate = value;
+					this.SendPropertyChanged("CaseDate");
+					this.OnCaseDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sections", DbType="NVarChar(800)")]
+		public string Sections
+		{
+			get
+			{
+				return this._Sections;
+			}
+			set
+			{
+				if ((this._Sections != value))
+				{
+					this.OnSectionsChanging(value);
+					this.SendPropertyChanging();
+					this._Sections = value;
+					this.SendPropertyChanged("Sections");
+					this.OnSectionsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MODetails", DbType="NVarChar(200)")]
+		public string MODetails
+		{
+			get
+			{
+				return this._MODetails;
+			}
+			set
+			{
+				if ((this._MODetails != value))
+				{
+					this.OnMODetailsChanging(value);
+					this.SendPropertyChanging();
+					this._MODetails = value;
+					this.SendPropertyChanged("MODetails");
+					this.OnMODetailsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSR", DbType="Bit")]
+		public System.Nullable<bool> IsSR
+		{
+			get
+			{
+				return this._IsSR;
+			}
+			set
+			{
+				if ((this._IsSR != value))
+				{
+					this.OnIsSRChanging(value);
+					this.SendPropertyChanging();
+					this._IsSR = value;
+					this.SendPropertyChanged("IsSR");
+					this.OnIsSRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRNo", DbType="Int")]
+		public System.Nullable<int> SRNo
+		{
+			get
+			{
+				return this._SRNo;
+			}
+			set
+			{
+				if ((this._SRNo != value))
+				{
+					this.OnSRNoChanging(value);
+					this.SendPropertyChanging();
+					this._SRNo = value;
+					this.SendPropertyChanged("SRNo");
+					this.OnSRNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyKind", DbType="NVarChar(100)")]
+		public string PropertyKind
+		{
+			get
+			{
+				return this._PropertyKind;
+			}
+			set
+			{
+				if ((this._PropertyKind != value))
+				{
+					this.OnPropertyKindChanging(value);
+					this.SendPropertyChanging();
+					this._PropertyKind = value;
+					this.SendPropertyChanged("PropertyKind");
+					this.OnPropertyKindChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyValue", DbType="NVarChar(50)")]
+		public string PropertyValue
+		{
+			get
+			{
+				return this._PropertyValue;
+			}
+			set
+			{
+				if ((this._PropertyValue != value))
+				{
+					this.OnPropertyValueChanging(value);
+					this.SendPropertyChanging();
+					this._PropertyValue = value;
+					this.SendPropertyChanged("PropertyValue");
+					this.OnPropertyValueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Remarks", DbType="NVarChar(MAX)")]
+		public string Remarks
+		{
+			get
+			{
+				return this._Remarks;
+			}
+			set
+			{
+				if ((this._Remarks != value))
+				{
+					this.OnRemarksChanging(value);
+					this.SendPropertyChanging();
+					this._Remarks = value;
+					this.SendPropertyChanged("Remarks");
+					this.OnRemarksChanged();
 				}
 			}
 		}

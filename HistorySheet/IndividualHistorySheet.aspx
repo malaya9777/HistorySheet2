@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>    
+    <title></title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="StyleSheetHistory.css" />
@@ -153,7 +153,6 @@
                 <div>
                     <p>6. Identifying witnesses and their father's names and addresse.</p>
                     <div id="witnessContainer" class="witnessContainer" runat="server">
-                       
                     </div>
                 </div>
             </div>
@@ -161,16 +160,14 @@
                 <div>
                     <p>7. Places of residence (All places in which he has ever resided and period </br>of residences also include places frequently visited).</p>
                     <div id="residenceContainer" runat="server" class="residenceContainer">
-
                     </div>
                 </div>
             </div>
             <div class="sub-head-8">
                 <div>
                     <p>8. Class of offender. (Append notes showing M.O. details, means of transport used,</br> kind property stolen. in all cases in which such features are distinctive and likely</br> to be of importance. How did he become addicted to crime ?)</p>
-                   <div id="offenceContainer" runat="server" class="offenceContainer">
-
-                   </div>
+                    <div id="offenceContainer" runat="server" class="offenceContainer">
+                    </div>
                 </div>
             </div>
             <div>
@@ -183,7 +180,7 @@
                         <td>Residence</td>
                         <td>Occupation</td>
                         <td>Nature of association and refrence to History Sheet, if any.</td>
-                    </tr>                    
+                    </tr>
                 </table>
             </div>
 
@@ -197,20 +194,38 @@
                         <td>Residence</td>
                         <td>Occupation</td>
                         <td>Reference to History Sheet, if any</td>
-                    </tr>                    
+                    </tr>
                 </table>
             </div>
 
             <div>
                 <div class="sub-head-11">
                     <p>11. Exact information regarding kown methods of disposal of stolen property (cite cases) ana names and residence of receivers.</p>
-                    <p>123</p>
+                    <table id="tblDisposalMethod" runat="server" class="tblborder" border="1">
+                        <thead>
+                            <tr>
+                                <td>Mehod</td>
+                                <td>Receiver Name</td>
+                                <td>Receiver Address</td>
+                                <td>Is a History Sheeter</td>
+                            </tr>
+                        </thead>
+
+                    </table>
                 </div>
             </div>
             <div class="sub-head-12">
                 <div>
                     <p>12. Particulars of Past arrests, When, Where and by Whom harboured, Localities in which he has committed crime, citing offences.</p>
-                    <p>123</p>
+                    <table id="tblPastArrest" runat="server" class="tblborder" border="1">
+                        <thead>
+                            <tr>
+                                <td>Case Datails</td>
+                                <td>Arrest Date</td>
+                                <td>where arrested</td>
+                            </tr>
+                        </thead>
+                    </table>
                 </div>
 
             </div>
@@ -218,19 +233,15 @@
                 <p>13. Cases in which suspected with clear reasons and miscellaneous information useful for a security case.</p>
             </div>
             <div>
-                <table class="tblborder">
-                    <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;">Section, modus operandi and any S.R. No.</td>
-                        <td class="bottomBorder" style="border-right: 2px solid;">District, station and crime number</td>
-                        <td class="bottomBorder" style="border-right: 2px solid;">Kind and value of property stolen</td>
-                        <td class="bottomBorder" style="width: 200px;">Remarks</td>
-                    </tr>
-                    <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder"></td>
-                    </tr>
+                <table class="tblborder" id="tblSuspected" runat="server" border="1">
+                    <thead>
+                        <tr>
+                            <td>Section, modus operandi and any S.R. No.</td>
+                            <td>District, station and crime number</td>
+                            <td>Kind and value of property stolen</td>
+                            <td>Remarks</td>
+                        </tr>
+                    </thead>
                 </table>
             </div>
 
@@ -238,21 +249,16 @@
                 <p>14. Particulars of convictions.</p>
             </div>
             <div>
-                <table class="tblborder">
-                    <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;">Section, modus operandi and any S.R. No.</td>
-                        <td class="bottomBorder" style="border-right: 2px solid;">District, station and crime No.</td>
-                        <td class="bottomBorder" style="border-right: 2px solid;">Kind and value of property stolen and recovered</td>
-                        <td class="bottomBorder" style="border-right: 2px solid;">Court, conviction date and sentence.</td>
-                        <td class="bottomBorder">F.P.B. Serial No. and date identifying witness date of release.</td>
-                    </tr>
-                    <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder"></td>
-                    </tr>
+                <table class="tblborder" id="tblConviction" runat="server" border="1">
+                    <thead>
+                        <tr>
+                            <td>Section, modus operandi and any S.R. No.</td>
+                            <td>District, station and crime No.</td>
+                            <td>Kind and value of property stolen and recovered</td>
+                            <td>Court, conviction date and sentence.</td>
+                            <td>F.P.B. Serial No. and date identifying witness date of release.</td>
+                        </tr>
+                    </thead>
                 </table>
             </div>
 

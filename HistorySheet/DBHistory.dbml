@@ -48,21 +48,6 @@
       <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
-  <Table Name="dbo.SuspectedCases" Member="SuspectedCases">
-    <Type Name="SuspectedCase">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="District" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IsSR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="SRNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PropertyKind" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PropertyValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.[User]" Member="Users">
     <Type Name="User">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -249,6 +234,23 @@
       <Column Name="BadHabits" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="OtherDescriptivePoints" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="LastUpdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.SuspectedCases" Member="SuspectedCases">
+    <Type Name="SuspectedCase">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sections" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="MODetails" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsSR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SRNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PropertyKind" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PropertyValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

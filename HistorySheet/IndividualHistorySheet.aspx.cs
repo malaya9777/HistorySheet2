@@ -77,9 +77,109 @@ namespace HistorySheet
                 loadAssociates(associates);
                 var relatives = db.Relates.Where(n => n.P_ID == ID).ToList();
                 loadRelatives(relatives);
+                var disposalMethod = db.DisposalMethods.Where(n => n.P_ID == ID).ToList();
+                loadDisposalMethod(disposalMethod);
+                var pastArrest = db.PastArrests.Where(n => n.P_ID == ID).ToList();
+                loadPastArrest(pastArrest);
+                var suspected = db.SuspectedCases.Where(n => n.P_ID == ID).ToList();
+                loadSuspected(suspected);
+                var conviction = db.Convictions.Where(n => n.P_ID == ID).ToList();
+                loadConviction(conviction);
                 
 
 
+            }
+        }
+
+        private void loadConviction(List<Conviction> conviction)
+        {
+            if (conviction.Count > 0)
+            {
+                foreach(var c in conviction)
+                {
+                    HtmlTableCell td1 = getHTMLCell($"<p>Sections: {c.Sections}</p><p>MO Details: {c.MO}</p><p>Is SR: {c.IsSR}</p><p>SR No: {c.SRNo}</p>");
+                    HtmlTableCell td2 = getHTMLCell($"<p>District: {c.District}</p><p>Police Station: {c.PS}</p><p>Case No: {c.CaseNo}</p><p>Case Date: {c.CaseDate.Value.ToString("dd-MMM-yyyy")}</p><p>Sections: {c.Sections}</p>");
+                    HtmlTableCell td3 = getHTMLCell($"");
+                }
+            }
+        }
+
+        private HtmlTableCell getHTMLCell(string v)
+        {
+            var newCell = new HtmlTableCell();
+            newCell.InnerHtml = v;
+            return newCell;
+        }
+
+        private void loadSuspected(List<SuspectedCase> suspected)
+        {
+            if (suspected.Count > 0)
+            {
+                foreach(var s in suspected)
+                {
+                    HtmlTableCell td1 = new HtmlTableCell();
+                    td1.InnerHtml = $"<p>Sections: {s.Sections}<p><p>MO Details: {s.MODetails}</p><p>Is a SR:{s.IsSR}</p><p>SR No:{s.SRNo}</p>";
+                    HtmlTableCell td2 = new HtmlTableCell();
+                    td2.InnerHtml = $"<p>District:{s.District}</p><p>Case No:{s.CaseNo}</p><p>{s.CaseDate.Value.ToString("dd-MMM-yy")}</p>";
+                    HtmlTableCell td3 = new HtmlTableCell();
+                    td3.InnerHtml = $"<p>{s.PropertyKind}, {s.PropertyValue}</p>";
+                    HtmlTableCell td4 = new HtmlTableCell();
+                    td4.InnerHtml = $"<p>{s.Remarks}</p>";
+
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(td1);
+                    row.Cells.Add(td2);
+                    row.Cells.Add(td3);
+                    row.Cells.Add(td4);
+                    tblSuspected.Rows.Add(row);
+                }
+                
+            }
+        }
+
+        private void loadPastArrest(List<PastArrest> pastArrest)
+        {
+            if (pastArrest.Count > 0)
+            {
+                foreach(var p in pastArrest)
+                {
+                    HtmlTableCell td1 = new HtmlTableCell();
+                    td1.InnerHtml = $"<p>Police Station{p.PS}</p><p>Case No:{p.CaseNo}</p><p>Case Date:{p.Date.Value.ToString("dd-MMM-yyyy")}</p><p>Section:{p.Sections}</p>";
+                    HtmlTableCell td2 = new HtmlTableCell();
+                    td2.InnerHtml = $"<p>{p.ArrestedDate.Value.ToString("dd-MMM-yyyy")}</p>";
+                    HtmlTableCell td3 = new HtmlTableCell();
+                    td3.InnerHtml = $"<p>{p.WhereArrested}</p>";
+
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(td1);
+                    row.Cells.Add(td2);
+                    row.Cells.Add(td3);
+                    tblPastArrest.Rows.Add(row);
+                }
+            }
+        }
+
+        private void loadDisposalMethod(List<DisposalMethod> disposalMethod)
+        {
+            if (disposalMethod.Count() > 0)
+            {
+                foreach(var d in disposalMethod)
+                {
+                    HtmlTableCell td1 = new HtmlTableCell();
+                    td1.InnerHtml = $"<p>{d.Method}</p>";
+                    HtmlTableCell td2 = new HtmlTableCell();
+                    td2.InnerHtml = $"<p>{d.ReceiverName}</p>";
+                    HtmlTableCell td3 = new HtmlTableCell();
+                    td3.InnerHtml = $"<p>{d.ReceiverAddress}</p>";
+                    HtmlTableCell td4 = new HtmlTableCell();
+                    td4.InnerHtml = $"<a href='IndividualHistorySheet?H_ID={d.MasterID}'>{d.MasterID}</a>";
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(td1);
+                    row.Cells.Add(td2);
+                    row.Cells.Add(td3);
+                    row.Cells.Add(td4);
+                    tblDisposalMethod.Rows.Add(row);
+                }
             }
         }
 

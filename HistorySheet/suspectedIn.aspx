@@ -13,6 +13,7 @@
     <div class="panel panel-primary">
         <div class="panel-heading">Suspected In</div>
         <div class="panel-body">
+
             <div class="row">
                 <div class="col-sm-2">
                     <asp:TextBox runat="server" ID="txtDistrict" CssClass="form-control" Placeholder="District"></asp:TextBox>
@@ -52,28 +53,32 @@
                 <div class="col-sm-2">
                     <asp:TextBox ID="txtPropertyValue" CssClass="form-control" runat="server" Placeholder="Value of Property" Enabled="false"></asp:TextBox>
                 </div>
+                <div class="col-sm-2">
+                    <asp:TextBox ID="txtSections" CssClass="form-control" runat="server" placeholder="Sections"></asp:TextBox>
+                </div>
+                <div class="col-sm-2">
+                    <asp:TextBox ID="txtMODetails" CssClass="form-control" runat="server" placeholder="MO Details"></asp:TextBox>
+                </div>
             </div>
-            <br />
-            <br />
-            <asp:GridView runat="server" ID="grdSuspect" GridLines="None" Width="100%" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowCommand="grdSuspect_RowCommand">
-                <Columns>
-                    <asp:BoundField DataField="District" HeaderText="District" />
-                    <asp:BoundField DataField="PS" HeaderText="Police Station" />
-                    <asp:BoundField DataField="CaseNo" HeaderText="Case No" />
-                    <asp:BoundField DataField="CaseDate" HeaderText="Case Date" />
-                    <asp:BoundField DataField="SRNo" HeaderText="SR No" />
-                    <asp:BoundField DataField="PropertyKind" HeaderText="Property Kind" />
-                    <asp:BoundField DataField="PropertyValue" HeaderText="Property Value" />
-                    <asp:TemplateField HeaderText="Delete">
-                        <ItemTemplate>
-                            <br />
-                            <asp:Button Text="Delete" runat="server" ID="btnDelete" CssClass="btn btn-danger" CommandArgument='<%# Eval("ID") %>' CommandName="remove"/>
-                            <br />
-                            <br />
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>
         </div>
     </div>
+    <asp:GridView runat="server" ID="grdSuspect" GridLines="None" Width="100%" CssClass="table-striped" ShowHeaderWhenEmpty="true" AutoGenerateColumns="false" OnRowCommand="grdSuspect_RowCommand">
+        <Columns>
+            <asp:BoundField DataField="District" HeaderText="District" />
+            <asp:BoundField DataField="PS" HeaderText="Police Station" />
+            <asp:BoundField DataField="CaseNo" HeaderText="Case No" />
+            <asp:BoundField DataField="CaseDate" HeaderText="Case Date" />
+            <asp:BoundField DataField="SRNo" HeaderText="SR No" />
+            <asp:BoundField DataField="PropertyKind" HeaderText="Property Kind" />
+            <asp:BoundField DataField="PropertyValue" HeaderText="Property Value" />
+            <asp:TemplateField HeaderText="Delete">
+                <ItemTemplate>
+                    <br />
+                    <asp:Button Text="Delete" runat="server" ID="btnDelete" CssClass="btn btn-danger" CommandArgument='<%# Eval("ID") %>' CommandName="remove" />
+                    <br />
+                    <br />
+                </ItemTemplate>
+            </asp:TemplateField>
+        </Columns>
+    </asp:GridView>
 </asp:Content>
