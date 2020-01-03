@@ -269,17 +269,16 @@
             </div>
 
             <div>
-                <table class="tblborder">
-                    <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid; width: 200px;">Date</td>
-                        <td class="bottomBorder" style="border-right: 2px solid; width: 400px;"></td>
-                        <td class="bottomBorder" style="width: 200px;">Initials</td>
-                    </tr>
-                    <tr>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder" style="border-right: 2px solid;"></td>
-                        <td class="bottomBorder"></td>
-                    </tr>
+                <table class="tblborder" id="tblEnquiryNote" runat="server" border="1">
+                    <thead>
+                        <tr>
+                            <td>Date</td>
+                            <td>Note</td>
+                            <td>Initials</td>
+                        </tr>
+                    </thead>
+
+
                 </table>
             </div>
         </div>

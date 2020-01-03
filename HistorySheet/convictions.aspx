@@ -53,6 +53,14 @@
                     <asp:TextBox ID="txtMO" runat="server" CssClass="form-control" placeholder="MO"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
+                    <label for="txtPropertyType">Property Type</label>
+                    <asp:TextBox ID="txtPropertyType" runat="server" CssClass="form-control" placeholder="Property Type"></asp:TextBox>
+                </div>
+                <div class="col-sm-2">
+                    <label for="txtPropertyValue">Property Value</label>
+                    <asp:TextBox ID="txtPropertyValue" runat="server" CssClass="form-control" placeholder="Property Value"></asp:TextBox>
+                </div>
+                <div class="col-sm-2">
                     <label for="txtCourt">Court</label>
                     <asp:TextBox ID="txtCourt" runat="server" CssClass="form-control" placeholder="Court"></asp:TextBox>
 
@@ -109,6 +117,8 @@
                     <p><%# "Case Date."+Eval("CaseDate") %></p>
                     <p><%# "U/s."+Eval("Sections") %></p>
                     <p><%# "MO."+Eval("MO") %></p>
+                    <p><%# "Property Type." + Eval("PropertyType") %></p>
+                    <p><%# "Property Value." + Eval("PropertyValue") %></p>
                 </ItemTemplate>
             </asp:TemplateField>           
             <asp:BoundField DataField="Court" HeaderText="Court" />

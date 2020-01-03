@@ -85,9 +85,26 @@ namespace HistorySheet
                 loadSuspected(suspected);
                 var conviction = db.Convictions.Where(n => n.P_ID == ID).ToList();
                 loadConviction(conviction);
-                
+                var enquiry = db.EnquiryNotes.Where(n => n.P_ID == ID).ToList();
+                loadEnquiry(enquiry);             
 
 
+            }
+        }
+
+        private void loadEnquiry(List<EnquiryNote> enquiry)
+        {
+            if (enquiry.Count > 0)
+            {
+                foreach(var e in enquiry)
+                {
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(getHTMLCell($"<p>Date: {e.Date.Value.ToString("dd-MMM-yyyy")}</p>"));
+                    row.Cells.Add(getHTMLCell($"<p>{e.Note}</p>"));
+                    row.Cells.Add(getHTMLCell($"<p></p>"));
+                    tblEnquiryNote.Rows.Add(row);
+                    
+                }
             }
         }
 
@@ -99,7 +116,16 @@ namespace HistorySheet
                 {
                     HtmlTableCell td1 = getHTMLCell($"<p>Sections: {c.Sections}</p><p>MO Details: {c.MO}</p><p>Is SR: {c.IsSR}</p><p>SR No: {c.SRNo}</p>");
                     HtmlTableCell td2 = getHTMLCell($"<p>District: {c.District}</p><p>Police Station: {c.PS}</p><p>Case No: {c.CaseNo}</p><p>Case Date: {c.CaseDate.Value.ToString("dd-MMM-yyyy")}</p><p>Sections: {c.Sections}</p>");
-                    HtmlTableCell td3 = getHTMLCell($"");
+                    HtmlTableCell td3 = getHTMLCell($"<p>Kind of Property:{c.PropertyType}</p><p>Property Value:Rs.{c.PropertyValue}</p>");
+                    HtmlTableCell td4 = getHTMLCell($"<p>Court:{c.Court}</p><p>Conviction:{c.Conviction1}</p><p>Conviction Date:{c.ConvictionDate.Value.ToString("dd-MMM-yyyy")}</p><p>Sentence: {c.ConvitionSentence}</p>");
+                    HtmlTableCell td5 = getHTMLCell($"<p>F.P.B.:{c.FPBSerialNo}</p><p>F.P.B. Date:{c.FPBDate.Value.ToString("dd-MMM-yyyy")}</p><p>Identifing Witnesses:{c.IdentifyingWitness}</p><p>Date of Release: {c.ReleaseDate.Value.ToString("dd-MMM-yyyy")}</p>");
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(td1);
+                    row.Cells.Add(td2);
+                    row.Cells.Add(td3);
+                    row.Cells.Add(td4);
+                    row.Cells.Add(td5);
+                    tblConviction.Rows.Add(row);
                 }
             }
         }

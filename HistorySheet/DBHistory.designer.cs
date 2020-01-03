@@ -30,9 +30,6 @@ namespace HistorySheet
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
-    partial void InsertConviction(Conviction instance);
-    partial void UpdateConviction(Conviction instance);
-    partial void DeleteConviction(Conviction instance);
     partial void InsertDisposalMethod(DisposalMethod instance);
     partial void UpdateDisposalMethod(DisposalMethod instance);
     partial void DeleteDisposalMethod(DisposalMethod instance);
@@ -81,6 +78,9 @@ namespace HistorySheet
     partial void InsertSuspectedCase(SuspectedCase instance);
     partial void UpdateSuspectedCase(SuspectedCase instance);
     partial void DeleteSuspectedCase(SuspectedCase instance);
+    partial void InsertConviction(Conviction instance);
+    partial void UpdateConviction(Conviction instance);
+    partial void DeleteConviction(Conviction instance);
     #endregion
 		
 		public DBHistoryDataContext() : 
@@ -111,14 +111,6 @@ namespace HistorySheet
 				base(connection, mappingSource)
 		{
 			OnCreated();
-		}
-		
-		public System.Data.Linq.Table<Conviction> Convictions
-		{
-			get
-			{
-				return this.GetTable<Conviction>();
-			}
 		}
 		
 		public System.Data.Linq.Table<DisposalMethod> DisposalMethods
@@ -256,474 +248,20 @@ namespace HistorySheet
 				return this.GetTable<SuspectedCase>();
 			}
 		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Convictions")]
-	public partial class Conviction : INotifyPropertyChanging, INotifyPropertyChanged
-	{
 		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _ID;
-		
-		private System.Nullable<int> _P_ID;
-		
-		private System.Nullable<bool> _IsSR;
-		
-		private System.Nullable<int> _SRNo;
-		
-		private string _District;
-		
-		private string _PS;
-		
-		private System.Nullable<int> _CaseNo;
-		
-		private System.Nullable<System.DateTime> _CaseDate;
-		
-		private string _Sections;
-		
-		private string _MO;
-		
-		private string _Court;
-		
-		private string _Conviction1;
-		
-		private System.Nullable<System.DateTime> _ConvictionDate;
-		
-		private string _ConvitionSentence;
-		
-		private System.Nullable<int> _FPBSerialNo;
-		
-		private System.Nullable<System.DateTime> _FPBDate;
-		
-		private string _IdentifyingWitness;
-		
-		private System.Nullable<System.DateTime> _ReleaseDate;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIDChanging(int value);
-    partial void OnIDChanged();
-    partial void OnP_IDChanging(System.Nullable<int> value);
-    partial void OnP_IDChanged();
-    partial void OnIsSRChanging(System.Nullable<bool> value);
-    partial void OnIsSRChanged();
-    partial void OnSRNoChanging(System.Nullable<int> value);
-    partial void OnSRNoChanged();
-    partial void OnDistrictChanging(string value);
-    partial void OnDistrictChanged();
-    partial void OnPSChanging(string value);
-    partial void OnPSChanged();
-    partial void OnCaseNoChanging(System.Nullable<int> value);
-    partial void OnCaseNoChanged();
-    partial void OnCaseDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnCaseDateChanged();
-    partial void OnSectionsChanging(string value);
-    partial void OnSectionsChanged();
-    partial void OnMOChanging(string value);
-    partial void OnMOChanged();
-    partial void OnCourtChanging(string value);
-    partial void OnCourtChanged();
-    partial void OnConviction1Changing(string value);
-    partial void OnConviction1Changed();
-    partial void OnConvictionDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnConvictionDateChanged();
-    partial void OnConvitionSentenceChanging(string value);
-    partial void OnConvitionSentenceChanged();
-    partial void OnFPBSerialNoChanging(System.Nullable<int> value);
-    partial void OnFPBSerialNoChanged();
-    partial void OnFPBDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnFPBDateChanged();
-    partial void OnIdentifyingWitnessChanging(string value);
-    partial void OnIdentifyingWitnessChanged();
-    partial void OnReleaseDateChanging(System.Nullable<System.DateTime> value);
-    partial void OnReleaseDateChanged();
-    #endregion
-		
-		public Conviction()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int ID
+		public System.Data.Linq.Table<Conviction> Convictions
 		{
 			get
 			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this.OnIDChanging(value);
-					this.SendPropertyChanging();
-					this._ID = value;
-					this.SendPropertyChanged("ID");
-					this.OnIDChanged();
-				}
+				return this.GetTable<Conviction>();
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
-		public System.Nullable<int> P_ID
+		public System.Data.Linq.Table<vw_Master> vw_Masters
 		{
 			get
 			{
-				return this._P_ID;
-			}
-			set
-			{
-				if ((this._P_ID != value))
-				{
-					this.OnP_IDChanging(value);
-					this.SendPropertyChanging();
-					this._P_ID = value;
-					this.SendPropertyChanged("P_ID");
-					this.OnP_IDChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSR", DbType="Bit")]
-		public System.Nullable<bool> IsSR
-		{
-			get
-			{
-				return this._IsSR;
-			}
-			set
-			{
-				if ((this._IsSR != value))
-				{
-					this.OnIsSRChanging(value);
-					this.SendPropertyChanging();
-					this._IsSR = value;
-					this.SendPropertyChanged("IsSR");
-					this.OnIsSRChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRNo", DbType="Int")]
-		public System.Nullable<int> SRNo
-		{
-			get
-			{
-				return this._SRNo;
-			}
-			set
-			{
-				if ((this._SRNo != value))
-				{
-					this.OnSRNoChanging(value);
-					this.SendPropertyChanging();
-					this._SRNo = value;
-					this.SendPropertyChanged("SRNo");
-					this.OnSRNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(100)")]
-		public string District
-		{
-			get
-			{
-				return this._District;
-			}
-			set
-			{
-				if ((this._District != value))
-				{
-					this.OnDistrictChanging(value);
-					this.SendPropertyChanging();
-					this._District = value;
-					this.SendPropertyChanged("District");
-					this.OnDistrictChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(100)")]
-		public string PS
-		{
-			get
-			{
-				return this._PS;
-			}
-			set
-			{
-				if ((this._PS != value))
-				{
-					this.OnPSChanging(value);
-					this.SendPropertyChanging();
-					this._PS = value;
-					this.SendPropertyChanged("PS");
-					this.OnPSChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseNo", DbType="Int")]
-		public System.Nullable<int> CaseNo
-		{
-			get
-			{
-				return this._CaseNo;
-			}
-			set
-			{
-				if ((this._CaseNo != value))
-				{
-					this.OnCaseNoChanging(value);
-					this.SendPropertyChanging();
-					this._CaseNo = value;
-					this.SendPropertyChanged("CaseNo");
-					this.OnCaseNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> CaseDate
-		{
-			get
-			{
-				return this._CaseDate;
-			}
-			set
-			{
-				if ((this._CaseDate != value))
-				{
-					this.OnCaseDateChanging(value);
-					this.SendPropertyChanging();
-					this._CaseDate = value;
-					this.SendPropertyChanged("CaseDate");
-					this.OnCaseDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sections", DbType="NVarChar(500)")]
-		public string Sections
-		{
-			get
-			{
-				return this._Sections;
-			}
-			set
-			{
-				if ((this._Sections != value))
-				{
-					this.OnSectionsChanging(value);
-					this.SendPropertyChanging();
-					this._Sections = value;
-					this.SendPropertyChanged("Sections");
-					this.OnSectionsChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MO", DbType="NVarChar(200)")]
-		public string MO
-		{
-			get
-			{
-				return this._MO;
-			}
-			set
-			{
-				if ((this._MO != value))
-				{
-					this.OnMOChanging(value);
-					this.SendPropertyChanging();
-					this._MO = value;
-					this.SendPropertyChanged("MO");
-					this.OnMOChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Court", DbType="NVarChar(500)")]
-		public string Court
-		{
-			get
-			{
-				return this._Court;
-			}
-			set
-			{
-				if ((this._Court != value))
-				{
-					this.OnCourtChanging(value);
-					this.SendPropertyChanging();
-					this._Court = value;
-					this.SendPropertyChanged("Court");
-					this.OnCourtChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Conviction", Storage="_Conviction1", DbType="NVarChar(800)")]
-		public string Conviction1
-		{
-			get
-			{
-				return this._Conviction1;
-			}
-			set
-			{
-				if ((this._Conviction1 != value))
-				{
-					this.OnConviction1Changing(value);
-					this.SendPropertyChanging();
-					this._Conviction1 = value;
-					this.SendPropertyChanged("Conviction1");
-					this.OnConviction1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConvictionDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ConvictionDate
-		{
-			get
-			{
-				return this._ConvictionDate;
-			}
-			set
-			{
-				if ((this._ConvictionDate != value))
-				{
-					this.OnConvictionDateChanging(value);
-					this.SendPropertyChanging();
-					this._ConvictionDate = value;
-					this.SendPropertyChanged("ConvictionDate");
-					this.OnConvictionDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConvitionSentence", DbType="NVarChar(800)")]
-		public string ConvitionSentence
-		{
-			get
-			{
-				return this._ConvitionSentence;
-			}
-			set
-			{
-				if ((this._ConvitionSentence != value))
-				{
-					this.OnConvitionSentenceChanging(value);
-					this.SendPropertyChanging();
-					this._ConvitionSentence = value;
-					this.SendPropertyChanged("ConvitionSentence");
-					this.OnConvitionSentenceChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FPBSerialNo", DbType="Int")]
-		public System.Nullable<int> FPBSerialNo
-		{
-			get
-			{
-				return this._FPBSerialNo;
-			}
-			set
-			{
-				if ((this._FPBSerialNo != value))
-				{
-					this.OnFPBSerialNoChanging(value);
-					this.SendPropertyChanging();
-					this._FPBSerialNo = value;
-					this.SendPropertyChanged("FPBSerialNo");
-					this.OnFPBSerialNoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FPBDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> FPBDate
-		{
-			get
-			{
-				return this._FPBDate;
-			}
-			set
-			{
-				if ((this._FPBDate != value))
-				{
-					this.OnFPBDateChanging(value);
-					this.SendPropertyChanging();
-					this._FPBDate = value;
-					this.SendPropertyChanged("FPBDate");
-					this.OnFPBDateChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdentifyingWitness", DbType="NVarChar(MAX)")]
-		public string IdentifyingWitness
-		{
-			get
-			{
-				return this._IdentifyingWitness;
-			}
-			set
-			{
-				if ((this._IdentifyingWitness != value))
-				{
-					this.OnIdentifyingWitnessChanging(value);
-					this.SendPropertyChanging();
-					this._IdentifyingWitness = value;
-					this.SendPropertyChanged("IdentifyingWitness");
-					this.OnIdentifyingWitnessChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReleaseDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ReleaseDate
-		{
-			get
-			{
-				return this._ReleaseDate;
-			}
-			set
-			{
-				if ((this._ReleaseDate != value))
-				{
-					this.OnReleaseDateChanging(value);
-					this.SendPropertyChanging();
-					this._ReleaseDate = value;
-					this.SendPropertyChanged("ReleaseDate");
-					this.OnReleaseDateChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+				return this.GetTable<vw_Master>();
 			}
 		}
 	}
@@ -5229,6 +4767,1505 @@ namespace HistorySheet
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Convictions")]
+	public partial class Conviction : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _P_ID;
+		
+		private System.Nullable<bool> _IsSR;
+		
+		private System.Nullable<int> _SRNo;
+		
+		private string _District;
+		
+		private string _PS;
+		
+		private System.Nullable<int> _CaseNo;
+		
+		private System.Nullable<System.DateTime> _CaseDate;
+		
+		private string _Sections;
+		
+		private string _PropertyType;
+		
+		private string _PropertyValue;
+		
+		private string _MO;
+		
+		private string _Court;
+		
+		private string _Conviction1;
+		
+		private System.Nullable<System.DateTime> _ConvictionDate;
+		
+		private string _ConvitionSentence;
+		
+		private System.Nullable<int> _FPBSerialNo;
+		
+		private System.Nullable<System.DateTime> _FPBDate;
+		
+		private string _IdentifyingWitness;
+		
+		private System.Nullable<System.DateTime> _ReleaseDate;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnP_IDChanging(System.Nullable<int> value);
+    partial void OnP_IDChanged();
+    partial void OnIsSRChanging(System.Nullable<bool> value);
+    partial void OnIsSRChanged();
+    partial void OnSRNoChanging(System.Nullable<int> value);
+    partial void OnSRNoChanged();
+    partial void OnDistrictChanging(string value);
+    partial void OnDistrictChanged();
+    partial void OnPSChanging(string value);
+    partial void OnPSChanged();
+    partial void OnCaseNoChanging(System.Nullable<int> value);
+    partial void OnCaseNoChanged();
+    partial void OnCaseDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnCaseDateChanged();
+    partial void OnSectionsChanging(string value);
+    partial void OnSectionsChanged();
+    partial void OnPropertyTypeChanging(string value);
+    partial void OnPropertyTypeChanged();
+    partial void OnPropertyValueChanging(string value);
+    partial void OnPropertyValueChanged();
+    partial void OnMOChanging(string value);
+    partial void OnMOChanged();
+    partial void OnCourtChanging(string value);
+    partial void OnCourtChanged();
+    partial void OnConviction1Changing(string value);
+    partial void OnConviction1Changed();
+    partial void OnConvictionDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnConvictionDateChanged();
+    partial void OnConvitionSentenceChanging(string value);
+    partial void OnConvitionSentenceChanged();
+    partial void OnFPBSerialNoChanging(System.Nullable<int> value);
+    partial void OnFPBSerialNoChanged();
+    partial void OnFPBDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnFPBDateChanged();
+    partial void OnIdentifyingWitnessChanging(string value);
+    partial void OnIdentifyingWitnessChanged();
+    partial void OnReleaseDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnReleaseDateChanged();
+    #endregion
+		
+		public Conviction()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_P_ID", DbType="Int")]
+		public System.Nullable<int> P_ID
+		{
+			get
+			{
+				return this._P_ID;
+			}
+			set
+			{
+				if ((this._P_ID != value))
+				{
+					this.OnP_IDChanging(value);
+					this.SendPropertyChanging();
+					this._P_ID = value;
+					this.SendPropertyChanged("P_ID");
+					this.OnP_IDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsSR", DbType="Bit")]
+		public System.Nullable<bool> IsSR
+		{
+			get
+			{
+				return this._IsSR;
+			}
+			set
+			{
+				if ((this._IsSR != value))
+				{
+					this.OnIsSRChanging(value);
+					this.SendPropertyChanging();
+					this._IsSR = value;
+					this.SendPropertyChanged("IsSR");
+					this.OnIsSRChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SRNo", DbType="Int")]
+		public System.Nullable<int> SRNo
+		{
+			get
+			{
+				return this._SRNo;
+			}
+			set
+			{
+				if ((this._SRNo != value))
+				{
+					this.OnSRNoChanging(value);
+					this.SendPropertyChanging();
+					this._SRNo = value;
+					this.SendPropertyChanged("SRNo");
+					this.OnSRNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_District", DbType="NVarChar(100)")]
+		public string District
+		{
+			get
+			{
+				return this._District;
+			}
+			set
+			{
+				if ((this._District != value))
+				{
+					this.OnDistrictChanging(value);
+					this.SendPropertyChanging();
+					this._District = value;
+					this.SendPropertyChanged("District");
+					this.OnDistrictChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PS", DbType="NVarChar(100)")]
+		public string PS
+		{
+			get
+			{
+				return this._PS;
+			}
+			set
+			{
+				if ((this._PS != value))
+				{
+					this.OnPSChanging(value);
+					this.SendPropertyChanging();
+					this._PS = value;
+					this.SendPropertyChanged("PS");
+					this.OnPSChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseNo", DbType="Int")]
+		public System.Nullable<int> CaseNo
+		{
+			get
+			{
+				return this._CaseNo;
+			}
+			set
+			{
+				if ((this._CaseNo != value))
+				{
+					this.OnCaseNoChanging(value);
+					this.SendPropertyChanging();
+					this._CaseNo = value;
+					this.SendPropertyChanged("CaseNo");
+					this.OnCaseNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CaseDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> CaseDate
+		{
+			get
+			{
+				return this._CaseDate;
+			}
+			set
+			{
+				if ((this._CaseDate != value))
+				{
+					this.OnCaseDateChanging(value);
+					this.SendPropertyChanging();
+					this._CaseDate = value;
+					this.SendPropertyChanged("CaseDate");
+					this.OnCaseDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Sections", DbType="NVarChar(500)")]
+		public string Sections
+		{
+			get
+			{
+				return this._Sections;
+			}
+			set
+			{
+				if ((this._Sections != value))
+				{
+					this.OnSectionsChanging(value);
+					this.SendPropertyChanging();
+					this._Sections = value;
+					this.SendPropertyChanged("Sections");
+					this.OnSectionsChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyType", DbType="NVarChar(500)")]
+		public string PropertyType
+		{
+			get
+			{
+				return this._PropertyType;
+			}
+			set
+			{
+				if ((this._PropertyType != value))
+				{
+					this.OnPropertyTypeChanging(value);
+					this.SendPropertyChanging();
+					this._PropertyType = value;
+					this.SendPropertyChanged("PropertyType");
+					this.OnPropertyTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropertyValue", DbType="NVarChar(500)")]
+		public string PropertyValue
+		{
+			get
+			{
+				return this._PropertyValue;
+			}
+			set
+			{
+				if ((this._PropertyValue != value))
+				{
+					this.OnPropertyValueChanging(value);
+					this.SendPropertyChanging();
+					this._PropertyValue = value;
+					this.SendPropertyChanged("PropertyValue");
+					this.OnPropertyValueChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MO", DbType="NVarChar(200)")]
+		public string MO
+		{
+			get
+			{
+				return this._MO;
+			}
+			set
+			{
+				if ((this._MO != value))
+				{
+					this.OnMOChanging(value);
+					this.SendPropertyChanging();
+					this._MO = value;
+					this.SendPropertyChanged("MO");
+					this.OnMOChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Court", DbType="NVarChar(500)")]
+		public string Court
+		{
+			get
+			{
+				return this._Court;
+			}
+			set
+			{
+				if ((this._Court != value))
+				{
+					this.OnCourtChanging(value);
+					this.SendPropertyChanging();
+					this._Court = value;
+					this.SendPropertyChanged("Court");
+					this.OnCourtChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="Conviction", Storage="_Conviction1", DbType="NVarChar(800)")]
+		public string Conviction1
+		{
+			get
+			{
+				return this._Conviction1;
+			}
+			set
+			{
+				if ((this._Conviction1 != value))
+				{
+					this.OnConviction1Changing(value);
+					this.SendPropertyChanging();
+					this._Conviction1 = value;
+					this.SendPropertyChanged("Conviction1");
+					this.OnConviction1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConvictionDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ConvictionDate
+		{
+			get
+			{
+				return this._ConvictionDate;
+			}
+			set
+			{
+				if ((this._ConvictionDate != value))
+				{
+					this.OnConvictionDateChanging(value);
+					this.SendPropertyChanging();
+					this._ConvictionDate = value;
+					this.SendPropertyChanged("ConvictionDate");
+					this.OnConvictionDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ConvitionSentence", DbType="NVarChar(800)")]
+		public string ConvitionSentence
+		{
+			get
+			{
+				return this._ConvitionSentence;
+			}
+			set
+			{
+				if ((this._ConvitionSentence != value))
+				{
+					this.OnConvitionSentenceChanging(value);
+					this.SendPropertyChanging();
+					this._ConvitionSentence = value;
+					this.SendPropertyChanged("ConvitionSentence");
+					this.OnConvitionSentenceChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FPBSerialNo", DbType="Int")]
+		public System.Nullable<int> FPBSerialNo
+		{
+			get
+			{
+				return this._FPBSerialNo;
+			}
+			set
+			{
+				if ((this._FPBSerialNo != value))
+				{
+					this.OnFPBSerialNoChanging(value);
+					this.SendPropertyChanging();
+					this._FPBSerialNo = value;
+					this.SendPropertyChanged("FPBSerialNo");
+					this.OnFPBSerialNoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FPBDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> FPBDate
+		{
+			get
+			{
+				return this._FPBDate;
+			}
+			set
+			{
+				if ((this._FPBDate != value))
+				{
+					this.OnFPBDateChanging(value);
+					this.SendPropertyChanging();
+					this._FPBDate = value;
+					this.SendPropertyChanged("FPBDate");
+					this.OnFPBDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdentifyingWitness", DbType="NVarChar(MAX)")]
+		public string IdentifyingWitness
+		{
+			get
+			{
+				return this._IdentifyingWitness;
+			}
+			set
+			{
+				if ((this._IdentifyingWitness != value))
+				{
+					this.OnIdentifyingWitnessChanging(value);
+					this.SendPropertyChanging();
+					this._IdentifyingWitness = value;
+					this.SendPropertyChanged("IdentifyingWitness");
+					this.OnIdentifyingWitnessChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReleaseDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ReleaseDate
+		{
+			get
+			{
+				return this._ReleaseDate;
+			}
+			set
+			{
+				if ((this._ReleaseDate != value))
+				{
+					this.OnReleaseDateChanging(value);
+					this.SendPropertyChanging();
+					this._ReleaseDate = value;
+					this.SendPropertyChanged("ReleaseDate");
+					this.OnReleaseDateChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.vw_Master")]
+	public partial class vw_Master
+	{
+		
+		private int _Expr1;
+		
+		private string _AccountNo;
+		
+		private string _BankName;
+		
+		private System.Nullable<int> _Balance;
+		
+		private System.Nullable<System.DateTime> _ReportedOn;
+		
+		private string _MobileNumber;
+		
+		private string _Operator;
+		
+		private System.Nullable<bool> _Status;
+		
+		private System.Nullable<System.DateTime> _ReportDate;
+		
+		private int _Id;
+		
+		private System.Nullable<int> _CrimeDBID;
+		
+		private System.Nullable<int> _SPMODBID;
+		
+		private string _HistoryNo;
+		
+		private string _Category;
+		
+		private string _HomeDistrict;
+		
+		private string _PoliceStation;
+		
+		private System.Nullable<System.DateTime> _DateofReport;
+		
+		private string _Name;
+		
+		private string _Aliases;
+		
+		private string _Gender;
+		
+		private string _FathersName;
+		
+		private string _Fathersaliases;
+		
+		private System.Nullable<bool> _IsHusband;
+		
+		private string _TradeProfession;
+		
+		private string _YearBirth;
+		
+		private System.Nullable<double> _Height;
+		
+		private string _Build;
+		
+		private string _HairColor;
+		
+		private string _HairCut;
+		
+		private string _Eyebrows;
+		
+		private string _Forehead;
+		
+		private string _Eyes;
+		
+		private string _Nose;
+		
+		private string _Mouth;
+		
+		private string _Chin;
+		
+		private string _Teeth;
+		
+		private string _Fingers;
+		
+		private string _Ears;
+		
+		private string _Face;
+		
+		private string _Complexion;
+		
+		private string _FacialHair;
+		
+		private string _FacialHairType;
+		
+		private string _Marks;
+		
+		private string _Deformities;
+		
+		private string _Manners;
+		
+		private string _Gait;
+		
+		private string _Speech;
+		
+		private string _Appearance;
+		
+		private string _Dressing;
+		
+		private string _Accomplishments;
+		
+		private string _Habits;
+		
+		private string _BadHabits;
+		
+		private string _OtherDescriptivePoints;
+		
+		private System.Nullable<System.DateTime> _LastUpdate;
+		
+		public vw_Master()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Expr1", DbType="Int NOT NULL")]
+		public int Expr1
+		{
+			get
+			{
+				return this._Expr1;
+			}
+			set
+			{
+				if ((this._Expr1 != value))
+				{
+					this._Expr1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNo", DbType="NVarChar(100)")]
+		public string AccountNo
+		{
+			get
+			{
+				return this._AccountNo;
+			}
+			set
+			{
+				if ((this._AccountNo != value))
+				{
+					this._AccountNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BankName", DbType="NVarChar(200)")]
+		public string BankName
+		{
+			get
+			{
+				return this._BankName;
+			}
+			set
+			{
+				if ((this._BankName != value))
+				{
+					this._BankName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Balance", DbType="Int")]
+		public System.Nullable<int> Balance
+		{
+			get
+			{
+				return this._Balance;
+			}
+			set
+			{
+				if ((this._Balance != value))
+				{
+					this._Balance = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportedOn", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ReportedOn
+		{
+			get
+			{
+				return this._ReportedOn;
+			}
+			set
+			{
+				if ((this._ReportedOn != value))
+				{
+					this._ReportedOn = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MobileNumber", DbType="VarChar(13)")]
+		public string MobileNumber
+		{
+			get
+			{
+				return this._MobileNumber;
+			}
+			set
+			{
+				if ((this._MobileNumber != value))
+				{
+					this._MobileNumber = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Operator", DbType="VarChar(100)")]
+		public string Operator
+		{
+			get
+			{
+				return this._Operator;
+			}
+			set
+			{
+				if ((this._Operator != value))
+				{
+					this._Operator = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Bit")]
+		public System.Nullable<bool> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ReportDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ReportDate
+		{
+			get
+			{
+				return this._ReportDate;
+			}
+			set
+			{
+				if ((this._ReportDate != value))
+				{
+					this._ReportDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Id", DbType="Int NOT NULL")]
+		public int Id
+		{
+			get
+			{
+				return this._Id;
+			}
+			set
+			{
+				if ((this._Id != value))
+				{
+					this._Id = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CrimeDBID", DbType="Int")]
+		public System.Nullable<int> CrimeDBID
+		{
+			get
+			{
+				return this._CrimeDBID;
+			}
+			set
+			{
+				if ((this._CrimeDBID != value))
+				{
+					this._CrimeDBID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SPMODBID", DbType="Int")]
+		public System.Nullable<int> SPMODBID
+		{
+			get
+			{
+				return this._SPMODBID;
+			}
+			set
+			{
+				if ((this._SPMODBID != value))
+				{
+					this._SPMODBID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HistoryNo", DbType="NVarChar(200)")]
+		public string HistoryNo
+		{
+			get
+			{
+				return this._HistoryNo;
+			}
+			set
+			{
+				if ((this._HistoryNo != value))
+				{
+					this._HistoryNo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Category", DbType="NVarChar(1)")]
+		public string Category
+		{
+			get
+			{
+				return this._Category;
+			}
+			set
+			{
+				if ((this._Category != value))
+				{
+					this._Category = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HomeDistrict", DbType="NVarChar(200)")]
+		public string HomeDistrict
+		{
+			get
+			{
+				return this._HomeDistrict;
+			}
+			set
+			{
+				if ((this._HomeDistrict != value))
+				{
+					this._HomeDistrict = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PoliceStation", DbType="NVarChar(200)")]
+		public string PoliceStation
+		{
+			get
+			{
+				return this._PoliceStation;
+			}
+			set
+			{
+				if ((this._PoliceStation != value))
+				{
+					this._PoliceStation = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DateofReport", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DateofReport
+		{
+			get
+			{
+				return this._DateofReport;
+			}
+			set
+			{
+				if ((this._DateofReport != value))
+				{
+					this._DateofReport = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Name", DbType="NVarChar(500)")]
+		public string Name
+		{
+			get
+			{
+				return this._Name;
+			}
+			set
+			{
+				if ((this._Name != value))
+				{
+					this._Name = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Aliases", DbType="NVarChar(200)")]
+		public string Aliases
+		{
+			get
+			{
+				return this._Aliases;
+			}
+			set
+			{
+				if ((this._Aliases != value))
+				{
+					this._Aliases = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gender", DbType="NVarChar(100)")]
+		public string Gender
+		{
+			get
+			{
+				return this._Gender;
+			}
+			set
+			{
+				if ((this._Gender != value))
+				{
+					this._Gender = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FathersName", DbType="NVarChar(500)")]
+		public string FathersName
+		{
+			get
+			{
+				return this._FathersName;
+			}
+			set
+			{
+				if ((this._FathersName != value))
+				{
+					this._FathersName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fathersaliases", DbType="NVarChar(500)")]
+		public string Fathersaliases
+		{
+			get
+			{
+				return this._Fathersaliases;
+			}
+			set
+			{
+				if ((this._Fathersaliases != value))
+				{
+					this._Fathersaliases = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IsHusband", DbType="Bit")]
+		public System.Nullable<bool> IsHusband
+		{
+			get
+			{
+				return this._IsHusband;
+			}
+			set
+			{
+				if ((this._IsHusband != value))
+				{
+					this._IsHusband = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TradeProfession", DbType="NVarChar(500)")]
+		public string TradeProfession
+		{
+			get
+			{
+				return this._TradeProfession;
+			}
+			set
+			{
+				if ((this._TradeProfession != value))
+				{
+					this._TradeProfession = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_YearBirth", DbType="NVarChar(10)")]
+		public string YearBirth
+		{
+			get
+			{
+				return this._YearBirth;
+			}
+			set
+			{
+				if ((this._YearBirth != value))
+				{
+					this._YearBirth = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Height", DbType="Float")]
+		public System.Nullable<double> Height
+		{
+			get
+			{
+				return this._Height;
+			}
+			set
+			{
+				if ((this._Height != value))
+				{
+					this._Height = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Build", DbType="NVarChar(100)")]
+		public string Build
+		{
+			get
+			{
+				return this._Build;
+			}
+			set
+			{
+				if ((this._Build != value))
+				{
+					this._Build = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HairColor", DbType="NVarChar(100)")]
+		public string HairColor
+		{
+			get
+			{
+				return this._HairColor;
+			}
+			set
+			{
+				if ((this._HairColor != value))
+				{
+					this._HairColor = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_HairCut", DbType="NVarChar(100)")]
+		public string HairCut
+		{
+			get
+			{
+				return this._HairCut;
+			}
+			set
+			{
+				if ((this._HairCut != value))
+				{
+					this._HairCut = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eyebrows", DbType="NVarChar(100)")]
+		public string Eyebrows
+		{
+			get
+			{
+				return this._Eyebrows;
+			}
+			set
+			{
+				if ((this._Eyebrows != value))
+				{
+					this._Eyebrows = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Forehead", DbType="NVarChar(100)")]
+		public string Forehead
+		{
+			get
+			{
+				return this._Forehead;
+			}
+			set
+			{
+				if ((this._Forehead != value))
+				{
+					this._Forehead = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Eyes", DbType="NVarChar(100)")]
+		public string Eyes
+		{
+			get
+			{
+				return this._Eyes;
+			}
+			set
+			{
+				if ((this._Eyes != value))
+				{
+					this._Eyes = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Nose", DbType="NVarChar(100)")]
+		public string Nose
+		{
+			get
+			{
+				return this._Nose;
+			}
+			set
+			{
+				if ((this._Nose != value))
+				{
+					this._Nose = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Mouth", DbType="NVarChar(100)")]
+		public string Mouth
+		{
+			get
+			{
+				return this._Mouth;
+			}
+			set
+			{
+				if ((this._Mouth != value))
+				{
+					this._Mouth = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Chin", DbType="NVarChar(100)")]
+		public string Chin
+		{
+			get
+			{
+				return this._Chin;
+			}
+			set
+			{
+				if ((this._Chin != value))
+				{
+					this._Chin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Teeth", DbType="NVarChar(100)")]
+		public string Teeth
+		{
+			get
+			{
+				return this._Teeth;
+			}
+			set
+			{
+				if ((this._Teeth != value))
+				{
+					this._Teeth = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fingers", DbType="NVarChar(100)")]
+		public string Fingers
+		{
+			get
+			{
+				return this._Fingers;
+			}
+			set
+			{
+				if ((this._Fingers != value))
+				{
+					this._Fingers = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Ears", DbType="NVarChar(100)")]
+		public string Ears
+		{
+			get
+			{
+				return this._Ears;
+			}
+			set
+			{
+				if ((this._Ears != value))
+				{
+					this._Ears = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Face", DbType="NVarChar(100)")]
+		public string Face
+		{
+			get
+			{
+				return this._Face;
+			}
+			set
+			{
+				if ((this._Face != value))
+				{
+					this._Face = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Complexion", DbType="NVarChar(100)")]
+		public string Complexion
+		{
+			get
+			{
+				return this._Complexion;
+			}
+			set
+			{
+				if ((this._Complexion != value))
+				{
+					this._Complexion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacialHair", DbType="NVarChar(100)")]
+		public string FacialHair
+		{
+			get
+			{
+				return this._FacialHair;
+			}
+			set
+			{
+				if ((this._FacialHair != value))
+				{
+					this._FacialHair = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FacialHairType", DbType="NVarChar(100)")]
+		public string FacialHairType
+		{
+			get
+			{
+				return this._FacialHairType;
+			}
+			set
+			{
+				if ((this._FacialHairType != value))
+				{
+					this._FacialHairType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Marks", DbType="NVarChar(4000)")]
+		public string Marks
+		{
+			get
+			{
+				return this._Marks;
+			}
+			set
+			{
+				if ((this._Marks != value))
+				{
+					this._Marks = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Deformities", DbType="NVarChar(4000)")]
+		public string Deformities
+		{
+			get
+			{
+				return this._Deformities;
+			}
+			set
+			{
+				if ((this._Deformities != value))
+				{
+					this._Deformities = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Manners", DbType="NVarChar(4000)")]
+		public string Manners
+		{
+			get
+			{
+				return this._Manners;
+			}
+			set
+			{
+				if ((this._Manners != value))
+				{
+					this._Manners = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Gait", DbType="NVarChar(4000)")]
+		public string Gait
+		{
+			get
+			{
+				return this._Gait;
+			}
+			set
+			{
+				if ((this._Gait != value))
+				{
+					this._Gait = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Speech", DbType="NVarChar(MAX)")]
+		public string Speech
+		{
+			get
+			{
+				return this._Speech;
+			}
+			set
+			{
+				if ((this._Speech != value))
+				{
+					this._Speech = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Appearance", DbType="NVarChar(MAX)")]
+		public string Appearance
+		{
+			get
+			{
+				return this._Appearance;
+			}
+			set
+			{
+				if ((this._Appearance != value))
+				{
+					this._Appearance = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Dressing", DbType="NVarChar(MAX)")]
+		public string Dressing
+		{
+			get
+			{
+				return this._Dressing;
+			}
+			set
+			{
+				if ((this._Dressing != value))
+				{
+					this._Dressing = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Accomplishments", DbType="NVarChar(MAX)")]
+		public string Accomplishments
+		{
+			get
+			{
+				return this._Accomplishments;
+			}
+			set
+			{
+				if ((this._Accomplishments != value))
+				{
+					this._Accomplishments = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Habits", DbType="NVarChar(MAX)")]
+		public string Habits
+		{
+			get
+			{
+				return this._Habits;
+			}
+			set
+			{
+				if ((this._Habits != value))
+				{
+					this._Habits = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_BadHabits", DbType="NVarChar(MAX)")]
+		public string BadHabits
+		{
+			get
+			{
+				return this._BadHabits;
+			}
+			set
+			{
+				if ((this._BadHabits != value))
+				{
+					this._BadHabits = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OtherDescriptivePoints", DbType="NVarChar(MAX)")]
+		public string OtherDescriptivePoints
+		{
+			get
+			{
+				return this._OtherDescriptivePoints;
+			}
+			set
+			{
+				if ((this._OtherDescriptivePoints != value))
+				{
+					this._OtherDescriptivePoints = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LastUpdate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> LastUpdate
+		{
+			get
+			{
+				return this._LastUpdate;
+			}
+			set
+			{
+				if ((this._LastUpdate != value))
+				{
+					this._LastUpdate = value;
+				}
 			}
 		}
 	}

@@ -40,6 +40,8 @@ namespace HistorySheet
                         n.CaseNo,
                         CaseDate = n.CaseDate.Value.ToShortDateString(),
                         n.Sections,
+                        n.PropertyType,
+                        n.PropertyValue,
                         Conviction = n.Conviction1,
                         n.MO,
                         n.Court,

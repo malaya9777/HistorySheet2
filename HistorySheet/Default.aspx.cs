@@ -23,7 +23,7 @@ namespace HistorySheet
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                var records = db.Masters.Select(n => new
+                var records = db.vw_Masters.Where(n=> n.Name.Contains(GetSearchTerm().Name) || n.FathersName.Contains(GetSearchTerm().FathersName) || n.MobileNumber.Contains(GetSearchTerm().Mobile) || n.AccountNo.Contains(GetSearchTerm().AccountNo)).Select(n => new
                 {
                     n.Id,
                     n.CrimeDBID,
@@ -120,7 +120,40 @@ namespace HistorySheet
 
         protected void grdList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-
+            grdList.PageIndex = e.NewPageIndex;
+            loadGrid();
         }
+
+        protected void btnSearch_Click(object sender, EventArgs e)
+        {
+            loadGrid();
+        }
+        public SearchTerm GetSearchTerm()
+        {
+            var _Sterm = new SearchTerm();
+            switch (lstSearchTerm.SelectedValue)
+            {
+                case "Name":
+                    _Sterm.Name = txtSearchbox.Text;
+                    break;
+                case "FName":
+                    _Sterm.FathersName = txtSearchbox.Text;
+                    break;
+                case "Account":
+                    _Sterm.AccountNo = txtSearchbox.Text;
+                    break;
+                case "Mobile":
+                    _Sterm.Mobile = txtSearchbox.Text;
+                    break;
+            }
+            return _Sterm;
+        }
+    }
+    public class SearchTerm
+    {
+        public string Name { get; set; } = "";
+        public string FathersName { get; set; } = "";
+        public string AccountNo { get; set; } = "";
+        public string Mobile { get; set; } = "";
     }
 }
