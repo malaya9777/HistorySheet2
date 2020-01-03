@@ -165,6 +165,47 @@
       <Column Name="Image" Type="System.Data.Linq.Binary" DbType="VarBinary(MAX)" CanBeNull="true" UpdateCheck="Never" />
     </Type>
   </Table>
+  <Table Name="dbo.SuspectedCases" Member="SuspectedCases">
+    <Type Name="SuspectedCase">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sections" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="MODetails" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="IsSR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SRNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PropertyKind" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PropertyValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Convictions" Member="Convictions">
+    <Type Name="Conviction">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IsSR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="SRNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="District" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="PS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Sections" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PropertyType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="PropertyValue" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="MO" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Court" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Conviction" Member="Conviction1" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="ConvictionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ConvitionSentence" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
+      <Column Name="FPBSerialNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="FPBDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="IdentifyingWitness" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ReleaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.Master" Member="Masters">
     <Type Name="Master">
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -212,47 +253,7 @@
       <Column Name="BadHabits" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="OtherDescriptivePoints" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="LastUpdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.SuspectedCases" Member="SuspectedCases">
-    <Type Name="SuspectedCase">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="District" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Sections" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
-      <Column Name="MODetails" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="IsSR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="SRNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="PropertyKind" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PropertyValue" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="Remarks" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Convictions" Member="Convictions">
-    <Type Name="Conviction">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="P_ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IsSR" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="SRNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="District" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="PS" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Sections" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="PropertyType" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="PropertyValue" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="MO" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Court" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
-      <Column Name="Conviction" Member="Conviction1" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
-      <Column Name="ConvictionDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ConvitionSentence" Type="System.String" DbType="NVarChar(800)" CanBeNull="true" />
-      <Column Name="FPBSerialNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="FPBDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="IdentifyingWitness" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ReleaseDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Disabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
   <Table Name="dbo.vw_Master" Member="vw_Masters">
@@ -266,6 +267,51 @@
       <Column Name="Operator" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Column Name="Status" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
       <Column Name="ReportDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Expr2" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Expr3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Expr4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Expr5" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Expr6" Type="System.String" DbType="NVarChar(1)" CanBeNull="true" />
+      <Column Name="Expr7" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Expr8" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Expr9" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Expr10" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Expr11" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Expr12" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr13" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Expr14" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Expr15" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Expr16" Type="System.String" DbType="NVarChar(500)" CanBeNull="true" />
+      <Column Name="Expr17" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Expr18" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Expr19" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr20" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr21" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr22" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr23" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr24" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr25" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr26" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr27" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr28" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr29" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr30" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr31" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr32" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr33" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr34" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Expr35" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Expr36" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Expr37" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Expr38" Type="System.String" DbType="NVarChar(4000)" CanBeNull="true" />
+      <Column Name="Expr39" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expr40" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expr41" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expr42" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expr43" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expr44" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expr45" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Expr46" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="CrimeDBID" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="SPMODBID" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -311,6 +357,8 @@
       <Column Name="BadHabits" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="OtherDescriptivePoints" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="LastUpdate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Disabled" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Expr47" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
     </Type>
   </Table>
 </Database>

@@ -25,19 +25,19 @@ namespace HistorySheet
 
         private void loadDetails(int ID)
         {
-            using(DBHistoryDataContext db = new DBHistoryDataContext())
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
                 var record = db.Masters.Where(n => n.Id == ID).SingleOrDefault();
                 historyNo.InnerText = record.HistoryNo;
                 homeDistrict.InnerText = record.HomeDistrict;
                 policeStation.InnerText = record.PoliceStation;
-                dateofOpening.InnerText =record.DateofReport==null?"": record.DateofReport.Value.ToString("dd-MMM-yyyy");
+                dateofOpening.InnerText = record.DateofReport == null ? "" : record.DateofReport.Value.ToString("dd-MMM-yyyy");
                 Name.InnerText = record.Name;
                 Aname.InnerText = record.Aliases;
                 FnameHname.InnerText = record.FathersName;
                 Trade.InnerText = record.TradeProfession;
                 yearofbirth.InnerText = record.YearBirth;
-                Height.InnerText = record.Height.ToString()+" Inch";
+                Height.InnerText = record.Height.ToString() + " Inch";
                 built.InnerText = record.Build;
                 hair.InnerText = record.HairColor;
                 eyebrow.InnerText = record.Eyebrows;
@@ -86,9 +86,64 @@ namespace HistorySheet
                 var conviction = db.Convictions.Where(n => n.P_ID == ID).ToList();
                 loadConviction(conviction);
                 var enquiry = db.EnquiryNotes.Where(n => n.P_ID == ID).ToList();
-                loadEnquiry(enquiry);             
+                loadEnquiry(enquiry);
+                var mobile = db.MobileNumbers.Where(n => n.P_Id == ID).ToList();
+                loadMobile(mobile);
+                var account = db.BankAccounts.Where(n => n.P_Id == ID).ToList();
+                loadAccount(account);
+                var political = db.PoliticalLinks.Where(n => n.P_Id == ID).ToList();
+                loadPoliticalLinks(political);
 
 
+            }
+        }
+
+        private void loadPoliticalLinks(List<PoliticalLink> political)
+        {
+            if (political.Count > 0)
+            {
+                foreach(var p in political)
+                {
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(getHTMLCell($"{p.Name}"));
+                    row.Cells.Add(getHTMLCell($"{(p.Status==true?"Active":"Inactive")}"));
+                    row.Cells.Add(getHTMLCell($"{p.Since.Value.ToString("dd-MMM-yyyy")}"));
+                    row.Cells.Add(getHTMLCell($"{p.ReportedOn.Value.ToString("dd-MMM-yyyy")}"));
+
+                    tblPoliticalLinks.Rows.Add(row);
+                }
+            }
+        }
+
+        private void loadAccount(List<BankAccount> account)
+        {
+            if (account.Count > 0)
+            {
+                foreach(var a in account)
+                {
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(getHTMLCell($"{a.AccountNo}"));
+                    row.Cells.Add(getHTMLCell($"{a.BankName}"));
+                    row.Cells.Add(getHTMLCell($"{a.Balance}"));
+                    row.Cells.Add(getHTMLCell($"{a.ReportedOn.Value.ToString("dd-MMM-yyyy")}"));
+                    tblAccount.Rows.Add(row);
+                }
+            }
+        }
+
+        private void loadMobile(List<MobileNumber> mobile)
+        {
+            if (mobile.Count > 0)
+            {
+                foreach (var m in mobile)
+                {
+                    HtmlTableRow row = new HtmlTableRow();
+                    row.Cells.Add(getHTMLCell($"<p>{m.MobileNumber1}</p>"));
+                    row.Cells.Add(getHTMLCell($"<p>{m.Operator}</p>"));
+                    row.Cells.Add(getHTMLCell($"<p>{(m.Status==true?"Active":"Inactive")}</p>"));
+                    row.Cells.Add(getHTMLCell($"<p>{m.ReportDate.Value.ToString("dd-MMM-yyyy")}</p>"));
+                    tblMobile.Rows.Add(row);
+                }
             }
         }
 
@@ -96,14 +151,14 @@ namespace HistorySheet
         {
             if (enquiry.Count > 0)
             {
-                foreach(var e in enquiry)
+                foreach (var e in enquiry)
                 {
                     HtmlTableRow row = new HtmlTableRow();
                     row.Cells.Add(getHTMLCell($"<p>Date: {e.Date.Value.ToString("dd-MMM-yyyy")}</p>"));
                     row.Cells.Add(getHTMLCell($"<p>{e.Note}</p>"));
                     row.Cells.Add(getHTMLCell($"<p></p>"));
                     tblEnquiryNote.Rows.Add(row);
-                    
+
                 }
             }
         }
@@ -112,7 +167,7 @@ namespace HistorySheet
         {
             if (conviction.Count > 0)
             {
-                foreach(var c in conviction)
+                foreach (var c in conviction)
                 {
                     HtmlTableCell td1 = getHTMLCell($"<p>Sections: {c.Sections}</p><p>MO Details: {c.MO}</p><p>Is SR: {c.IsSR}</p><p>SR No: {c.SRNo}</p>");
                     HtmlTableCell td2 = getHTMLCell($"<p>District: {c.District}</p><p>Police Station: {c.PS}</p><p>Case No: {c.CaseNo}</p><p>Case Date: {c.CaseDate.Value.ToString("dd-MMM-yyyy")}</p><p>Sections: {c.Sections}</p>");
@@ -141,7 +196,7 @@ namespace HistorySheet
         {
             if (suspected.Count > 0)
             {
-                foreach(var s in suspected)
+                foreach (var s in suspected)
                 {
                     HtmlTableCell td1 = new HtmlTableCell();
                     td1.InnerHtml = $"<p>Sections: {s.Sections}<p><p>MO Details: {s.MODetails}</p><p>Is a SR:{s.IsSR}</p><p>SR No:{s.SRNo}</p>";
@@ -159,7 +214,7 @@ namespace HistorySheet
                     row.Cells.Add(td4);
                     tblSuspected.Rows.Add(row);
                 }
-                
+
             }
         }
 
@@ -167,7 +222,7 @@ namespace HistorySheet
         {
             if (pastArrest.Count > 0)
             {
-                foreach(var p in pastArrest)
+                foreach (var p in pastArrest)
                 {
                     HtmlTableCell td1 = new HtmlTableCell();
                     td1.InnerHtml = $"<p>Police Station{p.PS}</p><p>Case No:{p.CaseNo}</p><p>Case Date:{p.Date.Value.ToString("dd-MMM-yyyy")}</p><p>Section:{p.Sections}</p>";
@@ -189,7 +244,7 @@ namespace HistorySheet
         {
             if (disposalMethod.Count() > 0)
             {
-                foreach(var d in disposalMethod)
+                foreach (var d in disposalMethod)
                 {
                     HtmlTableCell td1 = new HtmlTableCell();
                     td1.InnerHtml = $"<p>{d.Method}</p>";
@@ -213,7 +268,7 @@ namespace HistorySheet
         {
             if (relatives.Count > 0)
             {
-                foreach(var r in relatives)
+                foreach (var r in relatives)
                 {
                     HtmlTableCell td1 = new HtmlTableCell();
                     td1.InnerHtml = $"<p>{r.Name}</p><p>Relationship:{r.Relationship}</p>";
@@ -237,8 +292,8 @@ namespace HistorySheet
         {
             if (associates.Count > 0)
             {
-                
-                foreach(var a in associates)
+
+                foreach (var a in associates)
                 {
                     HtmlTableRow row = new HtmlTableRow();
                     HtmlTableCell td1 = new HtmlTableCell();
@@ -263,7 +318,7 @@ namespace HistorySheet
             if (offence.Count > 0)
             {
                 string emptyHTML = "";
-                foreach(var o in offence)
+                foreach (var o in offence)
                 {
                     emptyHTML += $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>PS: {o.PS}</p><p>Case No: {o.CaseNo}</p><p>Case Date: {o.Date.Value.ToString("dd-MMM-yyyy")}</p><p>Sections: {o.Sections}</p></div>" +
                         $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>MO Details: {o.MODetails}</p></div>" +
@@ -279,7 +334,7 @@ namespace HistorySheet
             if (residence.Count > 0)
             {
                 string emptyHTML = "";
-                foreach(var r in residence)
+                foreach (var r in residence)
                 {
                     emptyHTML += $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>Country:{r.Country}</p><p>State:{r.State}</p><p>District:{r.District}</p><p>Police Station:{r.PS}</p></div>" +
                         $"<div style='border-bottom:1px solid #000;border-top:1px solid #000;'><p>Address:{r.Address}</p></div>" +
@@ -318,9 +373,9 @@ namespace HistorySheet
             if (witnesses.Count() > 0)
             {
                 var emptyHTML = "";
-                foreach(var wit in witnesses)
+                foreach (var wit in witnesses)
                 {
-                    if(wit.Image.Length == 0)
+                    if (wit.Image.Length == 0)
                     {
                         emptyHTML += $"<div style='border-bottom:1px solid #000'><img src='data:image/jpg;base64,{Convert.ToBase64String(globalMethods.getDefaultImage(HttpContext.Current))}' style='width:100px' /></div>" +
                        $"<div style='border-bottom:1px solid #000'><p>{wit.Name}</p><p> Gender: {wit.Gender}</p><p> Gender: {wit.DOB.Value.ToString("dd-MMM-yy")}</p><p>Fathser's Name: {wit.FathersName}</p></div>" +
@@ -332,14 +387,14 @@ namespace HistorySheet
                        $"<div style='border-bottom:1px solid #000'><p>{wit.Name}</p><p> Gender: {wit.Gender}</p><p> Gender: {wit.DOB.Value.ToString("dd-MMM-yy")}</p><p>Fathser's Name: {wit.FathersName}</p></div>" +
                        $"<div style='border-bottom:1px solid #000'><p>{wit.Address}</p></div>";
                     }
-                                   
-                     
+
+
                 }
                 witnessContainer.InnerHtml = emptyHTML;
 
             }
         }
 
-       
+
     }
 }

@@ -35,7 +35,7 @@
             &nbsp;&nbsp;
         <div class="sub-head-1">
             <div>
-                <p>1. Name: <span id="Name" runat="server">123</span></p>
+                <h4>1. Name: <span id="Name" runat="server">123</span></h4>
             </div>
             <div>
                 <p>@ Name: <span id="Aname" runat="server">123</span></p>
@@ -46,11 +46,11 @@
                 <p style="border-top: 2px solid #000000;">Husband's Name</p>
             </div>
             <div>
-                <p>3. Trade of Profession: <span id="Trade" runat="server">123</span></p>
+                <h4>3. Trade of Profession: <span id="Trade" runat="server">123</span></h4>
             </div>
         </div>
             &nbsp;&nbsp;
-        <h2>4. Description</h2>
+        <h4>4. Description</h4>
             <div class="sub-head-4">
                 <div>
                     <p>Year of Birth: <span id="yearofbirth" runat="server">123</span></p>
@@ -140,7 +140,7 @@
 
             <div class="sub-head-5">
                 <div>
-                    <p>5. F.P. formula and photograph (if a convict)</p>
+                    <h4>5. F.P. formula and photograph (if a convict)</h4>
                     <p>Cross references to other registers and C.D.</p>
                     <p>Images</p>
                     <div id="imgContainer" class="imageContainer" runat="server"></div>
@@ -151,27 +151,27 @@
 
             <div class="sub-head-6">
                 <div>
-                    <p>6. Identifying witnesses and their father's names and addresse.</p>
+                    <h4>6. Identifying witnesses and their father's names and addresse.</h4>
                     <div id="witnessContainer" class="witnessContainer" runat="server">
                     </div>
                 </div>
             </div>
             <div class="sub-head-7">
                 <div>
-                    <p>7. Places of residence (All places in which he has ever resided and period </br>of residences also include places frequently visited).</p>
+                    <h4>7. Places of residence (All places in which he has ever resided and period </br>of residences also include places frequently visited).</h4>
                     <div id="residenceContainer" runat="server" class="residenceContainer">
                     </div>
                 </div>
             </div>
             <div class="sub-head-8">
                 <div>
-                    <p>8. Class of offender. (Append notes showing M.O. details, means of transport used,</br> kind property stolen. in all cases in which such features are distinctive and likely</br> to be of importance. How did he become addicted to crime ?)</p>
+                    <h4>8. Class of offender. (Append notes showing M.O. details, means of transport used,</br> kind property stolen. in all cases in which such features are distinctive and likely</br> to be of importance. How did he become addicted to crime ?)</h4>
                     <div id="offenceContainer" runat="server" class="offenceContainer">
                     </div>
                 </div>
             </div>
             <div>
-                <p>9. Associates (Likely to be visited)</p>
+                <h4>9. Associates (Likely to be visited)</h4>
             </div>
             <div>
                 <table class="tblborder" border="1" id="associateTable" runat="server">
@@ -185,7 +185,7 @@
             </div>
 
             <div>
-                <p>10. Relates those(Likely to visit to be specified)</p>
+                <h4>10. Relates those(Likely to visit to be specified)</h4>
             </div>
             <div>
                 <table class="tblborder" id="tblRelatives" border="1" runat="server">
@@ -200,7 +200,7 @@
 
             <div>
                 <div class="sub-head-11">
-                    <p>11. Exact information regarding kown methods of disposal of stolen property (cite cases) ana names and residence of receivers.</p>
+                    <h4>11. Exact information regarding kown methods of disposal of stolen property (cite cases) ana names and residence of receivers.</h4>
                     <table id="tblDisposalMethod" runat="server" class="tblborder" border="1">
                         <thead>
                             <tr>
@@ -216,7 +216,7 @@
             </div>
             <div class="sub-head-12">
                 <div>
-                    <p>12. Particulars of Past arrests, When, Where and by Whom harboured, Localities in which he has committed crime, citing offences.</p>
+                    <h4>12. Particulars of Past arrests, When, Where and by Whom harboured, Localities in which he has committed crime, citing offences.</h4>
                     <table id="tblPastArrest" runat="server" class="tblborder" border="1">
                         <thead>
                             <tr>
@@ -230,7 +230,7 @@
 
             </div>
             <div>
-                <p>13. Cases in which suspected with clear reasons and miscellaneous information useful for a security case.</p>
+                <h4>13. Cases in which suspected with clear reasons and miscellaneous information useful for a security case.</h4>
             </div>
             <div>
                 <table class="tblborder" id="tblSuspected" runat="server" border="1">
@@ -246,7 +246,7 @@
             </div>
 
             <div>
-                <p>14. Particulars of convictions.</p>
+                <h4>14. Particulars of convictions.</h4>
             </div>
             <div>
                 <table class="tblborder" id="tblConviction" runat="server" border="1">
@@ -263,7 +263,7 @@
             </div>
 
             <div>
-                <p>15. Annual precis of entries in the Enquiry Note Sheets</p>
+                <h4>15. Annual precis of entries in the Enquiry Note Sheets</h4>
                 <h5 style="font-family: Calibri;">N.B--(1) Include details of livelihood of dependants, associates, absences and all information useful in a B.L. case</h5>
                 <h5 style="font-weight: bold; font-family: Calibri;">(2) The Enwuiry Note Sheet will be kept loose in the folder.</h5>
             </div>
@@ -277,8 +277,51 @@
                             <td>Initials</td>
                         </tr>
                     </thead>
-
-
+                </table>
+            </div>
+            <div>
+               <h4>16. Mobile Numbers</h4>
+            </div>
+            <div>
+                <table class="tblborder" id="tblMobile" runat="server" border="1">
+                    <thead>
+                        <tr>
+                            <td>Mobile Number</td>
+                            <td>Operator</td>
+                            <td>Status</td>
+                            <td>Reported On</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div>
+               <h4>17. Bank Account Nubmers</h4>
+            </div>
+            <div>
+                <table id="tblAccount" runat="server" class="tblborder" border="1">
+                    <thead>
+                        <tr>
+                            <td>Account Number</td>
+                            <td>Bank Name</td>
+                            <td>Balance</td>
+                            <td>Reported On</td>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div>
+               <h4>18. Political Links</h4>
+            </div>
+            <div>
+                <table id="tblPoliticalLinks" runat="server" class="tblborder" border="1">
+                    <thead>
+                        <tr>
+                            <td>Party Name</td>
+                            <td>Status</td>
+                            <td>Since</td>
+                            <td>Reported On</td>
+                        </tr>
+                    </thead>
                 </table>
             </div>
         </div>

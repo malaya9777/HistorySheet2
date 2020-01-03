@@ -23,7 +23,7 @@ namespace HistorySheet
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                var records = db.vw_Masters.Where(n=> n.Name.Contains(GetSearchTerm().Name) || n.FathersName.Contains(GetSearchTerm().FathersName) || n.MobileNumber.Contains(GetSearchTerm().Mobile) || n.AccountNo.Contains(GetSearchTerm().AccountNo)).Select(n => new
+                var records = db.vw_Masters.Where(n => (n.Name.Contains(GetSearchTerm().Name) || GetSearchTerm().Name == "") && (n.FathersName.Contains(GetSearchTerm().FathersName) || GetSearchTerm().FathersName == "") && (n.MobileNumber.Contains(GetSearchTerm().Mobile) || GetSearchTerm().Mobile == "") && (n.AccountNo.Contains(GetSearchTerm().AccountNo) || GetSearchTerm().AccountNo == "") && (n.Disabled == false || n.Disabled == null)).Select(n => new
                 {
                     n.Id,
                     n.CrimeDBID,
@@ -41,7 +41,7 @@ namespace HistorySheet
                     n.FathersName,
                     n.Fathersaliases,
                     n.IsHusband,
-                    Prefix = n.IsHusband==true?"Husband's":"Father's",
+                    Prefix = n.IsHusband == true ? "Husband's" : "Father's",
                     n.TradeProfession,
                     n.YearBirth,
                     n.Height,
@@ -70,16 +70,69 @@ namespace HistorySheet
                     n.Habits,
                     n.BadHabits,
                     n.OtherDescriptivePoints,
-                    n.LastUpdate
-                }).ToList();
+                    n.LastUpdate,
+                    lastEnquiry = lastEnquiry(n.Id, n.DateofReport),
+                    LastEnquiryDate = LastEnquiryDate(n.Id, n.DateofReport),
+                    pendingWarning = getWarning(n.Id, n.DateofReport)
+                }).Distinct();
                 grdList.DataSource = records;
                 grdList.DataBind();
             }
         }
 
+        private string getWarning(int id, DateTime? dateofReport)
+        {
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                int days;
+                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).SingleOrDefault();
+                if (date == null)
+                {
+                    days = (int)(DateTime.Now.Date - dateofReport).Value.TotalDays;
+                }
+                days = (int)(DateTime.Now.Date - date).Value.TotalDays;
+                if (days > 30)
+                {
+                    return "danger";
+                }
+                else
+                {
+                    return "success";
+                }
+            }
+        }
+
+        private DateTime? LastEnquiryDate(int id, DateTime? opningDate)
+        {
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).SingleOrDefault();
+                if (date == null)
+                {
+                    return opningDate;
+                }
+                return date;
+            }
+        }
+        public int lastEnquiry(int id, DateTime? opningDate)
+        {
+
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).SingleOrDefault();
+                if (date == null)
+                {
+                    return (int)(DateTime.Now.Date - opningDate).Value.TotalDays;
+                }
+                return (int)(DateTime.Now.Date - date).Value.TotalDays;
+            }
+
+
+        }
+
         private Array getImage(int id)
         {
-            using(DBHistoryDataContext db = new DBHistoryDataContext())
+            using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
                 var image = db.Photographs_FPs.Where(s => s.P_ID == id && s.IsFingerPrint == false).Select(s => s.Image).FirstOrDefault();
                 if (image != null)
@@ -88,11 +141,11 @@ namespace HistorySheet
                 }
                 else
                 {
-                    var path = Server.MapPath(@"\DefaultImg\default.jpg");                  
+                    var path = Server.MapPath(@"\DefaultImg\default.jpg");
                     return File.ReadAllBytes(path);
                 }
             }
-            
+
         }
 
         private string getPanelColor(string category)

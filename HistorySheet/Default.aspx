@@ -27,7 +27,7 @@
         <Columns>
             <asp:TemplateField>
                 <ItemTemplate>
-                    <div class="panel panel-<%# Eval("PanelColor") %>">
+                    <div class="panel panel-<%# Eval("PanelColor") %>"'>
                         <div class="panel-heading">
                             <h5><%# Eval("Name") +" @"+ Eval("Aliases") %></h5>
                         </div>
@@ -45,6 +45,8 @@
                                     <p>Police Station: <%# Eval("PoliceStation") %></p>
                                     <p>Gender: <%# Eval("Gender") %></p>
                                     <p>Year of Birth: <%# Eval("YearBirth") %></p>
+                                    <p>Last Enquiry Submitted on : <%# Eval("LastEnquiryDate") %></p>
+                                    <lable class="lable lable-<%# Eval("pendingWarning") %>">Enquiry Pending (days) : <%# Eval("lastEnquiry") %></lable>
                                 </div>
                                 <div class="col-sm-2"></div>
                                 <div class="col-sm-2">

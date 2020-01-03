@@ -35,23 +35,32 @@
         <div class="form-group col-md-6">
             <label for="txtHistoryNo">Hisotry No</label>
             <asp:TextBox ID="txtHistoryNo" runat="server" CssClass="form-control" placeholder="History No" ReadOnly="true"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="rfv1" runat="server" ValidationGroup="Insert" ControlToValidate="txtHistoryNo" ErrorMessage="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
         </div>
         <div class="form-group col-md-6">
             <label for="txtDistrict">Home District</label>
             <asp:TextBox ID="txtDistrict" runat="server" CssClass="form-control" placeholder="District"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ValidationGroup="Insert" ControlToValidate="txtDistrict" ErrorMessage="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label for="txtPoliceStation">Police Station</label>
             <asp:TextBox ID="txtPoliceStation" runat="server" CssClass="form-control" placeholder="Police Station"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ValidationGroup="Insert" ControlToValidate="txtPoliceStation" ErrorMessage="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label for="txtReportDate">Report Date</label>
             <asp:TextBox ID="txtReportDate" runat="server" CssClass="form-control" placeholder="Report Date" contentEditable="false" AutoCompleteType="Disabled"></asp:TextBox>
             <ajax:CalendarExtender ID="CE1" runat="server" TargetControlID="txtReportDate" Format="dd-MMM-yyyy" />
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ValidationGroup="Insert" ControlToValidate="txtReportDate" ErrorMessage="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label for="txtName">Name</label>
             <asp:TextBox ID="txtName" runat="server" CssClass="form-control" placeholder="Name"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ValidationGroup="Insert" ControlToValidate="txtName" ErrorMessage="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label for="txtAliases">Aliases @</label>
@@ -72,6 +81,8 @@
                 <asp:ListItem Text="Husband" Value="true"></asp:ListItem>
             </asp:RadioButtonList>
             <asp:TextBox ID="txtFName" runat="server" CssClass="form-control" placeholder="Father's Name"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ValidationGroup="Insert" ControlToValidate="txtFName" ErrorMessage="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label for="txtFAliases">Father/Husband's Aliases @</label>
@@ -80,10 +91,14 @@
         <div class="form-group col-md-6">
             <label for="txtProfession">Trade or Profession</label>
             <asp:TextBox ID="txtProfession" runat="server" CssClass="form-control"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ValidationGroup="Insert" ControlToValidate="txtProfession" ErrorMessage="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label for="txtBirthYear">Year of Birth</label>
             <asp:TextBox ID="txtBirthYear" runat="server" CssClass="form-control" placeholder="Year of Birth" MaxLength="4" TextMode="Number"></asp:TextBox>
+            <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ValidationGroup="Insert" ControlToValidate="txtBirthYear" ErrorMessage="*" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+
         </div>
         <div class="form-group col-md-6">
             <label for="txtHeight">Height</label>
@@ -313,8 +328,7 @@
             <asp:TextBox ID="txtOtherPoints" runat="server" CssClass="form-control" placeholder="Other Descriptive Points"></asp:TextBox>
         </div>
         <div class="form-group col-md-12">
-            <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary" Text="Save" OnClick="btnSubmit_Click" />
-            <asp:Button ID="btnProceed" runat="server" CssClass="btn btn-primary" Text="Proceed" OnClick="btnProceed_Click" />
+            <asp:Button ID="btnSubmit" runat="server" CssClass="btn btn-primary" Text="Save" OnClick="btnSubmit_Click" ValidationGroup="Insert"/>            
         </div>
     </div>
 

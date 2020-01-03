@@ -43,6 +43,9 @@ p {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
 }
+.sub-head-4 p span{
+    font-weight:normal;
+}
 
 .sub-head-9 {
     display: grid;
