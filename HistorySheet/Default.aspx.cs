@@ -90,7 +90,10 @@ namespace HistorySheet
                 {
                     days = (int)(DateTime.Now.Date - dateofReport).Value.TotalDays;
                 }
-                days = (int)(DateTime.Now.Date - date).Value.TotalDays;
+                else
+                {
+                    days = (int)(DateTime.Now.Date - date).Value.TotalDays;
+                }
                 if (days > 30)
                 {
                     return "danger";
@@ -168,9 +171,18 @@ namespace HistorySheet
 
         protected void grdList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (e.CommandName == "disable")
+            {
+                var id = Convert.ToInt32(e.CommandArgument);
+                using (DBHistoryDataContext db = new DBHistoryDataContext())
+                {
+                    var record = db.Masters.Where(n => n.Id == id).SingleOrDefault();
+                    record.Disabled = true;
+                    db.SubmitChanges();                  
 
+                }
+            }
         }
-
         protected void grdList_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdList.PageIndex = e.NewPageIndex;

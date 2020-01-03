@@ -122,6 +122,7 @@
     <Content Include="db.txt" />
     <Content Include="Default.aspx" />
     <Content Include="DefaultImg\default.jpg" />
+    <Content Include="DisabledList.aspx" />
     <Content Include="disposalMethods.aspx" />
     <Content Include="enquiry.aspx" />
     <Content Include="favicon.ico" />
@@ -347,6 +348,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DisabledList.aspx.cs">
+      <DependentUpon>DisabledList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DisabledList.aspx.designer.cs">
+      <DependentUpon>DisabledList.aspx</DependentUpon>
     </Compile>
     <Compile Include="disposalMethods.aspx.cs">
       <DependentUpon>disposalMethods.aspx</DependentUpon>

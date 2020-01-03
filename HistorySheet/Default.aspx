@@ -46,11 +46,13 @@
                                     <p>Gender: <%# Eval("Gender") %></p>
                                     <p>Year of Birth: <%# Eval("YearBirth") %></p>
                                     <p>Last Enquiry Submitted on : <%# Eval("LastEnquiryDate") %></p>
-                                    <lable class="lable lable-<%# Eval("pendingWarning") %>">Enquiry Pending (days) : <%# Eval("lastEnquiry") %></lable>
+                                    <span class="label label-<%# Eval("pendingWarning") %>">Enquiry Pending (days) : <%# Eval("lastEnquiry") %></span>
                                 </div>
-                                <div class="col-sm-2"></div>
                                 <div class="col-sm-2">
-                                    <a href='<%# "IndividualHistorySheet?H_ID="+Eval("ID") %>'>View Details</a>
+                                     <a href='<%# "IndividualHistorySheet?H_ID="+Eval("ID") %>'>View Details</a>
+                                </div>
+                                <div class="col-sm-2">
+                                    <asp:Button ID="btnDisable" runat="server" Text="Disable" CssClass="btn btn-danger" CommandArgument='<%# Eval("Id") %>' CommandName="disable" />
                                 </div>
                             </div>
                         </div>
