@@ -85,7 +85,7 @@ namespace HistorySheet
             using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
                 int days;
-                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).SingleOrDefault();
+                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).FirstOrDefault();
                 if (date == null)
                 {
                     days = (int)(DateTime.Now.Date - dateofReport).Value.TotalDays;
@@ -109,7 +109,7 @@ namespace HistorySheet
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).SingleOrDefault();
+                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).FirstOrDefault();
                 if (date == null)
                 {
                     return opningDate;
@@ -122,7 +122,7 @@ namespace HistorySheet
 
             using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).SingleOrDefault();
+                var date = db.EnquiryNotes.Where(n => n.P_ID == id).OrderByDescending(n => n.Date).Select(n => n.Date).FirstOrDefault();
                 if (date == null)
                 {
                     return (int)(DateTime.Now.Date - opningDate).Value.TotalDays;
@@ -178,8 +178,8 @@ namespace HistorySheet
                 {
                     var record = db.Masters.Where(n => n.Id == id).SingleOrDefault();
                     record.Disabled = true;
-                    db.SubmitChanges();                  
-
+                    db.SubmitChanges();
+                    loadGrid();
                 }
             }
         }

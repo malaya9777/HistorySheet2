@@ -17,6 +17,7 @@
         <siteMapNode url="/offence" title="Add Offence" description="Add offence"></siteMapNode>
       </siteMapNode>
     </siteMapNode>
+    <siteMapNode url="/DisabledList" title="Disabled List" description="Disabled List"></siteMapNode>
     <siteMapNode url="/About" title="About"  description="About" />
     <siteMapNode url="/Contact" title="Contact"  description="Contact" />
   </siteMapNode>
