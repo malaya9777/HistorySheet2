@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="CrimenDatabase" Class="DBCrimeDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=CrimenDatabase;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="CrimenDatabaseConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tbl_Crime" Member="Tbl_Crimes">
+    <Type Name="Tbl_Crime">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="CaseNo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PS" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Place" Type="System.String" DbType="VarChar(500)" CanBeNull="true" />
+      <Column Name="Place_Type" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateReporting" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="TimeReporting" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="Time" Type="System.TimeSpan" DbType="Time" CanBeNull="true" />
+      <Column Name="Year" Type="System.String" DbType="VarChar(4)" CanBeNull="true" />
+      <Column Name="Weapon_Equipment" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mode_Transpassing" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Part_Day" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="[M-Z]" Member="M_Z" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Special_Occasion" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Longitude" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Area" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Property_Stolen" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Complainant_Name" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="[Father/HusbandsName]" Member="Father_HusbandsName" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Address3" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="MobileNo" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Occupation" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Remarks" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Property_Offence" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Property_Type" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Property_Value" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Property_Remakrs" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="MO_Type" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="MO_Remarks" Type="System.String" DbType="VarChar(600)" CanBeNull="true" />
+      <Column Name="Sections" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="IO" Type="System.String" DbType="VarChar(200)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status_No" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Case_Remarks" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Place" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Place1" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Place2" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Place3" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Weapon" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Crime_Criminal" Member="Crime_Criminals">
+    <Type Name="Crime_Criminal">
+      <Column Name="JoinID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Crime" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Criminal" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Criminal" Member="Tbl_Criminals">
+    <Type Name="Tbl_Criminal">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Short_Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Accused_FName" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Cast" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Gender" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="YearofBirth" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Visiting_Place" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Occupation" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Bank_Account" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Habits" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Address3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Police_Station" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PAddress1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PAddress2" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PAddress3" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PPolice_Station" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="PState" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="VarChar(13)" CanBeNull="true" />
+      <Column Name="Built" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Height" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Weight" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Skin_Color" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Age" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Logitude" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Latitude" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Picture_Front" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Side_Left" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Side_Right" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Picture_Uinq" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Other_Remarks" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+      <Column Name="Category" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Classification" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Status" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="GangName" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Advocate" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="Bailer" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="RemarksAdv" Type="System.String" DbType="VarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tbl_Modus" Member="Tbl_Modus">
+    <Type Name="Tbl_Modus">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Modus" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

@@ -241,7 +241,7 @@ namespace HistorySheet
             IXLWorksheet worksheet = workbook.Worksheets.Add("Data");
             using(DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                var records = db.vw_Masters.ToList();
+                var records = db.Masters.ToList();
                 worksheet.Cell(1,1).InsertTable(records);
             }
             HttpContext.Current.Response.Clear();
