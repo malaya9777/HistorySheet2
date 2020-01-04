@@ -5,14 +5,39 @@
 
     <div class="jumbotron">
         <div class="row">
-            <asp:RadioButtonList ID="lstSearchTerm" runat="server" RepeatDirection="Vertical" CellPadding="20">
-                <asp:ListItem Text="By Name" Value="Name"></asp:ListItem>
-                <asp:ListItem Text="By Father's Name" Value="FName"></asp:ListItem>
-                <asp:ListItem Text="By Bank Account" Value="Account"></asp:ListItem>
-                <asp:ListItem Text="By Mobile" Value="Mobile"></asp:ListItem>
-            </asp:RadioButtonList>
+            <div class="col-sm-3">
+                <asp:RadioButtonList ID="lstSearchTerm" runat="server" RepeatDirection="Vertical" CellPadding="20">
+                    <asp:ListItem Text="By Name" Value="Name"></asp:ListItem>
+                    <asp:ListItem Text="By Father's Name" Value="FName"></asp:ListItem>
+                    <asp:ListItem Text="By Bank Account" Value="Account"></asp:ListItem>
+                    <asp:ListItem Text="By Mobile" Value="Mobile"></asp:ListItem>
+                </asp:RadioButtonList>
+            </div>
+            <div class="col-sm-1">
+                <asp:RadioButtonList ID="rbCategory" runat="server">
+                    <asp:ListItem Text="All" Value="" Selected="True"></asp:ListItem>
+                    <asp:ListItem Text="A" Value="A"></asp:ListItem>
+                    <asp:ListItem Text="B" Value="B"></asp:ListItem>
+                    <asp:ListItem Text="C" Value="C"></asp:ListItem>
+                </asp:RadioButtonList>
+            </div>
+            <div class="col-sm-1">
+                <h3 style="padding:0;margin:5px">
+                    <label class="label label-primary" id="aCount" runat="server"></label>
+                </h3>
+                <h3 style="padding:0;margin:5px">
+                    <label class="label label-success" id="bCount" runat="server"></label>
+                </h3>
+                <h3 style="padding:0;margin:5px">
+                    <label class="label label-warning" id="cCount" runat="server"></label>
+                </h3>
+            </div>
+            <div class="col-sm-1">
+                <asp:Button ID="btnExport" runat="server" CssClass="btn btn-success" Text="Export All" OnClick="btnExport_Click" />
+            </div>
+            
         </div>
-        <br />        
+        <br />
         <div class="row">
             <div class="col-sm-4">
                 <asp:TextBox ID="txtSearchbox" runat="server" CssClass="form-control" placeholder="Search Term"></asp:TextBox>

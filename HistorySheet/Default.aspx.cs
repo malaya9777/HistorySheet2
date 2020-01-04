@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClosedXML.Excel;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -23,7 +24,7 @@ namespace HistorySheet
         {
             using (DBHistoryDataContext db = new DBHistoryDataContext())
             {
-                var records = db.vw_Masters.Where(n => (n.Name.Contains(GetSearchTerm().Name) || GetSearchTerm().Name == "") && (n.FathersName.Contains(GetSearchTerm().FathersName) || GetSearchTerm().FathersName == "") && (n.MobileNumber.Contains(GetSearchTerm().Mobile) || GetSearchTerm().Mobile == "") && (n.AccountNo.Contains(GetSearchTerm().AccountNo) || GetSearchTerm().AccountNo == "") && (n.Disabled == false || n.Disabled == null)).Select(n => new
+                var records = db.vw_Masters.Where(n => (n.Category==GetCategory() || GetCategory()=="")&&(n.Name.Contains(GetSearchTerm().Name) || GetSearchTerm().Name == "") && (n.FathersName.Contains(GetSearchTerm().FathersName) || GetSearchTerm().FathersName == "") && (n.MobileNumber.Contains(GetSearchTerm().Mobile) || GetSearchTerm().Mobile == "") && (n.AccountNo.Contains(GetSearchTerm().AccountNo) || GetSearchTerm().AccountNo == "") && (n.Disabled == false || n.Disabled == null)).Select(n => new
                 {
                     n.Id,
                     n.CrimeDBID,
@@ -77,6 +78,10 @@ namespace HistorySheet
                 }).Distinct();
                 grdList.DataSource = records;
                 grdList.DataBind();
+
+                aCount.InnerText ="A : "+ records.Where(n => n.Category == "A").Count();
+                bCount.InnerText ="B : "+ records.Where(n => n.Category == "B").Count();
+                cCount.InnerText ="C : "+ records.Where(n => n.Category == "C").Count();
             }
         }
 
@@ -212,6 +217,44 @@ namespace HistorySheet
                     break;
             }
             return _Sterm;
+        }
+        public string GetCategory()
+        {
+            switch (rbCategory.SelectedValue)
+            {
+                case "All":
+                    return "";
+                case "A":
+                    return "A";
+                case "B":
+                    return "B";
+                case "C":
+                    return "C";
+                default:
+                    return "";                        
+            }
+        }
+
+        protected void btnExport_Click(object sender, EventArgs e)
+        {
+            IXLWorkbook workbook = new XLWorkbook();
+            IXLWorksheet worksheet = workbook.Worksheets.Add("Data");
+            using(DBHistoryDataContext db = new DBHistoryDataContext())
+            {
+                var records = db.vw_Masters.ToList();
+                worksheet.Cell(1,1).InsertTable(records);
+            }
+            HttpContext.Current.Response.Clear();
+            HttpContext.Current.Response.ContentType = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            HttpContext.Current.Response.AddHeader("content-disposition", @"attachment;filename=" + DateTime.Now.ToString().Replace(" ", "_") + ".xlsx");
+
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                workbook.SaveAs(memoryStream);
+                memoryStream.WriteTo(HttpContext.Current.Response.OutputStream);
+                memoryStream.Close();
+            }
+            HttpContext.Current.Response.End();
         }
     }
     public class SearchTerm
